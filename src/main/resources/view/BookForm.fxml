@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.BookFormController">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="9.0" layoutY="46.0" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="156.81900024414062">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" wrappingWidth="200.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="149.5126953125">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="119.91272735595703">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="755.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" wrappingWidth="75.9127197265625">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <ScrollPane layoutX="9.0" layoutY="95.0" opacity="0.87" prefHeight="486.0" prefWidth="948.0" style="-fx-background-color: #ffffff;">
+         <content>
+            <VBox fx:id="vBoxBookManage" prefHeight="475.0" prefWidth="944.0" />
+         </content>
+      </ScrollPane>
+      <Pane layoutX="61.0" layoutY="8.0" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView layoutX="6.0" layoutY="3.0">
+               <image>
+                  <Image url="@../Assets/icon/addicon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="75.0" layoutY="5.0" text="Add " />
+            <JFXButton id="btn-add" onAction="#btnAddBookOnAction" prefHeight="25.0" prefWidth="195.0" text="  " />
+         </children>
+      </Pane>
+      <TextField fx:id="txtSearch" layoutX="623.0" layoutY="7.0" prefHeight="28.0" prefWidth="205.0" promptText="    Search id or name" styleClass="search" stylesheets="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/styleClass/CustomerForm.css" />
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="801.0" layoutY="13.0">
+         <image>
+            <Image url="@../Assets/icon/search.png" />
+         </image>
+      </ImageView>
+      <JFXButton id="btn-add" layoutX="787.0" layoutY="8.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="42.0" text="  " />
+   </children>
+</AnchorPane>
