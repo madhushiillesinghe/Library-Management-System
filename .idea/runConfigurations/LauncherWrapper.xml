@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="LauncherWrapper" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="lk.ijse.library.LauncherWrapper" />
+    <module name="Lbrary-Management" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,5 +1,6 @@
 package lk.ijse.library.config;
 
+import lk.ijse.library.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -18,6 +19,11 @@ public class PropertiesConfig {
                 .build();
 
         Metadata metadata = new MetadataSources(serviceRegistry)
+                .addAnnotatedClass(Admin.class)
+                .addAnnotatedClass(Users.class)
+                .addAnnotatedClass(Branches.class)
+                .addAnnotatedClass(Book.class)
+                .addAnnotatedClass(Transaction.class)
                 .getMetadataBuilder()
                 .build();
 
