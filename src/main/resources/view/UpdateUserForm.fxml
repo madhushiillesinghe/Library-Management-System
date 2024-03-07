@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="346.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UpdateUserFormController">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="600.0">
+         <image>
+            <Image url="@../Assets/CRUDForm.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnCancel" layoutX="370.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" styleClass="btn-cancel" stylesheets="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/styleClass/AddForm.css" text="CANCEL" textFill="SADDLEBROWN" />
+      <Button fx:id="btnUpdate" layoutX="444.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #a14a08;" styleClass="btn-add" stylesheets="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/styleClass/AddForm.css" text="UPDATE" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Text layoutX="65.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update User">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="55.0" layoutY="11.0">
+         <image>
+            <Image url="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/icon/profile-2user.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtBrachtxtUserIdId" layoutX="444.0" layoutY="36.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" layoutX="364.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="53.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Id">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cmbAdminId" layoutX="122.0" layoutY="67.0" onAction="#cmbAdminIdOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="48.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtFirstName" layoutX="121.0" layoutY="111.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="57.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="48.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtUserName" layoutX="135.0" layoutY="251.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="268.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtLastName" layoutX="384.0" layoutY="111.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtStreet" layoutX="123.0" layoutY="153.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="312.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCity" layoutX="384.0" layoutY="153.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="283.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtPassword" layoutX="384.0" layoutY="251.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtHomeMobile" layoutX="384.0" layoutY="202.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtMobileNo" layoutX="121.0" layoutY="192.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="300.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Mobile">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="49.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile No">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -61,12 +61,12 @@ public class Navigation {
     }
     public static void popupPane(String path) throws IOException {
         AdminGlobalFormController.getInstance().paneId.setVisible(true);
-       // GlobalFormController.getInstance().CRUDPane.setVisible(true);
-        //switchPaging(GlobalFormController.getInstance().CRUDPane, path);
+         AdminGlobalFormController.getInstance().CRUDPane.setVisible(true);
+        switchPaging(AdminGlobalFormController.getInstance().CRUDPane, path);
     }
     public static void adminClosePane(){
-       /* GlobalFormController.getInstance().CRUDPane.getChildren().clear();
-        GlobalFormController.getInstance().CRUDPane.setVisible(false);*/
+       AdminGlobalFormController.getInstance().CRUDPane.getChildren().clear();
+        AdminGlobalFormController.getInstance().CRUDPane.setVisible(false);
         //AdminGlobalFormController.getInstance().popupPane.setVisible(false);
     }
     public static void switchPagingManagerDashboard(Pane pane, String path) throws IOException {

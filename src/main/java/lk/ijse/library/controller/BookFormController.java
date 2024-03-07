@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import lk.ijse.library.util.Navigation;
+
+import java.io.IOException;
 
 public class BookFormController {
 
@@ -14,7 +17,8 @@ public class BookFormController {
     private VBox vBoxBookManage;
 
     @FXML
-    void btnAddBookOnAction(ActionEvent event) {
+    void btnAddBookOnAction(ActionEvent event) throws IOException {
+        Navigation.popupPane("AddBookForm.fxml");
 
     }
 

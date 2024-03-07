@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import lk.ijse.library.util.DateTimeUtil;
@@ -25,6 +26,8 @@ public class AdminGlobalFormController implements Initializable {
     private Label txttime;
     @FXML
     public Pane paneId;
+    @FXML
+    public AnchorPane CRUDPane;
     private static AdminGlobalFormController controller;
 
     public AdminGlobalFormController(){
