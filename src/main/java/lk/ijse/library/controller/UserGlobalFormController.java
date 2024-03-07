@@ -54,7 +54,8 @@ public class UserGlobalFormController implements Initializable {
     }
 
     @FXML
-    void btnDashboardOnAction(ActionEvent event) {
+    void btnDashboardOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPagingUser(paneId,"UserDashBoardForm.fxml");
 
     }
 
@@ -64,7 +65,13 @@ public class UserGlobalFormController implements Initializable {
     }
 
     @FXML
-    void btnUserOnAction(ActionEvent event) {
+    void btnUserOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPagingUser(paneId,"UserProfileForm.fxml");
+    }
+
+    @FXML
+    void btnBorrowandReturnOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPagingUser(paneId,"TransactionForm.fxml");
 
     }
 

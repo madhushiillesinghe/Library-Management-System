@@ -86,7 +86,6 @@
             <JFXButton onAction="#btnUserOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
          </children>
       </Pane>
-      <Pane layoutX="51.0" layoutY="504.0" prefHeight="38.0" prefWidth="195.0" />
       <Text fill="#592b03" layoutX="106.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGOUT">
          <font>
             <Font size="14.0" />
@@ -118,7 +117,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="paneId" layoutX="289.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="1175.0" visible="false" />
+      <AnchorPane fx:id="paneId" layoutX="288.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="1175.0" visible="false" />
       <AnchorPane fx:id="CRUDPane" layoutX="377.0" layoutY="293.0" prefHeight="346.0" prefWidth="600.0" visible="false" />
       <Pane layoutX="59.0" layoutY="485.0" prefHeight="38.0" prefWidth="195.0">
          <children>
@@ -132,7 +131,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton onAction="#btnBookOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
+            <JFXButton onAction="#btnBorrowandReturnOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
          </children>
       </Pane>
       <Label fx:id="txtUserName" layoutX="499.0" layoutY="94.0" prefHeight="36.0" prefWidth="108.0" text="Label">
