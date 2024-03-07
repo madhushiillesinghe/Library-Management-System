@@ -44,6 +44,8 @@ public class UpdateUserFormController {
 
     @FXML
     private TextField txtUserName;
+    @FXML
+    private TextField txtEmail;
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {

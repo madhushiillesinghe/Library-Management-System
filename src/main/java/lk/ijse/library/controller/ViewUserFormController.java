@@ -41,6 +41,8 @@ public class ViewUserFormController {
 
     @FXML
     private Label lblUserName;
+    @FXML
+    private TextField lblEmail;
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {
