@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import lk.ijse.library.util.Navigation;
 
 public class AddBookFormController {
 
@@ -39,7 +40,7 @@ public class AddBookFormController {
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {
-
+        Navigation.adminClosePane();
     }
 
     @FXML

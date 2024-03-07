@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import lk.ijse.library.util.Navigation;
 
 public class ViewBookFormController {
 
@@ -30,7 +31,7 @@ public class ViewBookFormController {
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {
-
+        Navigation.adminClosePane();
     }
 
 }

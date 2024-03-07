@@ -47,12 +47,12 @@
             <VBox fx:id="vBoxUserManage" prefHeight="475.0" prefWidth="944.0" />
          </content>
       </ScrollPane>
-      <TextField fx:id="txtSearch" layoutX="623.0" layoutY="7.0" prefHeight="28.0" prefWidth="205.0" promptText="    Search id or name" styleClass="search" stylesheets="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/styleClass/CustomerForm.css" />
+      <TextField fx:id="txtSearch" layoutX="623.0" layoutY="7.0" prefHeight="28.0" prefWidth="205.0" promptText="    Search id or name" styleClass="search" />
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="801.0" layoutY="13.0">
          <image>
             <Image url="@../Assets/icon/search.png" />
          </image>
       </ImageView>
-      <JFXButton id="btn-add" layoutX="787.0" layoutY="8.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="42.0" text="  " />
+      <JFXButton layoutX="787.0" layoutY="8.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="42.0" text="  " />
    </children>
 </AnchorPane>

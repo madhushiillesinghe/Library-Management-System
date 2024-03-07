@@ -58,11 +58,6 @@
                   <Image url="@../Assets/icon/password.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnLogin" layoutX="247.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #a14a08;" text="LOGIN" textFill="#fcf8f8">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
             <ImageView fitHeight="79.0" fitWidth="111.0" layoutX="399.0" layoutY="190.0">
                <image>
                   <Image url="@../Assets/book2-removebg-preview.png" />
@@ -78,6 +73,11 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Text>
+            <Button fx:id="btnLogin" layoutX="233.0" layoutY="257.0" mnemonicParsing="false" onAction="#btnLoginOnAction" style="-fx-background-color: #a14a08;" text="LOGIN" textFill="#ece5e5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Text layoutX="22.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="People Of All demographic categories ">

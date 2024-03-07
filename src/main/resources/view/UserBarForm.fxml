@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UserBarFormController">
+   <children>
+      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="241.61898803710938">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="237.71263122558594">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="89.51275634765625">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="755.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="75.9127197265625">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <ImageView onMouseClicked="#updateMouseClick">
+         <image>
+            <Image url="@../Assets/icon/Update.png" />
+         </image>
+      </ImageView>
+      <ImageView onMouseClicked="#deleteMouseClick">
+         <image>
+            <Image url="@../Assets/icon/delete.png" />
+         </image>
+      </ImageView>
+   </children>
+</HBox>

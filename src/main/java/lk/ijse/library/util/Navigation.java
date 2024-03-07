@@ -1,24 +1,26 @@
 package lk.ijse.library.util;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 import javafx.stage.StageStyle;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.library.controller.AdminGlobalFormController;
+import lk.ijse.library.controller.BookFormController;
+import lk.ijse.library.controller.UserGlobalFormController;
+
 
 import java.io.IOException;
 import java.net.URL;
 
 public class Navigation {
 
-        private static Stage stage;
-        private static Scene scene;
-        private static Parent parent;
+    private static Stage stage;
+    private static Scene scene;
+    private static Parent parent;
 
     public static void switchNavigation(String link, ActionEvent event) throws IOException {
         parent = FXMLLoader.load(Navigation.class.getResource("/view/" + link));
@@ -42,7 +44,7 @@ public class Navigation {
         Parent parent = FXMLLoader.load(resource);
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
+        //stage.initStyle(StageStyle.UNDECORATED);
         stage.setAlwaysOnTop(true);
         stage.setScene(scene);
         stage.show();
@@ -61,29 +63,29 @@ public class Navigation {
     }
     public static void popupPane(String path) throws IOException {
         AdminGlobalFormController.getInstance().paneId.setVisible(true);
-         AdminGlobalFormController.getInstance().CRUDPane.setVisible(true);
+        AdminGlobalFormController.getInstance().CRUDPane.setVisible(true);
         switchPaging(AdminGlobalFormController.getInstance().CRUDPane, path);
     }
     public static void adminClosePane(){
-       AdminGlobalFormController.getInstance().CRUDPane.getChildren().clear();
+        AdminGlobalFormController.getInstance().CRUDPane.getChildren().clear();
         AdminGlobalFormController.getInstance().CRUDPane.setVisible(false);
         //AdminGlobalFormController.getInstance().popupPane.setVisible(false);
     }
-    public static void switchPagingManagerDashboard(Pane pane, String path) throws IOException {
+   public static void switchPagingUser(Pane pane, String path) throws IOException {
         pane.getChildren().clear();
-        AdminGlobalFormController.getInstance().paneId.setVisible(true);
-        FXMLLoader loader = new FXMLLoader(Navigation.class.getResource("/view/"+path));
-        Parent root = loader.load();
+        UserGlobalFormController.getInstance().paneId.setVisible(true);
+       FXMLLoader loader = new FXMLLoader(Navigation.class.getResource("/view/"+path));
+       Parent root = loader.load();
         pane.getChildren().add(root);
     }
-    public static void popupPaneManagerDashboard(String path) throws IOException {
-        AdminGlobalFormController.getInstance().paneId.setVisible(true);
-      //  ManagerGlobalFormController.getInstance().CRUDPane.setVisible(true);
-      //  switchPaging(GlobalFormController.getInstance().CRUDPane, path);
+    public static void popupPaneUser(String path) throws IOException {
+        UserGlobalFormController.getInstance().paneId.setVisible(true);
+        UserGlobalFormController.getInstance().CRUDPane.setVisible(true);
+        switchPaging(UserGlobalFormController.getInstance().CRUDPane, path);
     }
-    public static void adminClosePaneManagerDashBoard(){
-       // ManagerGlobalFormController.getInstance().CRUDPane.getChildren().clear();
-       // ManagerGlobalFormController.getInstance().CRUDPane.setVisible(false);
+    public static void adminClosePaneUser(){
+        UserGlobalFormController.getInstance().CRUDPane.getChildren().clear();
+        UserGlobalFormController.getInstance().CRUDPane.setVisible(false);
         //AdminGlobalFormController.getInstance().popupPane.setVisible(false);
     }
 

@@ -15,7 +15,7 @@
             <Image url="@../Assets/CRUDForm.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCancel" layoutX="444.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" styleClass="btn-cancel" stylesheets="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/styleClass/AddForm.css" text="CANCEL" textFill="SADDLEBROWN" />
+      <Button fx:id="btnCancel" layoutX="444.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="SADDLEBROWN" />
       <Text layoutX="65.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Branch">
          <font>
             <Font name="System Bold" size="20.0" />

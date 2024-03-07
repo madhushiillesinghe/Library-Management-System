@@ -23,7 +23,7 @@ public class LoginFormController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("AdminGlobalForm.fxml",event);
+        Navigation.switchNavigation("UserGlobalForm.fxml",event);
     }
 
     @FXML

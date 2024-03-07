@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import lk.ijse.library.util.DateTimeUtil;
 import lk.ijse.library.util.Navigation;
@@ -17,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminGlobalFormController implements Initializable {
+public class UserGlobalFormController implements Initializable {
 
     @FXML
     public AnchorPane CRUDPane;
@@ -26,19 +25,23 @@ public class AdminGlobalFormController implements Initializable {
     public AnchorPane paneId;
 
     @FXML
+    private Label txtPassword;
+
+    @FXML
+    private Label txtUserName;
+
+    @FXML
     private Label txtdate;
 
     @FXML
     private Label txttime;
-    private static AdminGlobalFormController controller;
-
-    public AdminGlobalFormController(){
-        controller=this;
-    }
-
-    public static AdminGlobalFormController getInstance() {
-        return controller;
-    }
+   private static UserGlobalFormController controller;
+   public UserGlobalFormController(){
+       controller=this;
+   }
+   public static UserGlobalFormController getInstance(){
+       return controller;
+   }
 
     @FXML
     void addcustomer(MouseEvent event) {
@@ -47,29 +50,21 @@ public class AdminGlobalFormController implements Initializable {
 
     @FXML
     void btnBookOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(paneId,"BookForm.fxml");
+        Navigation.switchPagingUser(paneId,"BookUserForm.fxml");
     }
 
     @FXML
-    void btnBrachesOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(paneId,"BranchesForm.fxml");
+    void btnDashboardOnAction(ActionEvent event) {
 
-    }
-
-    @FXML
-    void btnDashboardOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(paneId,"DashboardForm.fxml");
     }
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("LoginForm.fxml",event);
-
     }
 
     @FXML
-    void btnUserOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(paneId,"UserForm.fxml");
+    void btnUserOnAction(ActionEvent event) {
 
     }
 

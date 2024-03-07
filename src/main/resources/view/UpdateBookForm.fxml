@@ -16,8 +16,8 @@
             <Image url="@../Assets/CRUDForm.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCancel" layoutX="370.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" styleClass="btn-cancel" stylesheets="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/styleClass/AddForm.css" text="CANCEL" textFill="SADDLEBROWN" />
-      <Button fx:id="btnUpdate" layoutX="444.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #a14a08;" styleClass="btn-add" stylesheets="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/styleClass/AddForm.css" text="UPDATE" textFill="#ebd6d6">
+      <Button fx:id="btnCancel" layoutX="370.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="SADDLEBROWN" />
+      <Button fx:id="btnUpdate" layoutX="444.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #a14a08;" text="UPDATE" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
