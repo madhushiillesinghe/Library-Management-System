@@ -33,7 +33,7 @@
          </image>
       </ImageView>
       <TextField fx:id="txtBrachtxtUserIdId" layoutX="444.0" layoutY="36.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
-      <Text fill="SADDLEBROWN" layoutX="364.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
+      <Text fill="SADDLEBROWN" layoutX="384.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="204.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Id">
          <font>
             <Font name="System Bold" size="13.0" />

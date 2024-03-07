@@ -1,14 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.library.controller.UpdateUserProfileFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="616.0" prefWidth="1175.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UpdateUserProfileFormController">
+   <children>
+      <ImageView fitHeight="122.0" fitWidth="132.0" layoutX="688.0" layoutY="14.0">
+         <image>
+            <Image url="@../Assets/icon/username-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="616.0" prefWidth="345.0" style="-fx-background-color: #B0C4DE;">
+         <children>
+            <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="35.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hey !">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="lbluserHey" layoutX="97.0" layoutY="28.0" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #B0C4DE;" />
+            <Text fill="#691a15" fontSmoothingType="LCD" layoutX="126.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGOUT">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Pane layoutX="73.0" layoutY="184.0" prefHeight="38.0" prefWidth="246.0">
+               <children>
+                  <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="55.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="61.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete My Account">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="19.0" fitWidth="19.0" layoutX="5.0" layoutY="10.0">
+                     <image>
+                        <Image url="@../Assets/icon/delete-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="1.0" onAction="#deleteAccount" prefHeight="38.0" prefWidth="246.0" text="  " />
+               </children>
+            </Pane>
+            <JFXButton layoutX="37.0" layoutY="543.0" onAction="#btnLogout" prefHeight="38.0" prefWidth="246.0" text="  " />
+            <Pane layoutX="73.0" layoutY="130.0" prefHeight="38.0" prefWidth="246.0">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="3.0" layoutY="6.0">
+                     <image>
+                        <Image url="@../Assets/icon/password-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="55.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change UserName/Password">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <JFXButton onAction="#btnchangepasswordOrUsername" prefHeight="38.0" prefWidth="246.0" text="  " />
+               </children>
+            </Pane>
+            <Pane layoutX="73.0" layoutY="243.0" prefHeight="38.0" prefWidth="246.0">
+               <children>
+                  <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="55.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="62.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="41.0" fitWidth="37.0" layoutY="-2.0">
+                     <image>
+                        <Image url="@../Assets/icon/setting-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutY="-1.0" onAction="#btnSetting" prefHeight="38.0" prefWidth="246.0" text="  " />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="905.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Town">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="727.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Me">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="628.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="623.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtStreet" layoutX="623.0" layoutY="295.0" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtEmail" layoutX="623.0" layoutY="360.0" prefHeight="26.0" prefWidth="330.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="630.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtTown" layoutX="905.0" layoutY="295.0" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtMobileNo" layoutX="623.0" layoutY="418.0" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="629.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile No">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtHomeMobile" layoutX="874.0" layoutY="418.0" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="874.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home mobile">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtUserName" layoutX="623.0" layoutY="525.0" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtPassword" layoutX="891.0" layoutY="525.0" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="627.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="892.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="705.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Infromation">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" layoutX="552.0" layoutY="187.0" startX="65.60003662109375" startY="-1.52587890625E-5" />
+      <Line endX="100.0" layoutX="791.0" layoutY="187.0" startX="65.60003662109375" startY="-1.52587890625E-5" />
+      <Line endX="100.0" layoutX="611.0" layoutY="466.0" startX="65.60003662109375" startY="-1.52587890625E-5" />
+      <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="727.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Infromation">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" layoutX="822.0" layoutY="465.0" startX="65.60003662109375" startY="-1.52587890625E-5" />
+      <TextField fx:id="txtFirstName" layoutX="619.0" layoutY="225.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtLastName" layoutX="882.0" layoutY="225.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="887.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnUpdate" layoutX="1010.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #a14a08;" text="UPDATE" textFill="#ebd6d6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

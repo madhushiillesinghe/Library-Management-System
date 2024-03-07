@@ -18,17 +18,17 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" wrappingWidth="200.9127197265625">
+      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="200.9127197265625">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="149.5126953125">
+      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="149.5126953125">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="683.0" layoutY="37.0" onMouseClicked="#viewBookOnMouseClick" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="91.11280059814453">
+      <Text layoutX="683.0" layoutY="37.0" onMouseClicked="#viewBookOnMouseClick" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="91.11280059814453">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>

@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import lk.ijse.library.controller.AdminGlobalFormController;
 import lk.ijse.library.controller.BookFormController;
 import lk.ijse.library.controller.UserGlobalFormController;
+import lk.ijse.library.controller.UserProfileFormController;
 
 
 import java.io.IOException;
@@ -78,6 +79,14 @@ public class Navigation {
        Parent root = loader.load();
         pane.getChildren().add(root);
     }
+    public static void switchPagingUserProfile(Pane pane, String path) throws IOException {
+        pane.getChildren().clear();
+        UserProfileFormController.getInstance().userPaneId.setVisible(true);
+        FXMLLoader loader = new FXMLLoader(Navigation.class.getResource("/view/"+path));
+        Parent root = loader.load();
+        pane.getChildren().add(root);
+    }
+
     public static void popupPaneUser(String path) throws IOException {
         UserGlobalFormController.getInstance().paneId.setVisible(true);
         UserGlobalFormController.getInstance().CRUDPane.setVisible(true);
