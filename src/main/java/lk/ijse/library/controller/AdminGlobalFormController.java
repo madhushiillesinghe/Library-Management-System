@@ -70,9 +70,12 @@ public class AdminGlobalFormController implements Initializable {
     @FXML
     void btnUserOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(paneId,"UserForm.fxml");
+    }
+    @FXML
+    void btnBorrowandReturnOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(paneId,"TransactionFormController");
 
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtdate.setText(DateTimeUtil.dateNow());
