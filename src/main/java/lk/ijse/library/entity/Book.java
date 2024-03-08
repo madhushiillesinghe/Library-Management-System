@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table(name = "book")
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_name")
     private String  id;
     @Column(name = "book_title")
@@ -16,8 +16,23 @@ public class Book {
     private String author;
     @Column(name = "book_count")
     private int count;
+    @Column(name = "status")
+    private String bookStatus;
     @ManyToOne
+    @JoinColumn(name ="admin_Id" )
     private Admin admin;
+
+    public Book() {
+    }
+
+    public Book(String id, String title, String genre, String author, int count, String bookStatus) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+        this.count = count;
+        this.bookStatus = bookStatus;
+    }
 
     public String getId() {
         return id;
@@ -67,6 +82,14 @@ public class Book {
         this.admin = admin;
     }
 
+    public String getBookStatus() {
+        return bookStatus;
+    }
+
+    public void setBookStatus(String bookStatus) {
+        this.bookStatus = bookStatus;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -75,6 +98,8 @@ public class Book {
                 ", genre='" + genre + '\'' +
                 ", author='" + author + '\'' +
                 ", count=" + count +
+                ", bookStatus='" + bookStatus + '\'' +
+                ", admin=" + admin +
                 '}';
     }
 }

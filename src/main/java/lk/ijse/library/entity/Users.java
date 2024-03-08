@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Users {
     @Id
     @Column(name = "user_Id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String Id;
     @Column(name = "user_name")
     private Name Name;
@@ -26,6 +26,7 @@ public class Users {
     @Column(name = "password")
     private String password;
     @ManyToOne
+    @JoinColumn(name ="admin_Id" )
     private Admin admin;
 
     public String getId() {

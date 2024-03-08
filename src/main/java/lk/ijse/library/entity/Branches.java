@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Branches {
     @Id
     @Column(name = "brach_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @Column(name = "branch_location")
     private Address location;
@@ -19,6 +19,7 @@ public class Branches {
     @Column(name = "book_total")
     private int bookTotal;
     @ManyToOne
+    @JoinColumn(name ="admin_Id" )
     private Admin admin;
 
     public String getId() {

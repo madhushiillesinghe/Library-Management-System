@@ -1,5 +1,8 @@
 package lk.ijse.library.embedded;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class MobileNo {
     private int mobileNo;
     private int homeMobile;
