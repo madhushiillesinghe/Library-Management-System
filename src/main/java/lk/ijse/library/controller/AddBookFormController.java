@@ -25,7 +25,8 @@ public class AddBookFormController  implements Initializable {
 
     @FXML
     private Button btnCancel;
-
+    @FXML
+    private ComboBox<?> cmbAdminId1;
 
     @FXML
     private ComboBox<String> cmbBookGenre;
@@ -74,6 +75,10 @@ public class AddBookFormController  implements Initializable {
 
     @FXML
     void cmbBookGenre(ActionEvent event) {
+
+    }
+    @FXML
+    void cmbAdminIdOnAction(ActionEvent event) {
 
     }
 
