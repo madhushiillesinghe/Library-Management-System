@@ -8,7 +8,7 @@ import lk.ijse.library.entity.Admin;
 import java.io.Serializable;
 
 public class AdminDto implements Serializable {
-    private String Id;
+    private int Id;
     private Name Name;
     private String Email;
     private MobileNo MobileNo;
@@ -17,7 +17,7 @@ public class AdminDto implements Serializable {
     public AdminDto() {
     }
 
-    public AdminDto(String id, lk.ijse.library.embedded.Name name, String email, lk.ijse.library.embedded.MobileNo mobileNo, Address address) {
+    public AdminDto(int id, Name name, String email,MobileNo mobileNo, Address address) {
         Id = id;
         Name = name;
         Email = email;
@@ -25,11 +25,11 @@ public class AdminDto implements Serializable {
         this.address = address;
     }
 
-    public String getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         Id = id;
     }
 

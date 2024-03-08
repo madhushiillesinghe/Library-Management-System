@@ -2,33 +2,35 @@ package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
 import lk.ijse.library.dto.BookDto;
-import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
+import lk.ijse.library.service.BookService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class BookServiceImpl {
-    private static Session session;
-    private final BookRepositoryImpl bookRepository;
-    private static BookServiceImpl bookService;
+public class BookServiceImpl implements BookService {
 
-    private BookServiceImpl() {
+    private  Session session;
+    private final BookRepository bookRepository;
+    private static BookService bookService;
+
+    public BookServiceImpl() {
         bookRepository = BookRepositoryImpl.getInstance();
-        session= PropertiesConfig.getInstance().getSession();
     }
-    public static BookServiceImpl getInstance() {
+    public static BookService getInstance() {
         return null ==bookService
                 ? bookService = new BookServiceImpl()
                 : bookService;
     }
-    public static boolean saveBook(BookDto bookDto){
-        session= PropertiesConfig.getInstance().getSession();
+    @Override
+    public boolean saveBook(BookDto bookDto){
+         session= PropertiesConfig.getInstance().getSession();
           Transaction transaction=session.beginTransaction();
         try{
-            Book bookEntity= (Book) session.save(bookDto.toEntity());
+            bookRepository.setSession(session);
+            boolean isSaved= bookRepository.save(bookDto.toEntity());
             transaction.commit();
-            return true;
+            return isSaved;
         }catch (Exception e){
             transaction.rollback();
             e.printStackTrace();
@@ -36,6 +38,5 @@ public class BookServiceImpl {
         }finally {
             session.close();
         }
-
     }
 }

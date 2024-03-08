@@ -20,10 +20,7 @@ public class PropertiesConfig {
 
         Metadata metadata = new MetadataSources(serviceRegistry)
                 .addAnnotatedClass(Admin.class)
-                .addAnnotatedClass(Users.class)
-                .addAnnotatedClass(Branches.class)
                 .addAnnotatedClass(Book.class)
-                .addAnnotatedClass(Transaction.class)
                 .getMetadataBuilder()
                 .build();
 

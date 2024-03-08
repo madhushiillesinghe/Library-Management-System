@@ -17,7 +17,7 @@ public class Admin {
  @Id
  @Column(name = "admin_Id")
  @GeneratedValue(strategy = GenerationType.AUTO)
-private String Id;
+private int Id;
  @Column(name = "admin_name")
 private Name Name;
  @Column(name = "admin_email")
@@ -26,28 +26,28 @@ private String Email;
 private MobileNo MobileNo;
  @Column(name = "admin_address")
 private Address address;
- @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
+/* @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
  private List<Users> usersList=new ArrayList<>();
 
  @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
- private List<Branches> branchesList=new ArrayList<>();
+ private List<Branches> branchesList=new ArrayList<>();*/
 
  @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
  private List<Book> bookList=new ArrayList<>();
 
-    public String getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         Id = id;
     }
 
-    public lk.ijse.library.embedded.Name getName() {
+    public Name getName() {
         return Name;
     }
 
-    public void setName(lk.ijse.library.embedded.Name name) {
+    public void setName(Name name) {
         Name = name;
     }
 
@@ -59,11 +59,11 @@ private Address address;
         Email = email;
     }
 
-    public lk.ijse.library.embedded.MobileNo getMobileNo() {
+    public MobileNo getMobileNo() {
         return MobileNo;
     }
 
-    public void setMobileNo(lk.ijse.library.embedded.MobileNo mobileNo) {
+    public void setMobileNo(MobileNo mobileNo) {
         MobileNo = mobileNo;
     }
 

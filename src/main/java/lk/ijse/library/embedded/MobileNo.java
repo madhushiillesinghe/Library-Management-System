@@ -4,38 +4,39 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class MobileNo {
-    private int mobileNo;
-    private int homeMobile;
+    private String mobileNo;
+    private String type;
 
-    public MobileNo(int mobileNo, int homeMobile) {
+    public MobileNo(String mobileNo, String type) {
         this.mobileNo = mobileNo;
-        this.homeMobile = homeMobile;
+        this.type = type;
     }
 
     public MobileNo() {
     }
 
-    public int getMobileNo() {
+
+    public String getMobileNo() {
         return mobileNo;
     }
 
-    public void setMobileNo(int mobileNo) {
+    public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
     }
 
-    public int getHomeMobile() {
-        return homeMobile;
+    public String getType() {
+        return type;
     }
 
-    public void setHomeMobile(int homeMobile) {
-        this.homeMobile = homeMobile;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
         return "MobileNo{" +
                 "mobileNo=" + mobileNo +
-                ", homeMobile=" + homeMobile +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

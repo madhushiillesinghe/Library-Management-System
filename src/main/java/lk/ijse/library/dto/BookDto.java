@@ -3,7 +3,7 @@ package lk.ijse.library.dto;
 import lk.ijse.library.entity.Book;
 
 public class BookDto {
-    private String  id;
+    private int id;
     private String title;
     private String genre;
     private String author;
@@ -26,7 +26,7 @@ public class BookDto {
     public BookDto() {
     }
 
-    public BookDto(String id, String title, String genre, String author, int count, String bookStatus) {
+    public BookDto(int id, String title, String genre, String author, int count, String bookStatus) {
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -35,11 +35,11 @@ public class BookDto {
         this.bookStatus = bookStatus;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
