@@ -74,13 +74,7 @@ public class Book {
         this.count = count;
     }
 
-    public Admin getAdmin() {
-        return admin;
-    }
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
-    }
 
     public String getBookStatus() {
         return bookStatus;
@@ -99,7 +93,6 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", count=" + count +
                 ", bookStatus='" + bookStatus + '\'' +
-                ", admin=" + admin +
                 '}';
     }
 }
