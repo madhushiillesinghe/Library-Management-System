@@ -4,6 +4,7 @@ import lk.ijse.library.config.PropertiesConfig;
 import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Admin;
+import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
 import lk.ijse.library.service.BookService;
@@ -41,6 +42,33 @@ public class BookServiceImpl implements BookService {
             transaction.rollback();
             e.printStackTrace();
             return false;
+        }finally {
+            session.close();
+        }
+    }
+    @Override
+    public  List<Book> getAllBookId() {
+        List<Book> bookIds = new ArrayList<>();
+        Session session = PropertiesConfig.getInstance().getSession();
+        try {
+            Query<Book> query = session.createQuery("SELECT i FROM  lk.ijse.library.entity.Book i", Book.class);
+           bookIds = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return bookIds;
+    }
+    @Override
+    public  Book getData(int id) {
+        session = PropertiesConfig.getInstance().getSession();
+        try{
+            Book  book = session.get(Book.class, id);
+            return book;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }finally {
             session.close();
         }

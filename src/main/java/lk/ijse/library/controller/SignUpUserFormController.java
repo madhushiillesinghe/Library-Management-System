@@ -11,6 +11,7 @@ import lk.ijse.library.embedded.MobileNo;
 import lk.ijse.library.embedded.Name;
 import lk.ijse.library.service.UserService;
 import lk.ijse.library.service.impl.UserServiceImpl;
+import lk.ijse.library.util.Navigation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +69,7 @@ public class SignUpUserFormController {
             IsUserSignedUp= userService.saveUser(userDto);
             if(IsUserSignedUp){
                 new Alert(Alert.AlertType.CONFIRMATION, "User Account Sign up successfully!").show();
+                Navigation.switchNavigation("UserGlobalForm.fxml",event);
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

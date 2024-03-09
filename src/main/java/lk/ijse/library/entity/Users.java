@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Table(name = "user")
 public class Users {
     @Id
-    @Column(name = "user_Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_Id")
     private int Id;
     @Column(name = "user_name")
     private Name Name;
@@ -21,13 +21,27 @@ public class Users {
     private MobileNo MobileNo;
     @Column(name = "user_address")
     private Address address;
-    @Column(name = "user-name")
+    @Column(name = "user_name")
     private String userName;
     @Column(name = "password")
     private String password;
     @ManyToOne
     @JoinColumn(name ="admin_Id" )
     private Admin admin;
+
+    public Users(int id, Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
+        Id = id;
+        Name = name;
+        Email = email;
+        MobileNo = mobileNo;
+        this.address = address;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public Users() {
+
+    }
 
     public int getId() {
         return Id;

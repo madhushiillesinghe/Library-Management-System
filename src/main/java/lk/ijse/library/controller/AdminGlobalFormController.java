@@ -82,5 +82,10 @@ public class AdminGlobalFormController implements Initializable {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> txttime.setText(DateTimeUtil.timeNow())));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+        try {
+            Navigation.switchPaging(paneId,"DashboardForm.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

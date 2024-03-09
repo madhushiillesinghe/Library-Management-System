@@ -31,7 +31,13 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public Book get(String id) {
-        return null;
+        try{
+            Book book=session.get(Book.class,id);
+            return book;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

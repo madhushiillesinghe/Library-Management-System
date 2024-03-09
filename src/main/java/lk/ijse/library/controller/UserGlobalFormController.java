@@ -81,5 +81,10 @@ public class UserGlobalFormController implements Initializable {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> txttime.setText(DateTimeUtil.timeNow())));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+        try {
+            Navigation.switchPagingUser(paneId,"UserDashBoardForm.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
