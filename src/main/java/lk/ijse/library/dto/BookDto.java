@@ -1,5 +1,6 @@
 package lk.ijse.library.dto;
 
+import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 
 public class BookDto {
@@ -9,31 +10,35 @@ public class BookDto {
     private String author;
     private int count;
     private String bookStatus;
+    private Admin admin;
 
+    public BookDto(int id, String title, String genre, String author, int count, String bookStatus, Admin admin, int adminId) {
 
-    @Override
-    public String toString() {
-        return "BookDto{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", genre='" + genre + '\'' +
-                ", author='" + author + '\'' +
-                ", count=" + count +
-                ", bookStatus='" + bookStatus + '\'' +
-                '}';
-    }
-
-    public BookDto() {
-    }
-
-    public BookDto(int id, String title, String genre, String author, int count, String bookStatus) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.author = author;
         this.count = count;
         this.bookStatus = bookStatus;
+        this.admin = admin;
+
     }
+
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+
+
+    public BookDto() {
+    }
+
+
 
     public int getId() {
         return id;
@@ -81,7 +86,6 @@ public class BookDto {
         bookDto.setCount(this.count);
         bookDto.setTitle(this.title);
         bookDto.setGenre(this.genre);
-        bookDto.setBookStatus(this.bookStatus);
         return bookDto;
     }
 
@@ -91,5 +95,18 @@ public class BookDto {
 
     public void setBookStatus(String bookStatus) {
         this.bookStatus = bookStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "BookDto{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", author='" + author + '\'' +
+                ", count=" + count +
+                ", bookStatus='" + bookStatus + '\'' +
+                ", admin=" + admin +
+                '}';
     }
 }

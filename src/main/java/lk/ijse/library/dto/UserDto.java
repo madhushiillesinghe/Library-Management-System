@@ -6,7 +6,7 @@ import lk.ijse.library.embedded.Name;
 import lk.ijse.library.entity.Users;
 
 public class UserDto {
-    private String Id;
+    private int Id;
     private  Name Name;
     private String Email;
     private MobileNo MobileNo;
@@ -17,7 +17,7 @@ public class UserDto {
     public UserDto() {
     }
 
-    public UserDto(String id, lk.ijse.library.embedded.Name name, String email, lk.ijse.library.embedded.MobileNo mobileNo, Address address, String userName, String password) {
+    public UserDto(int id, Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
         Id = id;
         Name = name;
         Email = email;
@@ -27,11 +27,11 @@ public class UserDto {
         this.password = password;
     }
 
-    public String getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         Id = id;
     }
 
@@ -51,11 +51,11 @@ public class UserDto {
         Email = email;
     }
 
-    public lk.ijse.library.embedded.MobileNo getMobileNo() {
+    public MobileNo getMobileNo() {
         return MobileNo;
     }
 
-    public void setMobileNo(lk.ijse.library.embedded.MobileNo mobileNo) {
+    public void setMobileNo(MobileNo mobileNo) {
         MobileNo = mobileNo;
     }
 

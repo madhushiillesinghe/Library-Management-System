@@ -12,7 +12,7 @@ public class Users {
     @Id
     @Column(name = "user_Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String Id;
+    private int Id;
     @Column(name = "user_name")
     private Name Name;
     @Column(name = "user_email")
@@ -29,11 +29,11 @@ public class Users {
     @JoinColumn(name ="admin_Id" )
     private Admin admin;
 
-    public String getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         Id = id;
     }
 

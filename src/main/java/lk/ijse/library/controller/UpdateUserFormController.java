@@ -17,9 +17,8 @@ public class UpdateUserFormController {
 
     @FXML
     private ComboBox<?> cmbAdminId;
-
     @FXML
-    private TextField txtBrachtxtUserIdId;
+    private TextField txtUserIdId;
 
     @FXML
     private TextField txtCity;

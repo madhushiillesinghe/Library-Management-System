@@ -16,8 +16,18 @@ public class Book {
     private String author;
     @Column(name = "book_count")
     private int count;
-    @Column(name = "status")
-    private String bookStatus;
+
+
+    public Book(int id, String title, String genre, String author, int count, String bookStatus, int adminId, Admin admin) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+        this.count = count;
+        this.admin = admin;
+    }
+
+
     @ManyToOne
     @JoinColumn(name ="admin_Id" )
     private Admin admin;
@@ -25,14 +35,6 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id, String title, String genre, String author, int count, String bookStatus) {
-        this.id = id;
-        this.title = title;
-        this.genre = genre;
-        this.author = author;
-        this.count = count;
-        this.bookStatus = bookStatus;
-    }
 
     public int getId() {
         return id;
@@ -76,13 +78,6 @@ public class Book {
 
 
 
-    public String getBookStatus() {
-        return bookStatus;
-    }
-
-    public void setBookStatus(String bookStatus) {
-        this.bookStatus = bookStatus;
-    }
 
     @Override
     public String toString() {
@@ -92,7 +87,14 @@ public class Book {
                 ", genre='" + genre + '\'' +
                 ", author='" + author + '\'' +
                 ", count=" + count +
-                ", bookStatus='" + bookStatus + '\'' +
                 '}';
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }

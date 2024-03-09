@@ -13,17 +13,41 @@ public class AdminDto implements Serializable {
     private String Email;
     private MobileNo MobileNo;
     private Address address;
+    private String userName;
+    private String password;
 
-    public AdminDto() {
-    }
-
-    public AdminDto(int id, Name name, String email,MobileNo mobileNo, Address address) {
+    public AdminDto(int id, Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
         Id = id;
         Name = name;
         Email = email;
         MobileNo = mobileNo;
         this.address = address;
+        this.userName = userName;
+        this.password = password;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+
+    public AdminDto() {
+    }
+
+
 
     public int getId() {
         return Id;
@@ -65,16 +89,7 @@ public class AdminDto implements Serializable {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "AdminDto{" +
-                "Id='" + Id + '\'' +
-                ", Name=" + Name +
-                ", Email='" + Email + '\'' +
-                ", MobileNo=" + MobileNo +
-                ", address=" + address +
-                '}';
-    }
+
     public Admin toEntity() {
         Admin adminDto = new Admin();
         adminDto.setAddress(this.address);
@@ -82,6 +97,21 @@ public class AdminDto implements Serializable {
         adminDto.setEmail(this.Email);
         adminDto.setName(this.Name);
         adminDto.setMobileNo(this.MobileNo);
+        adminDto.setPassword(this.password);
+        adminDto.setUserName(this.userName);
         return adminDto;
+    }
+
+    @Override
+    public String toString() {
+        return "AdminDto{" +
+                "Id=" + Id +
+                ", Name=" + Name +
+                ", Email='" + Email + '\'' +
+                ", MobileNo=" + MobileNo +
+                ", address=" + address +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

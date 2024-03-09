@@ -63,14 +63,9 @@
                   <Image url="@../Assets/book2-removebg-preview.png" />
                </image>
             </ImageView>
-            <Text layoutX="19.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do you want to new Account">
+            <Text layoutX="18.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do you want to new " wrappingWidth="111.0">
                <font>
                   <Font size="10.0" />
-               </font>
-            </Text>
-            <Text fill="#bf1e02" layoutX="153.0" layoutY="341.0" onMouseClicked="#signUpOnMouseClick" strokeType="OUTSIDE" strokeWidth="0.0" text="SIGN UP">
-               <font>
-                  <Font name="System Bold" size="11.0" />
                </font>
             </Text>
             <Button fx:id="btnLogin" layoutX="233.0" layoutY="257.0" mnemonicParsing="false" onAction="#btnLoginOnAction" style="-fx-background-color: #a14a08;" text="LOGIN" textFill="#ece5e5">
@@ -78,6 +73,21 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <Text fill="#c71a1a" layoutX="110.0" layoutY="332.0" onMouseClicked="#UserAccountSignUpOnMouseClick" strokeType="OUTSIDE" strokeWidth="0.0" text=" User Account  " wrappingWidth="111.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#181212" layoutX="178.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OR" wrappingWidth="111.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fill="#c71a1a" layoutX="204.0" layoutY="332.0" onMouseClicked="#AdminAccountSignUpOnMouseClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Account" wrappingWidth="111.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Text layoutX="22.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="People Of All demographic categories ">

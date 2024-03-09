@@ -1,4 +1,6 @@
 package lk.ijse.library.repository;
 
-public interface UserRepository {
+import lk.ijse.library.entity.Users;
+
+public interface UserRepository extends CRUDRepository<Users> {
 }

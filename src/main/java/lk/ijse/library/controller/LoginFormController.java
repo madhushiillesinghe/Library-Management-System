@@ -35,7 +35,6 @@ public class LoginFormController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
-        adminService.saveAdmin(setData());
         String username=txtUserName.getText();
         Navigation.switchNavigation("AdminGlobalForm.fxml",event);
     }
@@ -46,46 +45,14 @@ public class LoginFormController {
     }
 
     @FXML
-    void signUpOnMouseClick(MouseEvent event) {
-
-    }
-    private static AdminDto setData() {
-        Admin admin=new Admin();
-        admin.setMobileNo(setMobileNo().get(0));
-        admin.setMobileNo(setMobileNo().get(1));
-        admin.setAddress(setAddress());
-        admin.setName(setName());
-        admin.setId(1);
-        admin.setEmail("madhushiillesinghe225@gmail.com");
-        AdminDto adminDto=new AdminDto(admin.getId(),admin.getName(),admin.getEmail(),admin.getMobileNo(),admin.getAddress());
-        return adminDto;
+    void AdminAccountSignUpOnMouseClick(MouseEvent event) throws IOException {
+    Navigation.switchNavigation("SignUpAdminForm.fxml",event);
     }
 
-    private static List<MobileNo> setMobileNo() {
-        List<MobileNo> mobileNoList=new ArrayList<>();
-        MobileNo mobileNo=new MobileNo();
-        mobileNo.setMobileNo("0776210846");
-        mobileNo.setType("Mobile");
-        mobileNoList.add(mobileNo);
+    @FXML
+    void UserAccountSignUpOnMouseClick(MouseEvent event) throws IOException {
+        Navigation.switchNavigation("SignUpUserForm.fxml",event);
 
-        MobileNo  mobileNo1=new MobileNo();
-        mobileNo1.setMobileNo("0913915090");
-        mobileNo1.setType("Home");
-        mobileNoList.add(mobileNo1);
-        return  mobileNoList;
+    }
     }
 
-    private static Address setAddress() {
-        Address address=new Address();
-        address.setCity("Galle");
-        address.setStreet("Mahamodar");
-        return address;
-    }
-
-    private static Name setName() {
-        Name name=new Name();
-        name.setFirstName("kamal");
-        name.setLastName("Gmage");
-        return name;
-    }
-}

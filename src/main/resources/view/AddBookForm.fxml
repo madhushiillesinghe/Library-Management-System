@@ -58,17 +58,5 @@
          </font>
       </Text>
       <TextField fx:id="txtBookCount" layoutX="146.0" layoutY="251.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
-      <TextField fx:id="txtStatus" layoutX="398.0" layoutY="182.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
-      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="326.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Text>
-      <ComboBox fx:id="cmbAdminId1" layoutX="374.0" layoutY="77.0" onAction="#cmbAdminIdOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #ADD8E6;" />
-      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="298.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Id">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>

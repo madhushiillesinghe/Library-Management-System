@@ -1,12 +1,18 @@
 package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
+import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.entity.Admin;
 import lk.ijse.library.repository.BookRepository;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
 import lk.ijse.library.service.BookService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookServiceImpl implements BookService {
 

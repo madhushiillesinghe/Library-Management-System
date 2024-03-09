@@ -16,7 +16,7 @@ public class Admin {
 
  @Id
  @Column(name = "admin_Id")
- @GeneratedValue(strategy = GenerationType.IDENTITY)
+ @GeneratedValue(strategy =GenerationType.IDENTITY)
 private int Id;
  @Column(name = "admin_name")
 private Name Name;
@@ -26,14 +26,35 @@ private String Email;
 private MobileNo MobileNo;
  @Column(name = "admin_address")
 private Address address;
+    @Column(name = "user_name")
+    private String userName;
+    @Column(name = "password")
+    private String password;
+
+    public Admin(int id,Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
+        Id = id;
+        Name = name;
+        Email = email;
+        MobileNo = mobileNo;
+        this.address = address;
+        this.userName = userName;
+        this.password = password;
+    }
+
+
+
 /* @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
  private List<Users> usersList=new ArrayList<>();
 
  @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
  private List<Branches> branchesList=new ArrayList<>();*/
 
- @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "admin")
+ @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
  private List<Book> bookList=new ArrayList<>();
+
+    public Admin() {
+
+    }
 
     public int getId() {
         return Id;
@@ -74,15 +95,33 @@ private Address address;
     public void setAddress(Address address) {
         this.address = address;
     }
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     @Override
     public String toString() {
         return "Admin{" +
-                "Id='" + Id + '\'' +
+                "Id=" + Id +
                 ", Name=" + Name +
                 ", Email='" + Email + '\'' +
                 ", MobileNo=" + MobileNo +
                 ", address=" + address +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
