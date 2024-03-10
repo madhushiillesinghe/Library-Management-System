@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "user")
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_Id")
     private int Id;
     @Column(name = "user_name")
@@ -21,11 +21,10 @@ public class Users {
     private MobileNo MobileNo;
     @Column(name = "user_address")
     private Address address;
-    @Column(name = "user_name")
+    @Column(name = "user_Name")
     private String userName;
     @Column(name = "password")
     private String password;
-
 
     public Users(int id, Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
         Id = id;

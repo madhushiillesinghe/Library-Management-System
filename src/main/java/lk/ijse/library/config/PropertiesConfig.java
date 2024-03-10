@@ -10,7 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class PropertiesConfig {
     private static PropertiesConfig factoryPropertiesConfig;
-    private final SessionFactory sessionFactory;
+    private  SessionFactory sessionFactory;
 
     private PropertiesConfig(){
 
@@ -19,9 +19,10 @@ public class PropertiesConfig {
                 .build();
 
         Metadata metadata = new MetadataSources(serviceRegistry)
+                .addAnnotatedClass(Users.class)
                 .addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(Book.class)
-                .addAnnotatedClass(Users.class)
+                .addAnnotatedClass(Branches.class)
                 .getMetadataBuilder()
                 .build();
 

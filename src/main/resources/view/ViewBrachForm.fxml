@@ -26,12 +26,7 @@
             <Image url="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/icon/profile-2user.png" />
          </image>
       </ImageView>
-      <Text fill="SADDLEBROWN" layoutX="364.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
-      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Id">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Text>
+      <Text fill="SADDLEBROWN" layoutX="71.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branch Head">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -47,8 +42,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Label fx:id="lblAdminId" layoutX="132.0" layoutY="81.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblId" layoutX="428.0" layoutY="37.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
+      <Label fx:id="lblId" layoutX="142.0" layoutY="71.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
       <Label fx:id="lblBranchhead" layoutX="152.0" layoutY="132.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
       <Label fx:id="lblLocation" layoutX="142.0" layoutY="194.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
       <Label fx:id="lblBookTotal" layoutX="152.0" layoutY="249.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />

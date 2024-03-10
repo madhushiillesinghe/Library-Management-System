@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.library.dto.BookDto;
-import lk.ijse.library.entity.Book;
+import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
 
@@ -28,7 +28,7 @@ public class BookBarFormController {
 
     @FXML
     private Text txtName;
-    BookServiceImpl bookService=new BookServiceImpl();
+    BookService bookService=new BookServiceImpl();
 
 
     @FXML
@@ -38,7 +38,7 @@ public class BookBarFormController {
             BookDto bookDto=bookService.getDtodata(id);
             boolean isDeleted = bookService.deleteBook(bookDto);
             if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Book deleted").show();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

@@ -32,14 +32,8 @@
             <Image url="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/icon/profile-2user.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtBrachId" layoutX="444.0" layoutY="36.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
-      <Text fill="SADDLEBROWN" layoutX="364.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
-      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Id">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Text>
-      <ComboBox fx:id="cmbAdminId" layoutX="123.0" layoutY="78.0" onAction="#cmbAdminIdOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtBrachId" layoutX="134.0" layoutY="78.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" layoutX="71.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branch Head">
          <font>
             <Font name="System Bold" size="13.0" />

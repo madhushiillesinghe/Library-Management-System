@@ -1,20 +1,14 @@
 package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
-import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
-import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
 import lk.ijse.library.service.BookService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,12 +87,10 @@ public class BookServiceImpl implements BookService {
          session = PropertiesConfig.getInstance().getSession();
         try {
             bookRepository.setSession(session);
-            //Query<Book> query = session.createQuery("SELECT i FROM  lk.ijse.library.entity.Book i", Book.class);
             bookIds=bookRepository.getAllBookId();
             for(Book book:bookIds){
                 bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount(),book.getAdmin()));
             }
-           // bookIds = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -114,37 +106,13 @@ public class BookServiceImpl implements BookService {
 
         try {
             bookRepository.setSession(session);
-            /*CriteriaBuilder builder = session.getCriteriaBuilder();
-            CriteriaQuery<Book> criteriaQuery=builder.createQuery(Book.class);
-            Root<Book> root=criteriaQuery.from(Book.class);
-            criteriaQuery.select(root);
-
-            List<Book> entities=session.createQuery(criteriaQuery).getResultList();*/
-            //List<Book>bookList=new ArrayList<>();
-            bookIds=bookRepository.getAllBookName();
-           /* for(int i=0;i<entities.size();i++){
-                bookList.add(entities.get(i));
-            }
-            System.out.println(bookList);
-            for(int i=0;i<bookList.size();i++){
-                bookname.add(bookList.get(i).getTitle());
-            }
-*/
-            System.out.println("book name"+bookIds);
+            bookIds=bookRepository.getAllBookIds();
 
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
             session.close();
         }
-
-           /* Query<String> query=session.createQuery("SELECT i FROM lk.ijse.library.entity.Book i");
-            bookname=query.getResultList();
-            return  bookname;
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }*/
         return bookIds;
     }
 

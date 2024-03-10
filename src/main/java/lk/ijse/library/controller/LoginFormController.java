@@ -40,7 +40,7 @@ public class LoginFormController {
         if(verify) {
             adminDto=adminService.getAdminId(txtUserName.getText());
             System.out.println("Admin dto"+adminDto);
-            Navigation.switchNavigation("UserGlobalForm.fxml", event);
+            Navigation.switchNavigation("AdminGlobalForm.fxml", event);
         }else
             System.out.println("unable to sign in");
     }

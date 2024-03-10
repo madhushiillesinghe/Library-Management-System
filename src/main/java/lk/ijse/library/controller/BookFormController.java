@@ -9,13 +9,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lk.ijse.library.dto.BookDto;
-import lk.ijse.library.entity.Book;
+import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -29,7 +28,7 @@ public class BookFormController implements Initializable {
     @FXML
     private VBox vBoxBookManage;
 
-    BookServiceImpl bookService=new BookServiceImpl();
+    BookService bookService=new BookServiceImpl();
 
     private static BookFormController controller;
     public BookFormController(){

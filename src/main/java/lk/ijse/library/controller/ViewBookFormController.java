@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
 
@@ -37,7 +38,7 @@ public class ViewBookFormController implements Initializable {
 
     @FXML
     private Label lblBookName;
-    BookServiceImpl bookService=new BookServiceImpl();
+    BookService bookService=new BookServiceImpl();
 
 
     public static void setId(int id) {

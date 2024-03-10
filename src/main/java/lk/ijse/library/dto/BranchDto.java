@@ -6,12 +6,12 @@ import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Branches;
 
 public class BranchDto {
-    private String id;
-    private Address location;
-    private Name head_Name;
+    private int id;
+    private String location;
+    private String head_Name;
     private int bookTotal;
 
-    public BranchDto(String id, Address location, Name head_Name, int bookTotal, Admin admin) {
+    public BranchDto(int id, String location, String head_Name, int bookTotal, Admin admin) {
         this.id = id;
         this.location = location;
         this.head_Name = head_Name;
@@ -34,27 +34,28 @@ public class BranchDto {
 
 
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Address getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Address location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public Name getHead_Name() {
+    public String
+    getHead_Name() {
         return head_Name;
     }
 
-    public void setHead_Name(Name head_Name) {
+    public void setHead_Name(String head_Name) {
         this.head_Name = head_Name;
     }
 

@@ -9,40 +9,53 @@ import javax.persistence.*;
 @Table(name = "book_branch")
 public class Branches {
     @Id
-    @Column(name = "brach_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @Column(name = "branch_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     @Column(name = "branch_location")
-    private Address location;
+    private String location;
     @Column(name = "branch_head_name")
-    private Name head_Name;
+    private String head_Name;
     @Column(name = "book_total")
     private int bookTotal;
     @ManyToOne
     @JoinColumn(name ="admin_Id" )
     private Admin admin;
 
-    public String getId() {
+    public Branches(int id, String location, String head_Name, int bookTotal, Admin admin) {
+        this.id = id;
+        this.location = location;
+        this.head_Name = head_Name;
+        this.bookTotal = bookTotal;
+        this.admin = admin;
+    }
+
+    public Branches() {
+
+    }
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Address getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Address location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public Name getHead_Name() {
+    public String getHead_Name() {
         return head_Name;
     }
 
-    public void setHead_Name(Name head_Name) {
+    public void setHead_Name(String head_Name) {
         this.head_Name = head_Name;
     }
 
@@ -53,8 +66,6 @@ public class Branches {
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
-
-
     public int getBookTotal() {
         return bookTotal;
     }

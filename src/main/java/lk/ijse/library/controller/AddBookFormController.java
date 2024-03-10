@@ -50,7 +50,6 @@ public class AddBookFormController  implements Initializable {
     void btnAddOnAction(ActionEvent event) {
 
         BookDto bookDto=new BookDto();
-//       AdminDto adminDto =adminService.getAdmin(1) ;
 
         bookDto.setId(Integer.parseInt(txtBookId.getText()));
         bookDto.setAuthor(txtBookAuthor.getText());
@@ -59,8 +58,6 @@ public class AddBookFormController  implements Initializable {
         bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
         bookDto.setAdmin(LoginFormController.adminDto.toEntity());
 
-       // bookDto.setAdmin();
-        System.out.println(bookDto.getAdmin());
         try{
             boolean bookIsSaved;
             bookIsSaved= bookService.saveBook(bookDto);

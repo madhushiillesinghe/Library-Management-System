@@ -99,7 +99,6 @@ public class UpdateBookFormController implements Initializable {
     public void setData() {
         try{
             BookDto bookDto=bookService.getDtodata(UpdateBookFormController.id);
-            System.out.println("book id is"+id);
             txtBookAuthor.setText(bookDto.getAuthor());
             txtBookCount.setText(String.valueOf(bookDto.getCount()));
             txtBookName.setText(bookDto.getTitle());
