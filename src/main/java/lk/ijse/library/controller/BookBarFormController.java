@@ -52,9 +52,9 @@ public class BookBarFormController {
 
     }
     public void setData(int id) {
-        Book book= null;
+        BookDto book= null;
         try {
-            book= bookService.getData(id);
+            book= bookService.getDtodata(id);
             this.txtId.setText(String.valueOf(book.getId()));
             txtName.setText(book.getTitle());
             txtCount.setText(String.valueOf(book.getCount()));

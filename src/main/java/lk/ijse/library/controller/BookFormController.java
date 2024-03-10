@@ -61,7 +61,7 @@ public class BookFormController implements Initializable {
 
     private void getAllIds() {
         vBoxBookManage.getChildren();
-        List<Book> bookList=null;
+        List<BookDto> bookList=null;
         bookList=bookService.getAllBookId();
         for(int i=0;i<bookList.size();i++){
             loadTableData(bookList.get(i).getId());

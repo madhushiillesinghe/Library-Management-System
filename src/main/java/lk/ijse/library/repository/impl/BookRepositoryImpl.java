@@ -5,6 +5,10 @@ import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookRepositoryImpl implements BookRepository {
     private Session session;
@@ -62,6 +66,18 @@ public class BookRepositoryImpl implements BookRepository {
             return false;
         }
 
+    }
+    @Override
+    public List<Book> getAllBookId() {
+        List<Book> bookIds = new ArrayList<>();
+        try {
+            Query<Book> query = session.createQuery("SELECT i FROM  lk.ijse.library.entity.Book i", Book.class);
+            bookIds = query.getResultList();
+            return bookIds;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

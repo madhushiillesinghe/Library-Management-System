@@ -84,21 +84,28 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public  List<Book> getAllBookId() {
+    public  List<BookDto> getAllBookId() {
         List<Book> bookIds = new ArrayList<>();
-        Session session = PropertiesConfig.getInstance().getSession();
+        List<BookDto> bookIdsDto=new ArrayList<>();
+         session = PropertiesConfig.getInstance().getSession();
         try {
-            Query<Book> query = session.createQuery("SELECT i FROM  lk.ijse.library.entity.Book i", Book.class);
-           bookIds = query.getResultList();
+            bookRepository.setSession(session);
+            //Query<Book> query = session.createQuery("SELECT i FROM  lk.ijse.library.entity.Book i", Book.class);
+            bookIds=bookRepository.getAllBookId();
+            for(Book book:bookIds){
+                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount()));
+            }
+           // bookIds = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return bookIds;
+        return bookIdsDto;
     }
 
-    @Override
+
+ /*   @Override
     public  Book getData(int id) {
         session = PropertiesConfig.getInstance().getSession();
         try{
@@ -110,7 +117,7 @@ public class BookServiceImpl implements BookService {
         }finally {
             session.close();
         }
-    }
+    }*/
 
     @Override
     public BookDto getDtodata(int id) {

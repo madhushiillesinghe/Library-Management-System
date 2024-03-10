@@ -5,5 +5,4 @@ import lk.ijse.library.dto.BookDto;
 
 public interface AdminService {
     boolean saveAdmin(AdminDto adminDto);
-    //AdminDto getAdmin(int id);
 }
