@@ -10,6 +10,6 @@ public interface CRUDRepository <T> extends SuperRepository{
 
     T get( String id);
 
-    boolean delete(String id);
+    boolean delete(T dto);
 
 }

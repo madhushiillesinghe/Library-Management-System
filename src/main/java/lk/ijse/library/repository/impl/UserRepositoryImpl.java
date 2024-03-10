@@ -49,10 +49,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(Users entity) {
         try{
-            Users users=session.get(Users.class,id);
-            session.delete(users);
+            session.delete(entity);
             return true;
         }catch (Exception e){
             e.printStackTrace();

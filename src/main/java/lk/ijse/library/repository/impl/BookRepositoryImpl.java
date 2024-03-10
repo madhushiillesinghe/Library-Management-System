@@ -53,8 +53,15 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public boolean delete(String id) {
-        return false;
+    public boolean delete(Book entity) {
+        try{
+            session.delete(entity);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     @Override

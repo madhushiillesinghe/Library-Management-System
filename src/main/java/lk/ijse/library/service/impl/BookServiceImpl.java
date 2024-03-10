@@ -66,6 +66,24 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public boolean deleteBook(BookDto bookDto) {
+        session= PropertiesConfig.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
+        try {
+            bookRepository.setSession(session);
+            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getCount());
+            boolean isDelete= bookRepository.delete(book);
+            transaction.commit();
+            return  isDelete;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
     public  List<Book> getAllBookId() {
         List<Book> bookIds = new ArrayList<>();
         Session session = PropertiesConfig.getInstance().getSession();

@@ -51,11 +51,12 @@ public class AdminRepositoryImpl implements AdminRepository {
         }
     }
 
+
+
     @Override
-    public boolean delete(String id) {
+    public boolean delete(Admin entity) {
         try{
-            Admin admin=session.get(Admin.class,id);
-            session.delete(admin);
+            session.delete(entity);
             return true;
         }catch (Exception e){
             e.printStackTrace();

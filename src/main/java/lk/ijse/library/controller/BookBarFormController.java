@@ -2,8 +2,10 @@
 package lk.ijse.library.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -31,7 +33,16 @@ public class BookBarFormController {
 
     @FXML
     void deleteMouseClick(MouseEvent event) {
-
+        try {
+            int id= Integer.parseInt(txtId.getText());
+            BookDto bookDto=bookService.getDtodata(id);
+            boolean isDeleted = bookService.deleteBook(bookDto);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     @FXML
