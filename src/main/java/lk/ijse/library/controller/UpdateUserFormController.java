@@ -130,15 +130,21 @@ public class UpdateUserFormController implements Initializable {
     }
 
     private void setData() {
-        UserDto userDto=userService.getDtodata(UpdateUserFormController.id);
-        System.out.println(userDto);
-        userDto.setId(Integer.parseInt(txtUserIdId.getText()));
-        userDto.setUserName(txtUserName.getText());
-        userDto.setAddress(setAddress());
-        userDto.setName(setName());
-        userDto.setPassword(txtPassword.getText());
-        userDto.setEmail(txtEmail.getText());
-        userDto.setMobileNo(setmobileNo().get(0));
-        userDto.setMobileNo(setmobileNo().get(1));
+        try{
+            UserDto userDto = userService.getData((id));
+            txtCity.setText(userDto.getAddress().getCity());
+            txtEmail.setText(userDto.getEmail());
+            txtStreet.setText(userDto.getAddress().getStreet());
+            txtFirstName.setText(userDto.getName().getFirstName());
+            txtPassword.setText(userDto.getPassword());
+            txtHomeMobile.setText(userDto.getMobileNo().getMobileNo());
+            txtMobileNo.setText(userDto.getMobileNo().getMobileNo());
+            txtUserName.setText(userDto.getUserName());
+            txtLastName.setText(userDto.getName().getLastName());
+            txtUserIdId.setText(String.valueOf(userDto.getId()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
