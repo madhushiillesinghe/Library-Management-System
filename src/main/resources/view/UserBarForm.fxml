@@ -8,22 +8,22 @@
 
 <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UserBarFormController">
    <children>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
+      <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="241.61898803710938">
+      <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="241.61898803710938">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="237.71263122558594">
+      <Text fx:id="txtEmail" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="237.71263122558594">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="89.51275634765625">
+      <Text fx:id="txtAddress" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="89.51275634765625">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>

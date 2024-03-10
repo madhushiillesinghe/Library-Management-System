@@ -26,7 +26,13 @@ public class Users {
     @Column(name = "password")
     private String password;
 
-    public Users(int id, Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
+
+
+    public Users() {
+
+    }
+
+    public Users(int id, Name name, String email,MobileNo mobileNo, Address address, String userName, String password) {
         Id = id;
         Name = name;
         Email = email;
@@ -36,9 +42,6 @@ public class Users {
         this.password = password;
     }
 
-    public Users() {
-
-    }
 
     public int getId() {
         return Id;
