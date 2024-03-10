@@ -16,7 +16,7 @@ public class AdminDto implements Serializable {
     private String userName;
     private String password;
 
-    public AdminDto(int id, Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
+    public AdminDto(int id, Name name, String email, MobileNo mobileNo, Address address, String userName,String password) {
         Id = id;
         Name = name;
         Email = email;

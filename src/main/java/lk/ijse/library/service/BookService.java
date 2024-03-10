@@ -15,6 +15,7 @@ public interface BookService {
     boolean updateBook(BookDto bookDto);
     boolean deleteBook(BookDto bookDto);
      List<BookDto> getAllBookId();
-   // Book getData(int id);
+     List<Integer> getAllBookName();
+    BookDto getData(int name);
     BookDto getDtodata(int id);
 }

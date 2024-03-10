@@ -2,6 +2,7 @@ package lk.ijse.library.dto;
 
 import lk.ijse.library.embedded.Address;
 import lk.ijse.library.embedded.Name;
+import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Branches;
 
 public class BranchDto {
@@ -10,15 +11,28 @@ public class BranchDto {
     private Name head_Name;
     private int bookTotal;
 
-    public BranchDto() {
-    }
-
-    public BranchDto(String id, Address location, Name head_Name, int bookTotal) {
+    public BranchDto(String id, Address location, Name head_Name, int bookTotal, Admin admin) {
         this.id = id;
         this.location = location;
         this.head_Name = head_Name;
         this.bookTotal = bookTotal;
+        this.admin = admin;
     }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    private Admin admin;
+
+    public BranchDto() {
+    }
+
+
 
     public String getId() {
         return id;
@@ -67,6 +81,7 @@ public class BranchDto {
         branchDto.setLocation(this.location);
         branchDto.setBookTotal(this.bookTotal);
         branchDto.setHead_Name(this.head_Name);
+        branchDto.setAdmin(this.admin);
         return branchDto;
     }
 }

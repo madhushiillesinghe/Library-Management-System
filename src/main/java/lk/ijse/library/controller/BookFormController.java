@@ -46,8 +46,16 @@ public class BookFormController implements Initializable {
     }
 
     @FXML
-    void btnSearchOnAction(ActionEvent event) {
+    void btnSearchOnAction(ActionEvent event) throws IOException {
+    List<Integer> bookDtoList=bookService.getAllBookName();
+        System.out.println("book dto list "+bookDtoList);
 
+        for(int i=0;i<bookDtoList.size();i++){
+            if(txtSearch.getText().equalsIgnoreCase(String.valueOf(bookDtoList.get(i)))){
+                ViewBookFormController.id= Integer.parseInt((txtSearch.getText()));
+                Navigation.popupPane("viewBookForm.fxml");
+            }
+        }
     }
 
     @Override

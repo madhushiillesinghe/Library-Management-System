@@ -38,7 +38,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Users get(String id) {
+    public Users getId(int id) {
         try{
             Users users=session.get(Users.class,id);
             return users;
@@ -47,6 +47,18 @@ public class UserRepositoryImpl implements UserRepository {
             return null;
         }
     }
+
+    @Override
+    public Users getName(String name) {
+        try{
+            Users users=session.get(Users.class,name);
+            return users;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     @Override
     public boolean delete(Users entity) {

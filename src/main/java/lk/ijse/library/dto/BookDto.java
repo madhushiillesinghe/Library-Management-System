@@ -9,27 +9,27 @@ public class BookDto {
     private String genre;
     private String author;
     private int count;
+   private Admin admin;
 
-  /*  private Admin admin;*/
-
-    public BookDto(int id, String title, String genre, String author, int count) {
+    public BookDto(int id, String title, String genre, String author, int count,Admin admin) {
 
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.author = author;
         this.count = count;
+        this.admin=admin;
 
     }
 
 
-   /* public Admin getAdmin() {
+    public Admin getAdmin() {
         return admin;
     }
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
-    }*/
+    }
 
 
 
@@ -84,6 +84,7 @@ public class BookDto {
         bookDto.setCount(this.count);
         bookDto.setTitle(this.title);
         bookDto.setGenre(this.genre);
+        bookDto.setAdmin(this.admin);
         return bookDto;
     }
 

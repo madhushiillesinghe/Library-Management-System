@@ -7,6 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,9 +49,20 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public Book get(String id) {
+    public Book getId(int id) {
         try{
             Book book=session.get(Book.class,id);
+            return book;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Book getName(String name) {
+        try{
+            Book book=session.get(Book.class,name);
             return book;
         }catch (Exception e){
             e.printStackTrace();
@@ -78,6 +92,44 @@ public class BookRepositoryImpl implements BookRepository {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public List<Integer> getAllBookName() {
+
+        try {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<Book> criteriaQuery=builder.createQuery(Book.class);
+            Root<Book> root=criteriaQuery.from(Book.class);
+            criteriaQuery.select(root);
+
+            List<Book> entities=session.createQuery(criteriaQuery).getResultList();
+            List<Integer> bookIds=new ArrayList<>();
+            List<Book>bookList=new ArrayList<>();
+            for(int i=0;i<entities.size();i++){
+                bookList.add(entities.get(i));
+            }
+            System.out.println(bookList);
+            for(int i=0;i<bookList.size();i++){
+                bookIds.add(bookList.get(i).getId());
+            }
+
+            System.out.println(bookIds);
+            return bookIds;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+           /* Query<String> query=session.createQuery("SELECT i FROM lk.ijse.library.entity.Book i");
+            bookname=query.getResultList();
+            return  bookname;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }*/
+
     }
 
     @Override

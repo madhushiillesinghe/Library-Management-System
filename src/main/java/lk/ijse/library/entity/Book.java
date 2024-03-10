@@ -16,16 +16,17 @@ public class Book {
     private String author;
     @Column(name = "book_count")
     private int count;
-   /* @ManyToOne
+    @ManyToOne
     @JoinColumn(name ="admin_Id" )
-    private Admin admin;*/
+    private Admin admin;
 
-    public Book(int id, String title, String genre, String author, int count) {
+    public Book(int id, String title, String genre, String author, int count,Admin admin) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.author = author;
         this.count = count;
+        this.admin=admin;
     }
 
 
@@ -89,11 +90,11 @@ public class Book {
                 '}';
     }
 
-  /*  public Admin getAdmin() {
+    public Admin getAdmin() {
         return admin;
     }
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
-    }*/
+    }
 }

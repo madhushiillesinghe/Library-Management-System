@@ -1,3 +1,4 @@
+/*
 package lk.ijse.library;
 
 import lk.ijse.library.dto.AdminDto;
@@ -26,7 +27,7 @@ public class AppInizializer {
         admin.setName(setName());
         admin.setId(1);
         admin.setEmail("madhushiillesinghe225@gmail.com");
-        AdminDto adminDto=new AdminDto(admin.getId(),admin.getName(),admin.getEmail(),admin.getMobileNo(),admin.getAddress(),admin.getUserName(),admin.getPassword());
+        AdminDto adminDto=new AdminDto(admin.getId(),admin.getName(),admin.getEmail(),admin.getMobileNo(),admin.getAddress(),admin.getUserName());
         return adminDto;
     }
 
@@ -58,3 +59,4 @@ public class AppInizializer {
         return name;
     }
 }
+*/

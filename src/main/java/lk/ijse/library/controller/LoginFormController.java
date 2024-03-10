@@ -29,14 +29,20 @@ public class LoginFormController {
 
     @FXML
     private TextField txtUserName;
+    public static AdminDto adminDto;
     AdminService adminService=new AdminServiceImpl();
 
 
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
-        String username=txtUserName.getText();
-        Navigation.switchNavigation("AdminGlobalForm.fxml",event);
+        boolean  verify=adminService.checkUserNameAndPassword(txtUserName.getText(),txtPassword.getText());
+        if(verify) {
+            adminDto=adminService.getAdminId(txtUserName.getText());
+            System.out.println("Admin dto"+adminDto);
+            Navigation.switchNavigation("UserGlobalForm.fxml", event);
+        }else
+            System.out.println("unable to sign in");
     }
 
     @FXML

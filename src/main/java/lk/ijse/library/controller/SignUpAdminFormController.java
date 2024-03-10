@@ -68,7 +68,8 @@ public class SignUpAdminFormController {
             boolean IsAdminSignedUp;
             IsAdminSignedUp= adminService.saveAdmin(adminDto);
             if(IsAdminSignedUp){
-                System.out.println("Admin servise :"+IsAdminSignedUp);
+               // System.out.println("Admin servise :"+IsAdminSignedUp);
+                LoginFormController.adminDto=adminService.getAdminId(txtUserName.getText());
                 Navigation.switchNavigation("AdminGlobalForm.fxml",event);
             }
         }catch (Exception e) {

@@ -26,12 +26,7 @@
             <Image url="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/icon/profile-2user.png" />
          </image>
       </ImageView>
-      <Text fill="SADDLEBROWN" layoutX="364.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
-      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Id">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Text>
+      <Text fill="SADDLEBROWN" layoutX="67.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Name">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -52,8 +47,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Label fx:id="lblBookId" layoutX="430.0" layoutY="35.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblAdminId" layoutX="138.0" layoutY="76.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
+      <Label fx:id="lblBookId" layoutX="138.0" layoutY="78.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
       <Label fx:id="lblBookName" layoutX="138.0" layoutY="132.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
       <Label fx:id="lblAuthor" layoutX="384.0" layoutY="132.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
       <Label fx:id="lblBookGenre" layoutX="144.0" layoutY="194.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />

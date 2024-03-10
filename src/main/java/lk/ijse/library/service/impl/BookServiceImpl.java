@@ -12,6 +12,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +74,7 @@ public class BookServiceImpl implements BookService {
         Transaction transaction=session.beginTransaction();
         try {
             bookRepository.setSession(session);
-            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getCount());
+            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getCount(),bookDto.getAdmin());
             boolean isDelete= bookRepository.delete(book);
             transaction.commit();
             return  isDelete;
@@ -93,7 +96,7 @@ public class BookServiceImpl implements BookService {
             //Query<Book> query = session.createQuery("SELECT i FROM  lk.ijse.library.entity.Book i", Book.class);
             bookIds=bookRepository.getAllBookId();
             for(Book book:bookIds){
-                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount()));
+                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount(),book.getAdmin()));
             }
            // bookIds = query.getResultList();
         } catch (Exception e) {
@@ -104,27 +107,73 @@ public class BookServiceImpl implements BookService {
         return bookIdsDto;
     }
 
-
- /*   @Override
-    public  Book getData(int id) {
+    @Override
+    public List<Integer> getAllBookName() {
         session = PropertiesConfig.getInstance().getSession();
-        try{
-            Book  book = session.get(Book.class, id);
-            return book;
-        }catch (Exception e){
+        List<Integer> bookIds=new ArrayList<>();
+
+        try {
+            bookRepository.setSession(session);
+            /*CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<Book> criteriaQuery=builder.createQuery(Book.class);
+            Root<Book> root=criteriaQuery.from(Book.class);
+            criteriaQuery.select(root);
+
+            List<Book> entities=session.createQuery(criteriaQuery).getResultList();*/
+            //List<Book>bookList=new ArrayList<>();
+            bookIds=bookRepository.getAllBookName();
+           /* for(int i=0;i<entities.size();i++){
+                bookList.add(entities.get(i));
+            }
+            System.out.println(bookList);
+            for(int i=0;i<bookList.size();i++){
+                bookname.add(bookList.get(i).getTitle());
+            }
+*/
+            System.out.println("book name"+bookIds);
+
+        } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }finally {
             session.close();
         }
-    }*/
+
+           /* Query<String> query=session.createQuery("SELECT i FROM lk.ijse.library.entity.Book i");
+            bookname=query.getResultList();
+            return  bookname;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }*/
+        return bookIds;
+    }
+
+
+    @Override
+    public  BookDto getData(int id) {
+     session = PropertiesConfig.getInstance().getSession();
+
+     try{
+         bookRepository.setSession(session);
+         Book  book = bookRepository.getId(id);
+         BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount(),book.getAdmin());
+         return bookDto;
+     }catch (Exception e){
+         e.printStackTrace();
+         return null;
+     }finally {
+         session.close();
+     }
+ }
 
     @Override
     public BookDto getDtodata(int id) {
         session = PropertiesConfig.getInstance().getSession();
+
         try{
-            Book  book = session.get(Book.class, id);
-            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount());
+            bookRepository.setSession(session);
+            Book  book = bookRepository.getId(id);
+            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount(),book.getAdmin());
             return bookDto;
         }catch (Exception e){
             e.printStackTrace();

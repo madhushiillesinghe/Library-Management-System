@@ -50,15 +50,17 @@ public class AddBookFormController  implements Initializable {
     void btnAddOnAction(ActionEvent event) {
 
         BookDto bookDto=new BookDto();
-       // AdminDto adminDto =adminService.getAdmin(1) ;
+//       AdminDto adminDto =adminService.getAdmin(1) ;
 
         bookDto.setId(Integer.parseInt(txtBookId.getText()));
         bookDto.setAuthor(txtBookAuthor.getText());
         bookDto.setCount(Integer.parseInt(txtBookCount.getText()));
         bookDto.setTitle(txtBookName.getText());
-        bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());/*
-        bookDto.setAdmin(adminDto.toEntity());
-        System.out.println(bookDto.getAdmin());*/
+        bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
+        bookDto.setAdmin(LoginFormController.adminDto.toEntity());
+
+       // bookDto.setAdmin();
+        System.out.println(bookDto.getAdmin());
         try{
             boolean bookIsSaved;
             bookIsSaved= bookService.saveBook(bookDto);
