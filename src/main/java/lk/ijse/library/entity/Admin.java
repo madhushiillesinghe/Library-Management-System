@@ -15,8 +15,8 @@ import java.util.List;
 public class Admin {
 
  @Id
- @Column(name = "admin_Id")
  @GeneratedValue(strategy =GenerationType.IDENTITY)
+ @Column(name = "admin_Id")
 private int Id;
  @Column(name = "admin_name")
 private Name Name;
@@ -49,8 +49,8 @@ private Address address;
  @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
  private List<Branches> branchesList=new ArrayList<>();*/
 
- @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
- private List<Book> bookList=new ArrayList<>();
+/* @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
+ private List<Book> bookList=new ArrayList<>();*/
 
     public Admin() {
 

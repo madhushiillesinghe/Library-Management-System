@@ -46,6 +46,25 @@ public class BookServiceImpl implements BookService {
             session.close();
         }
     }
+
+    @Override
+    public boolean updateBook(BookDto bookDto) {
+        session= PropertiesConfig.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
+        try{
+            bookRepository.setSession(session);
+            boolean isUpdate= bookRepository.update(bookDto.toEntity());
+            transaction.commit();
+            return isUpdate;
+        }catch (Exception e){
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
     @Override
     public  List<Book> getAllBookId() {
         List<Book> bookIds = new ArrayList<>();
@@ -60,6 +79,7 @@ public class BookServiceImpl implements BookService {
         }
         return bookIds;
     }
+
     @Override
     public  Book getData(int id) {
         session = PropertiesConfig.getInstance().getSession();
@@ -73,4 +93,18 @@ public class BookServiceImpl implements BookService {
             session.close();
         }
     }
+
+    @Override
+    public BookDto getDtodata(int id) {
+        session = PropertiesConfig.getInstance().getSession();
+        try{
+            Book  book = session.get(Book.class, id);
+            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount());
+            return bookDto;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }    }
 }

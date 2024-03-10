@@ -36,6 +36,7 @@ public class BookBarFormController {
 
     @FXML
     void updateMouseClick(MouseEvent event) throws IOException {
+        UpdateBookFormController.setId(Integer.parseInt((txtId.getText())));
         Navigation.popupPane("UpdateBookForm.fxml");
 
     }

@@ -2,6 +2,7 @@ package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
 import lk.ijse.library.dto.AdminDto;
+import lk.ijse.library.entity.Admin;
 import lk.ijse.library.repository.AdminRepository;
 import lk.ijse.library.repository.impl.AdminRepositoryImpl;
 import lk.ijse.library.service.AdminService;
@@ -38,6 +39,22 @@ public class AdminServiceImpl implements AdminService {
             session.close();
         }
     }
+
+   /* @Override
+    public AdminDto getAdmin(int id) {
+        session= PropertiesConfig.getInstance().getSession();
+        try{
+            adminRepository.setSession(session);
+            Admin admin=session.get(Admin.class,id);
+            AdminDto adminDto=new AdminDto(admin.getId(),admin.getName(),admin.getEmail(),admin.getMobileNo(),admin.getAddress(),admin.getUserName(),admin.getPassword());
+            return adminDto;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }*/
 
 
 }

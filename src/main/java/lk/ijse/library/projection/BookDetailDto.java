@@ -1,13 +1,13 @@
 package lk.ijse.library.projection;
 
-public class BookProjection {
+public class BookDetailDto {
     private int  id;
     private String title;
     private String genre;
     private int count;
     private String availability;
 
-    public BookProjection(int id, String title, String genre, int count, String availability) {
+    public BookDetailDto(int id, String title, String genre, int count, String availability) {
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -15,7 +15,7 @@ public class BookProjection {
         this.availability = availability;
     }
 
-    public BookProjection() {
+    public BookDetailDto() {
     }
 
     public int getId() {

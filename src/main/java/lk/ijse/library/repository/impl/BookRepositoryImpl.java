@@ -20,13 +20,25 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public boolean save(Book entity) {
-       session.save(entity);
-       return true;
+        try{
+            session.save(entity);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     @Override
-    public boolean update(Book dto) {
-        return false;
+    public boolean update(Book entity) {
+        try{
+            session.update(entity);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

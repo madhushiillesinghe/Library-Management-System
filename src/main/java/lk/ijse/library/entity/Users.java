@@ -25,9 +25,7 @@ public class Users {
     private String userName;
     @Column(name = "password")
     private String password;
-    @ManyToOne
-    @JoinColumn(name ="admin_Id" )
-    private Admin admin;
+
 
     public Users(int id, Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {
         Id = id;
@@ -101,13 +99,7 @@ public class Users {
         this.password = password;
     }
 
-    public Admin getAdmin() {
-        return admin;
-    }
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
-    }
 
     @Override
     public String toString() {

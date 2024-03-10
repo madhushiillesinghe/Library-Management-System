@@ -1,7 +1,5 @@
 package lk.ijse.library.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,14 +10,14 @@ import javafx.scene.control.TextField;
 import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Admin;
+import lk.ijse.library.service.AdminService;
 import lk.ijse.library.service.BookService;
+import lk.ijse.library.service.impl.AdminServiceImpl;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddBookFormController  implements Initializable {
@@ -31,8 +29,7 @@ public class AddBookFormController  implements Initializable {
 
     @FXML
     private Button btnCancel;
-    @FXML
-    private ComboBox<Integer> cmbAdminId1;
+
 
     @FXML
     private ComboBox<String> cmbBookGenre;
@@ -53,12 +50,15 @@ public class AddBookFormController  implements Initializable {
     void btnAddOnAction(ActionEvent event) {
 
         BookDto bookDto=new BookDto();
+       // AdminDto adminDto =adminService.getAdmin(1) ;
+
         bookDto.setId(Integer.parseInt(txtBookId.getText()));
         bookDto.setAuthor(txtBookAuthor.getText());
         bookDto.setCount(Integer.parseInt(txtBookCount.getText()));
         bookDto.setTitle(txtBookName.getText());
-        bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
-//        bookDto.setAdminId(cmbAdminId1.getSelectionModel().getSelectedItem());
+        bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());/*
+        bookDto.setAdmin(adminDto.toEntity());
+        System.out.println(bookDto.getAdmin());*/
         try{
             boolean bookIsSaved;
             bookIsSaved= bookService.saveBook(bookDto);
@@ -72,6 +72,7 @@ public class AddBookFormController  implements Initializable {
                 }
     }
 
+
     @FXML
     void btnCancelOnAction(ActionEvent event) {
         Navigation.adminClosePane();
@@ -81,10 +82,7 @@ public class AddBookFormController  implements Initializable {
     void cmbBookGenre(ActionEvent event) {
 
     }
-    @FXML
-    void cmbAdminIdOnAction(ActionEvent event) {
 
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -96,6 +94,8 @@ public class AddBookFormController  implements Initializable {
         ArrayList<String> type=new ArrayList<>();
         type.add("Novel");
         type.add("Short Story");
+        type.add("detactive ");
+        type.add("child book");
         cmbBookGenre.getItems().addAll(type);
     }
 }

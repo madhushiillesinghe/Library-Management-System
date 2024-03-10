@@ -12,6 +12,8 @@ import java.util.List;
 
 public interface BookService {
     boolean saveBook(BookDto bookDto);
+    boolean updateBook(BookDto bookDto);
      List<Book> getAllBookId();
     Book getData(int id);
+    BookDto getDtodata(int id);
 }

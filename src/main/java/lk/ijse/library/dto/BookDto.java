@@ -9,29 +9,27 @@ public class BookDto {
     private String genre;
     private String author;
     private int count;
-    private String bookStatus;
-    private Admin admin;
 
-    public BookDto(int id, String title, String genre, String author, int count, String bookStatus, Admin admin, int adminId) {
+  /*  private Admin admin;*/
+
+    public BookDto(int id, String title, String genre, String author, int count) {
 
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.author = author;
         this.count = count;
-        this.bookStatus = bookStatus;
-        this.admin = admin;
 
     }
 
 
-    public Admin getAdmin() {
+   /* public Admin getAdmin() {
         return admin;
     }
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
-    }
+    }*/
 
 
 
@@ -89,13 +87,6 @@ public class BookDto {
         return bookDto;
     }
 
-    public String getBookStatus() {
-        return bookStatus;
-    }
-
-    public void setBookStatus(String bookStatus) {
-        this.bookStatus = bookStatus;
-    }
 
     @Override
     public String toString() {
@@ -105,8 +96,6 @@ public class BookDto {
                 ", genre='" + genre + '\'' +
                 ", author='" + author + '\'' +
                 ", count=" + count +
-                ", bookStatus='" + bookStatus + '\'' +
-                ", admin=" + admin +
                 '}';
     }
 }

@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table(name = "book")
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "book_id")
     private int  id;
     @Column(name = "book_title")
@@ -16,21 +16,20 @@ public class Book {
     private String author;
     @Column(name = "book_count")
     private int count;
+   /* @ManyToOne
+    @JoinColumn(name ="admin_Id" )
+    private Admin admin;*/
 
-
-    public Book(int id, String title, String genre, String author, int count, String bookStatus, int adminId, Admin admin) {
+    public Book(int id, String title, String genre, String author, int count) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.author = author;
         this.count = count;
-        this.admin = admin;
     }
 
 
-    @ManyToOne
-    @JoinColumn(name ="admin_Id" )
-    private Admin admin;
+
 
     public Book() {
     }
@@ -90,11 +89,11 @@ public class Book {
                 '}';
     }
 
-    public Admin getAdmin() {
+  /*  public Admin getAdmin() {
         return admin;
     }
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
-    }
+    }*/
 }
