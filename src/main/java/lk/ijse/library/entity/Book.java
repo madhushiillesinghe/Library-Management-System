@@ -1,5 +1,7 @@
 package lk.ijse.library.entity;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -19,6 +21,9 @@ public class Book {
     @ManyToOne
     @JoinColumn(name ="admin_Id" )
     private Admin admin;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "book")
+    private List<TransactionDetail> transactionDetails=new ArrayList<>();
 
     public Book(int id, String title, String genre, String author, int count,Admin admin) {
         this.id = id;

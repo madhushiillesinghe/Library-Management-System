@@ -23,6 +23,8 @@ public class PropertiesConfig {
                 .addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(Book.class)
                 .addAnnotatedClass(Branches.class)
+                .addAnnotatedClass(Transaction.class)
+                .addAnnotatedClass(TransactionDetail.class)
                 .getMetadataBuilder()
                 .build();
 

@@ -15,27 +15,22 @@
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="138.0" layoutY="46.0" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
+            <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="156.81900024414062">
+            <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="143.21899461746216">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="200.9127197265625">
+            <Text fx:id="txtGenre" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="221.71270751953125">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="149.5126953125">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="119.91272735595703">
+            <Text fx:id="txtAvailability" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="228.71277618408203">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>

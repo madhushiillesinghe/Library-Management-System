@@ -77,7 +77,7 @@ public class UserProfileFormController implements Initializable {
     @FXML
     void btnchangepasswordOrUsername(ActionEvent event) throws IOException {
         UpdateUserProfileFormController.id= Integer.parseInt(lblId.getText());
-        Navigation.switchPagingUserProfile(userPaneId, "UpdateUserProfileForm.fxml");
+        Navigation.switchPagingUser(UserGlobalFormController.getInstance().paneId, "UpdateUserProfileForm.fxml");
     }
     @FXML
     void deleteAccount(ActionEvent event) {
@@ -112,7 +112,6 @@ public class UserProfileFormController implements Initializable {
     private void setData() {
         try{
             UserDto userDto = userService.getData((id));
-            System.out.println("userprofile id "+id);
             lblId.setText(String.valueOf(userDto.getId()));
             lblTown.setText(userDto.getAddress().getCity());
             lblEmail.setText(userDto.getEmail());

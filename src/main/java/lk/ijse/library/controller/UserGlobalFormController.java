@@ -35,6 +35,7 @@ public class UserGlobalFormController implements Initializable {
 
     @FXML
     private Label txttime;
+
    private static UserGlobalFormController controller;
    public UserGlobalFormController(){
        controller=this;

@@ -8,27 +8,22 @@
 
 <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.BookUserBarFormController">
    <children>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
+      <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="156.81900024414062">
+      <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="200.01901245117188">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="200.9127197265625">
+      <Text fx:id="txtGerne" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="267.31272888183594">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="149.5126953125">
-         <font>
-            <Font name="SansSerif Regular" size="16.0" />
-         </font>
-      </Text>
-      <Text layoutX="683.0" layoutY="37.0" onMouseClicked="#viewBookOnMouseClick" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="91.11280059814453">
+      <Text fx:id="txtAvailability" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="151.91278839111328">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
@@ -38,7 +33,7 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <ImageView fitHeight="21.0" fitWidth="19.0">
+      <ImageView fitHeight="21.0" fitWidth="19.0" onMouseClicked="#ViewBookOnMouseClick">
          <image>
             <Image url="@../Assets/icon/view.png" />
          </image>

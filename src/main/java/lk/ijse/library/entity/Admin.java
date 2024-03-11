@@ -46,10 +46,10 @@ private Address address;
 /* @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
  private List<Users> usersList=new ArrayList<>();*/
 
-/* @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
- private List<Branches> branchesList=new ArrayList<>();*/
+ @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "admin")
+ private List<Branches> branchesList=new ArrayList<>();
 
- @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "admin")
+ @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "admin")
  private List<Book> bookList=new ArrayList<>();
 
     public Admin() {

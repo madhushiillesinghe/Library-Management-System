@@ -5,6 +5,8 @@ import lk.ijse.library.embedded.MobileNo;
 import lk.ijse.library.embedded.Name;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -25,7 +27,8 @@ public class Users {
     private String userName;
     @Column(name = "password")
     private String password;
-
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "users")
+    private List<Transaction> transactionList=new ArrayList<>();
 
 
     public Users() {
