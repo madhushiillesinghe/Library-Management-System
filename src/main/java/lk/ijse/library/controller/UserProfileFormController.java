@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 public class UserProfileFormController implements Initializable {
 
     public static int id;
+    public static String password;
     @FXML
     private Button btnBack;
 
@@ -98,6 +99,8 @@ public class UserProfileFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lbluserHey.setText(password);
+        System.out.println(lbluserHey.getText());
         setData();
     }
 

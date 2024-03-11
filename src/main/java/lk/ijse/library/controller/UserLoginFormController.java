@@ -38,6 +38,7 @@ public class UserLoginFormController {
         if(verify) {
             userDto=userService.getUserId(txtUserName.getText());
             UserProfileFormController.id=userDto.getId();
+            UserProfileFormController.password=userDto.getPassword();
             System.out.println("Admin dto"+userDto);
             Navigation.switchNavigation("UserGlobalForm.fxml", event);
         }else

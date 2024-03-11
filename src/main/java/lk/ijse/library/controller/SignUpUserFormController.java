@@ -69,6 +69,7 @@ public class SignUpUserFormController {
             IsUserSignedUp= userService.saveUser(userDto);
             if(IsUserSignedUp){
                 UserProfileFormController.id=userDto.getId();
+                UserProfileFormController.password=userDto.getPassword();
                 System.out.println(userDto.getId());
                 new Alert(Alert.AlertType.CONFIRMATION, "User Account Sign up successfully!").show();
                 Navigation.switchNavigation("UserGlobalForm.fxml",event);
