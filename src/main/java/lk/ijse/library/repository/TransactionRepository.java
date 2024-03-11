@@ -1,4 +1,6 @@
 package lk.ijse.library.repository;
 
-public interface TransactionRepository {
+import lk.ijse.library.entity.Transaction;
+
+public interface TransactionRepository extends CRUDRepository<Transaction> {
 }

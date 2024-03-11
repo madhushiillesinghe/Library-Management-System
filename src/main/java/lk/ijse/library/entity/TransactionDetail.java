@@ -26,4 +26,28 @@ public class TransactionDetail {
 
     public TransactionDetail() {
     }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    @Override
+    public String toString() {
+        return "TransactionDetail{" +
+                "transaction=" + transaction +
+                ", book=" + book +
+                '}';
+    }
 }
