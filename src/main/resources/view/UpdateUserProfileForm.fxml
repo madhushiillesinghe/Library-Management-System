@@ -33,11 +33,6 @@
             </Text>
             <Pane layoutX="73.0" layoutY="184.0" prefHeight="38.0" prefWidth="246.0">
                <children>
-                  <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="55.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Text>
                   <Text fill="#2e2b29" fontSmoothingType="LCD" layoutX="61.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete My Account">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -167,5 +162,11 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <TextField fx:id="txtUserId" layoutX="480.0" layoutY="34.0" prefHeight="26.0" prefWidth="44.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="446.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

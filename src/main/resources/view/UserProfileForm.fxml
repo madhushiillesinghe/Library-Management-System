@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="616.0" prefWidth="1175.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UserProfileFormController">
+<AnchorPane fx:id="AnchorPaneId" prefHeight="616.0" prefWidth="1175.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UserProfileFormController">
    <children>
       <ImageView fitHeight="122.0" fitWidth="132.0" layoutX="688.0" layoutY="14.0">
          <image>
@@ -158,5 +158,11 @@
       </Text>
       <Line endX="100.0" layoutX="822.0" layoutY="465.0" startX="65.60003662109375" startY="-1.52587890625E-5" />
       <Button fx:id="btnBack" layoutX="1075.0" layoutY="576.0" mnemonicParsing="false" onAction="#btnBackOnAction" style="-fx-background-color: #ffffff;" text="BACK" textFill="SADDLEBROWN" />
+      <TextField fx:id="lblId" layoutX="465.0" layoutY="35.0" prefHeight="26.0" prefWidth="37.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="430.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

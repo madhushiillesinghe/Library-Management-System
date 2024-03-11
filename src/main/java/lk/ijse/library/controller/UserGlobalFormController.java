@@ -74,6 +74,10 @@ public class UserGlobalFormController implements Initializable {
         Navigation.switchPagingUser(paneId,"TransactionForm.fxml");
 
     }
+    @FXML
+    void btnchangepasswordOrUsername(ActionEvent event) throws IOException {
+    Navigation.switchPagingUser(paneId,"UpdateUserProfileForm.fxml");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

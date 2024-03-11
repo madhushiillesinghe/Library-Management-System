@@ -50,13 +50,19 @@ public class UserProfileFormController implements Initializable {
     @FXML
     private TextField lbluserHey;
     @FXML
+    private TextField lblId;
+    @FXML
     public AnchorPane userPaneId;
+    @FXML
+    public AnchorPane AnchorPaneId;
+
 
     private static UserProfileFormController controller;
     public UserProfileFormController(){
         controller=this;
     }
     public  static UserProfileFormController  getInstance(){
+
         return controller;
     }
     
@@ -64,13 +70,13 @@ public class UserProfileFormController implements Initializable {
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
-    Navigation.switchPagingUserProfile(userPaneId, "UserProfileForm.fxml");
+    Navigation.switchPagingUser(userPaneId, "UserProfileForm.fxml");
     }
 
 
     @FXML
     void btnchangepasswordOrUsername(ActionEvent event) throws IOException {
-        UpdateUserProfileFormController.id=id;
+        UpdateUserProfileFormController.id= Integer.parseInt(lblId.getText());
         Navigation.switchPagingUserProfile(userPaneId, "UpdateUserProfileForm.fxml");
     }
     @FXML
@@ -100,7 +106,6 @@ public class UserProfileFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lbluserHey.setText(password);
-        System.out.println(lbluserHey.getText());
         setData();
     }
 
@@ -108,6 +113,7 @@ public class UserProfileFormController implements Initializable {
         try{
             UserDto userDto = userService.getData((id));
             System.out.println("userprofile id "+id);
+            lblId.setText(String.valueOf(userDto.getId()));
             lblTown.setText(userDto.getAddress().getCity());
             lblEmail.setText(userDto.getEmail());
             lblStreet.setText(userDto.getAddress().getStreet());

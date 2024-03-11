@@ -81,6 +81,7 @@ public class Navigation {
     }
     public static void switchPagingUserProfile(Pane pane, String path) throws IOException {
         pane.getChildren().clear();
+        //UserProfileFormController.getInstance().AnchorPaneId.setVisible(false);
         UserProfileFormController.getInstance().userPaneId.setVisible(true);
         FXMLLoader loader = new FXMLLoader(Navigation.class.getResource("/view/"+path));
         Parent root = loader.load();
