@@ -43,7 +43,7 @@ public class AddToCartBarFormController implements Initializable {
         try {
            BookDto bookDto= transactionService.getData(id);
           txtTransactionId.setText(String.valueOf(1));
-          txtId.setText(String.valueOf(bookDto.getId()));
+          txtId.setText(bookDto.getTitle());
           txtBorrowDate.setText(DateTimeUtil.dateNow());
           txtReturnDate.setText(DateTimeUtil.dateReturn());
 

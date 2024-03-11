@@ -64,9 +64,11 @@ public class AddTransactionFormController implements Initializable {
         txtBookName.clear();
         txtBorrowDate.clear();
         txtReturnDate.clear();
-
         String bookName=cmbBookName.getSelectionModel().getSelectedItem();
         bookList.add(bookName);
+        AllBookCartId();
+
+
 
     }
 
@@ -84,7 +86,6 @@ public class AddTransactionFormController implements Initializable {
         setCmbBoxDetail();
         txtBorrowDate.setText(DateTimeUtil.dateNow());
         txtReturnDate.setText(DateTimeUtil.dateReturn());
-        AllBookCartId();
 
     }
 
@@ -130,6 +131,8 @@ public class AddTransactionFormController implements Initializable {
             txtBookGenre.setText(book.getGenre());
             txtAuthor.setText(book.getAuthor());
 
+
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -152,6 +155,7 @@ public class AddTransactionFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setData();
         loadBookName();
+
     }
 
 }
