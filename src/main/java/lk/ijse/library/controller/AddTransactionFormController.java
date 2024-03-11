@@ -7,14 +7,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.service.TransactionService;
+import lk.ijse.library.service.impl.TransactionServiceImpl;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddTransactionFormController implements Initializable {
 
+    public static int id;
     @FXML
     private Button btnAddToCart;
 
@@ -36,10 +38,10 @@ public class AddTransactionFormController implements Initializable {
     @FXML
     private Label lblBookName;
 
-
-
     @FXML
     private VBox vBoxBookManage;
+
+    TransactionService transactionService=new TransactionServiceImpl();
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
@@ -62,20 +64,16 @@ public class AddTransactionFormController implements Initializable {
     }
 
     private void setData() {
-       /* BookDto book= null;
+        BookDto book= null;
         try {
-            book= bookService.getDtodata(id);
-            this.txtId.setText(String.valueOf(book.getId()));
-            txtName.setText(book.getTitle());
-            txtGerne.setText(book.getGenre());
-            if(book.getCount()>0) {
-                txtAvailability.setText("Available");
-            }else {
-                txtAvailability.setText("not available");
-            }
+            book= transactionService.getDtodata(id);
+            this.lblBookId.setText(String.valueOf(book.getId()));
+            lblBookName.setText(book.getTitle());
+            lblBookGenre.setText(book.getGenre());
+            lblAuthor.setText(book.getAuthor());
 
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }*/
+        }
     }
 }

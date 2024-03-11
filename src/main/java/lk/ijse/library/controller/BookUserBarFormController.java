@@ -28,6 +28,7 @@ public class BookUserBarFormController {
     @FXML
     void ViewBookOnMouseClick(MouseEvent event) throws IOException {
         ViewBookFormController.setId(Integer.parseInt((txtId.getText())));
+        AddTransactionFormController.id= Integer.parseInt(txtId.getText());
         Navigation.switchPagingUser(UserGlobalFormController.getInstance().paneId, "AddTransactionForm.fxml");
         System.out.println("view success");
     }
