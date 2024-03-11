@@ -21,14 +21,11 @@ public class ViewBookFormController implements Initializable {
     @FXML
     private Button btnCancel;
 
-    @FXML
-    private Label lblAdminId;
+
 
     @FXML
     private Label lblAuthor;
 
-    @FXML
-    private Label lblBookCount;
 
     @FXML
     private Label lblBookGenre;
@@ -57,10 +54,9 @@ setData();
     }
     private void setData() {
         try{
-            BookDto bookDto= bookService.getData((id));
+            BookDto bookDto= bookService.getDtodata((id));
             System.out.println("book dto "+bookDto);
             lblAuthor.setText(bookDto.getAuthor());
-            lblBookCount.setText(String.valueOf(bookDto.getCount()));
             lblBookId.setText(String.valueOf(bookDto.getId()));
             lblBookGenre.setText(bookDto.getGenre());
             lblBookName.setText(bookDto.getTitle());

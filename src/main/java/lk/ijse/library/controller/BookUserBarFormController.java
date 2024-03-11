@@ -39,11 +39,6 @@ public class BookUserBarFormController {
             this.txtId.setText(String.valueOf(book.getId()));
             txtName.setText(book.getTitle());
             txtGerne.setText(book.getGenre());
-            if(book.getCount()>0) {
-                txtAvailability.setText("Available");
-            }else {
-                txtAvailability.setText("not available");
-            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);

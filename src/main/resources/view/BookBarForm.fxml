@@ -8,22 +8,17 @@
 
 <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.BookBarFormController">
    <children>
-      <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
+      <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="129.25192260742188">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="156.81900024414062">
+      <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="240.81893920898438">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text fx:id="txtGenre" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="200.9127197265625">
-         <font>
-            <Font name="SansSerif Regular" size="16.0" />
-         </font>
-      </Text>
-      <Text fx:id="txtCount" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="131.91265869140625">
+      <Text fx:id="txtGenre" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="239.31280517578125">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>

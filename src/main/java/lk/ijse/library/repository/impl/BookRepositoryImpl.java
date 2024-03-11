@@ -1,6 +1,7 @@
 package lk.ijse.library.repository.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
+import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
 import org.hibernate.Session;
@@ -46,9 +47,14 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public Book getName(String name) {
-            Book book=session.get(Book.class,name);
-            return book;
+            String JPQLQuery="SELECT A FROM Book A WHERE A.title=:name";
+
+            Query query=session.createQuery(JPQLQuery)
+                    .setParameter("name",name);
+        return (Book) query.uniqueResult();
+
     }
+
 
     @Override
     public boolean delete(Book entity) {
@@ -66,8 +72,6 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public List<Integer> getAllBookIds() {
-
-
             CriteriaBuilder builder = session.getCriteriaBuilder();
             CriteriaQuery<Book> criteriaQuery=builder.createQuery(Book.class);
             Root<Book> root=criteriaQuery.from(Book.class);
@@ -84,7 +88,24 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return bookIds;
     }
+@Override
+    public List<String> getAllBookName() {
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Book> criteriaQuery = builder.createQuery(Book.class);
+        Root<Book> root = criteriaQuery.from(Book.class);
+        criteriaQuery.select(root);
 
+        List<Book> entities = session.createQuery(criteriaQuery).getResultList();
+        List<String> bookName = new ArrayList<>();
+        List<Book> bookList = new ArrayList<>();
+        for (int i = 0; i < entities.size(); i++) {
+            bookList.add(entities.get(i));
+        }
+        for (int i = 0; i < bookList.size(); i++) {
+            bookName.add(bookList.get(i).getTitle());
+        }
+        return bookName;
+    }
     @Override
     public void setSession(Session session) {
     this.session=session;

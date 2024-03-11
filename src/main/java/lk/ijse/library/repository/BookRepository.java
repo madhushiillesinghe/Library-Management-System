@@ -7,4 +7,5 @@ import java.util.List;
 public interface BookRepository extends CRUDRepository<Book>{
      List<Book> getAllBookId();
      List<Integer> getAllBookIds();
+     List<String> getAllBookName();
 }

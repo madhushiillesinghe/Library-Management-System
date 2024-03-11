@@ -16,6 +16,8 @@ public interface BookService {
     boolean deleteBook(BookDto bookDto);
      List<BookDto> getAllBookId();
      List<Integer> getAllBookName();
-    BookDto getData(int name);
+    BookDto getData(String name);
     BookDto getDtodata(int id);
+
+
 }

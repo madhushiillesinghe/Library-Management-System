@@ -52,11 +52,5 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="61.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book count">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Text>
-      <TextField fx:id="txtBookCount" layoutX="146.0" layoutY="251.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
    </children>
 </AnchorPane>

@@ -68,7 +68,7 @@ public class BookServiceImpl implements BookService {
         Transaction transaction=session.beginTransaction();
         try {
             bookRepository.setSession(session);
-            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getCount(),bookDto.getAdmin());
+            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getStatus(),bookDto.getAdmin());
             boolean isDelete= bookRepository.delete(book);
             transaction.commit();
             return  isDelete;
@@ -89,7 +89,7 @@ public class BookServiceImpl implements BookService {
             bookRepository.setSession(session);
             bookIds=bookRepository.getAllBookId();
             for(Book book:bookIds){
-                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount(),book.getAdmin()));
+                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),book.getAdmin()));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -118,13 +118,13 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public  BookDto getData(int id) {
+    public  BookDto getData(String id) {
      session = PropertiesConfig.getInstance().getSession();
 
      try{
          bookRepository.setSession(session);
-         Book  book = bookRepository.getId(id);
-         BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount(),book.getAdmin());
+         Book  book = bookRepository.getName(id);
+         BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),book.getAdmin());
          return bookDto;
      }catch (Exception e){
          e.printStackTrace();
@@ -141,7 +141,7 @@ public class BookServiceImpl implements BookService {
         try{
             bookRepository.setSession(session);
             Book  book = bookRepository.getId(id);
-            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getCount(),book.getAdmin());
+            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),book.getAdmin());
             return bookDto;
         }catch (Exception e){
             e.printStackTrace();
@@ -149,4 +149,6 @@ public class BookServiceImpl implements BookService {
         }finally {
             session.close();
         }    }
+
+
 }

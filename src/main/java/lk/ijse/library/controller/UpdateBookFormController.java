@@ -62,7 +62,6 @@ public class UpdateBookFormController implements Initializable {
 
         bookDto.setId(Integer.parseInt(txtBookId.getText()));
         bookDto.setAuthor(txtBookAuthor.getText());
-        bookDto.setCount(Integer.parseInt(txtBookCount.getText()));
         bookDto.setTitle(txtBookName.getText());
         bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
 
@@ -100,7 +99,6 @@ public class UpdateBookFormController implements Initializable {
         try{
             BookDto bookDto=bookService.getDtodata(UpdateBookFormController.id);
             txtBookAuthor.setText(bookDto.getAuthor());
-            txtBookCount.setText(String.valueOf(bookDto.getCount()));
             txtBookName.setText(bookDto.getTitle());
             txtBookId.setText(String.valueOf(bookDto.getId()));
 

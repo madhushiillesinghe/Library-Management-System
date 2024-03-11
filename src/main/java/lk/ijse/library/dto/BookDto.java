@@ -8,16 +8,19 @@ public class BookDto {
     private String title;
     private String genre;
     private String author;
-    private int count;
+
+
+
+    private String status;
    private Admin admin;
 
-    public BookDto(int id, String title, String genre, String author, int count,Admin admin) {
+    public BookDto(int id, String title, String genre, String author, String status,Admin admin) {
 
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.author = author;
-        this.count = count;
+        this.status = status;
         this.admin=admin;
 
     }
@@ -69,19 +72,19 @@ public class BookDto {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-    public int getCount() {
-        return count;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setStatus(String status) {
+        this.status = status;
     }
+
     public Book toEntity(){
         Book bookDto=new Book();
         bookDto.setId(this.id);
         bookDto.setAuthor(this.author);
-        bookDto.setCount(this.count);
+        bookDto.setGenre(this.status);
         bookDto.setTitle(this.title);
         bookDto.setGenre(this.genre);
         bookDto.setAdmin(this.admin);
@@ -96,7 +99,7 @@ public class BookDto {
                 ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
                 ", author='" + author + '\'' +
-                ", count=" + count +
+                ", count=" + status +
                 '}';
     }
 }

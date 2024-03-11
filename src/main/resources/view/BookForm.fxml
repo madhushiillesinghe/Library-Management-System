@@ -17,12 +17,12 @@
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="89.0" layoutY="43.0" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="105.25192260742188">
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="134.8519287109375">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="156.81900024414062">
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="188.01901245117188">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
@@ -32,12 +32,7 @@
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="149.5126953125">
-               <font>
-                  <Font name="SansSerif Regular" size="16.0" />
-               </font>
-            </Text>
-            <Text layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="119.91272735595703">
+            <Text layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="190.31275177001953">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>

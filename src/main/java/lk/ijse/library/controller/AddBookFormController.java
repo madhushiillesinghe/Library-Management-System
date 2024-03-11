@@ -37,8 +37,6 @@ public class AddBookFormController  implements Initializable {
     @FXML
     private TextField txtBookAuthor;
 
-    @FXML
-    private TextField txtBookCount;
 
     @FXML
     private TextField txtBookId;
@@ -53,9 +51,9 @@ public class AddBookFormController  implements Initializable {
 
         bookDto.setId(Integer.parseInt(txtBookId.getText()));
         bookDto.setAuthor(txtBookAuthor.getText());
-        bookDto.setCount(Integer.parseInt(txtBookCount.getText()));
         bookDto.setTitle(txtBookName.getText());
         bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
+        bookDto.setStatus("Available");
         bookDto.setAdmin(LoginFormController.adminDto.toEntity());
 
         try{

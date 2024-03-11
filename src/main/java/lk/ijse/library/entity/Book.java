@@ -16,8 +16,10 @@ public class Book {
     private String genre;
     @Column(name = "book_author")
     private String author;
-    @Column(name = "book_count")
-    private int count;
+
+
+    @Column(name = "book_status")
+    private String status;
     @ManyToOne
     @JoinColumn(name ="admin_Id" )
     private Admin admin;
@@ -25,12 +27,12 @@ public class Book {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "book")
     private List<TransactionDetail> transactionDetails=new ArrayList<>();
 
-    public Book(int id, String title, String genre, String author, int count,Admin admin) {
+    public Book(int id, String title, String genre, String author, String status,Admin admin) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.author = author;
-        this.count = count;
+        this.status = status;
         this.admin=admin;
     }
 
@@ -72,14 +74,14 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-    public int getCount() {
-        return count;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setStatus(String status) {
+        this.status = status;
     }
+
 
 
 
@@ -91,7 +93,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
                 ", author='" + author + '\'' +
-                ", count=" + count +
+                ", count=" + status +
                 '}';
     }
 

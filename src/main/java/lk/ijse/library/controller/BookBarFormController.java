@@ -57,13 +57,8 @@ public class BookBarFormController {
             book= bookService.getDtodata(id);
             this.txtId.setText(String.valueOf(book.getId()));
             txtName.setText(book.getTitle());
-            txtCount.setText(String.valueOf(book.getCount()));
             txtGenre.setText(book.getGenre());
-            if(book.getCount()>0) {
-                txtAvailability.setText("Available");
-            }else {
-                txtAvailability.setText("not available");
-            }
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);
