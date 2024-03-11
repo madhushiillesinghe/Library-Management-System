@@ -1,8 +1,10 @@
 package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
+import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.UserDto;
+import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Users;
 import lk.ijse.library.repository.AdminRepository;
@@ -167,6 +169,45 @@ public class UserServiceImpl implements UserService {
                     user.getAddress(),
                     user.getUserName(),
                     user.getPassword()
+            );
+            return userDto;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean checkUserNameAndPassword(String userName, String password) {
+        session= PropertiesConfig.getInstance().getSession();
+        try{
+            userRepository.setSession(session);
+
+            return userRepository.checkUserNameAndPassword(userName, password);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public UserDto getUserId(String userName) {
+        session= PropertiesConfig.getInstance().getSession();
+        try{
+            userRepository.setSession(session);
+            Users users= userRepository.getUserId(userName);
+            UserDto userDto=new UserDto(
+                    users.getId(),
+                    users.getName(),
+                    users.getEmail(),
+                    users.getMobileNo(),
+                    users.getAddress(),
+                    users.getUserName(),
+                    users.getPassword()
             );
             return userDto;
         }catch (Exception e){

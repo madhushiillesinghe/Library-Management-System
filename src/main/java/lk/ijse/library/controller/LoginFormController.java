@@ -55,10 +55,5 @@ public class LoginFormController {
     Navigation.switchNavigation("SignUpAdminForm.fxml",event);
     }
 
-    @FXML
-    void UserAccountSignUpOnMouseClick(MouseEvent event) throws IOException {
-        Navigation.switchNavigation("SignUpUserForm.fxml",event);
-
-    }
     }
 

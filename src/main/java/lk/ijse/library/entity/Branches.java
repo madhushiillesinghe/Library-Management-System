@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Branches {
     @Id
     @Column(name = "branch_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "branch_location")
     private String location;

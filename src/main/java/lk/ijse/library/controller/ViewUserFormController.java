@@ -21,8 +21,6 @@ public class ViewUserFormController implements Initializable {
     @FXML
     private Button btnCancel;
 
-
-
     @FXML
     private Label lblCity;
 

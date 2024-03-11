@@ -4,9 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import lk.ijse.library.util.Navigation;
+
+import java.io.IOException;
 
 public class UpdateUserProfileFormController {
 
+    public static int id;
     @FXML
     private Button btnBack;
 
@@ -45,12 +49,12 @@ public class UpdateUserProfileFormController {
 
     @FXML
     void btnBackOnAction(ActionEvent event) {
-
+        Navigation.adminClosePaneUser();
     }
 
     @FXML
-    void btnLogout(ActionEvent event) {
-
+    void btnLogout(ActionEvent event) throws IOException {
+    Navigation.switchNavigation("LoginForm.fxml",event);
     }
 
     @FXML
@@ -60,7 +64,6 @@ public class UpdateUserProfileFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
     }
 
     @FXML

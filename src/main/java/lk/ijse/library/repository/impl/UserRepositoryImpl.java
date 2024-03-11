@@ -1,5 +1,6 @@
 package lk.ijse.library.repository.impl;
 
+import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Users;
 import lk.ijse.library.repository.UserRepository;
@@ -89,4 +90,30 @@ public class UserRepositoryImpl implements UserRepository {
         }
         return userIds;
     }
+
+    @Override
+    public boolean checkUserNameAndPassword(String userName, String password) {
+        String JPQLQuery ="SELECT count(A)" +
+                "FROM Users A " +
+                "WHERE A.userName=:userName " +
+                "AND A.password=:password";
+
+        Query query = session.createQuery(JPQLQuery)
+                .setParameter("userName", userName)
+                .setParameter("password", password);
+
+        Long count = (Long) query.uniqueResult();
+        return count>0 ;
+    }
+
+    @Override
+    public Users getUserId(String userName) {
+        String JPQLQuery="SELECT A FROM Users A " +
+                "WHERE A.userName=:username";
+
+        Query query = session.createQuery(JPQLQuery)
+                .setParameter("username",userName);
+        return (Users) query.uniqueResult();
+    }
+
 }

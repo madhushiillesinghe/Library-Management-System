@@ -2,15 +2,22 @@ package lk.ijse.library.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.library.dto.UserDto;
+import lk.ijse.library.service.UserService;
+import lk.ijse.library.service.impl.UserServiceImpl;
 import lk.ijse.library.util.Navigation;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class UserProfileFormController {
+public class UserProfileFormController implements Initializable {
 
+    public static int id;
     @FXML
     private Button btnBack;
 
@@ -50,16 +57,18 @@ public class UserProfileFormController {
     public  static UserProfileFormController  getInstance(){
         return controller;
     }
+    
+    UserService userService=new UserServiceImpl();
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
-    Navigation.
-            switchPagingUserProfile(userPaneId, "UserProfileForm.fxml");
+    Navigation.switchPagingUserProfile(userPaneId, "UserProfileForm.fxml");
     }
 
 
     @FXML
     void btnchangepasswordOrUsername(ActionEvent event) throws IOException {
+        UpdateUserProfileFormController.id=id;
         Navigation.switchPagingUserProfile(userPaneId, "UpdateUserProfileForm.fxml");
     }
     @FXML
@@ -68,7 +77,7 @@ public class UserProfileFormController {
     }
     @FXML
     void btnLogout(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("LoginForm.fxml",event);
+        Navigation.switchNavigation("UserOrAdminForm.fxml",event);
     }
 
     @FXML
@@ -76,4 +85,26 @@ public class UserProfileFormController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setData();
+    }
+
+    private void setData() {
+        try{
+            UserDto userDto = userService.getData((id));
+            System.out.println("userprofile id "+id);
+            lblTown.setText(userDto.getAddress().getCity());
+            lblEmail.setText(userDto.getEmail());
+            lblStreet.setText(userDto.getAddress().getStreet());
+            lblFullName.setText(userDto.getName().getFirstName());
+            lblPassword.setText(userDto.getPassword());
+            lblHomeMobile.setText(userDto.getMobileNo().getMobileNo());
+            lblMobileNo.setText(userDto.getMobileNo().getMobileNo());
+            lblUserName.setText(userDto.getUserName());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

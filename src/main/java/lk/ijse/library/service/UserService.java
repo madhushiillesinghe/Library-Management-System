@@ -14,4 +14,7 @@ public interface UserService {
     List<Integer> getAllUserName();
     UserDto getData(int name);
     UserDto getDtodata(int id);
+    boolean checkUserNameAndPassword(String userName,String password);
+    UserDto getUserId(String userName);
+
 }

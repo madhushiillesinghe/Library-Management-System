@@ -61,7 +61,7 @@ public class UserGlobalFormController implements Initializable {
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("LoginForm.fxml",event);
+        Navigation.switchNavigation("UserOrAdminForm.fxml",event);
     }
 
     @FXML
