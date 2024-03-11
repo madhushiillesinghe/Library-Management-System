@@ -3,6 +3,7 @@ package lk.ijse.library.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -73,6 +74,16 @@ public class UserProfileFormController implements Initializable {
     }
     @FXML
     void deleteAccount(ActionEvent event) {
+        try {
+
+            UserDto userDto=userService.getDtodata(id);
+            boolean isDeleted = userService.deleteUser(userDto);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "User deleted").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
 
     }
     @FXML
