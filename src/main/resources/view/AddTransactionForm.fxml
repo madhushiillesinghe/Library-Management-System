@@ -34,7 +34,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Button fx:id="btnAddToCart" layoutX="770.0" layoutY="85.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" style="-fx-background-color: #a14a08;" text="ADD TO CART" textFill="#ebd6d6">
+      <Button fx:id="btnAddToCart" layoutX="1024.0" layoutY="98.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" style="-fx-background-color: #a14a08;" text="ADD TO CART" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -82,5 +82,17 @@
       <TextField fx:id="txtBookName" layoutX="296.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
       <TextField fx:id="txtAuthor" layoutX="522.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
       <TextField fx:id="txtBookGenre" layoutX="789.0" layoutY="18.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtBorrowDate" layoutX="410.0" layoutY="85.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="331.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow date">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtReturnDate" layoutX="756.0" layoutY="85.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="659.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.YearMonth;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +19,11 @@ public class DateTimeUtil {
         SimpleDateFormat dateFormat=new SimpleDateFormat("hh:mm:ss");
         return dateFormat.format(new Date()) ;
     }
-
+    public static String dateReturn() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, 30);
+        return format.format(calendar.getTime());
+    }
 
 }
