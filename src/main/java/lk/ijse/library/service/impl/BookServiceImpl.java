@@ -6,8 +6,6 @@ import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
 import lk.ijse.library.repository.DAOFactory;
-import lk.ijse.library.repository.impl.BookRepositoryImpl;
-import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -19,16 +17,13 @@ public class BookServiceImpl implements BookService {
 
     private  Session session;
     private final BookRepository bookRepository;
-    private static BookService bookService;
-
     public BookServiceImpl() {
         bookRepository = (BookRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BOOK);
     }
-
     @Override
     public boolean saveBook(BookDto bookDto){
-         session= PropertiesConfig.getInstance().getSession();
-          Transaction transaction=session.beginTransaction();
+        session= PropertiesConfig.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
         try{
             bookRepository.setSession(session);
             boolean isSaved= bookRepository.save(bookDto.toEntity());
@@ -68,7 +63,13 @@ public class BookServiceImpl implements BookService {
         try {
             bookRepository.setSession(session);
 
-            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getStatus(),bookDto.getAdmin().toEntity());
+            Book book=new Book(bookDto.getId()
+                    ,bookDto.getTitle()
+                    ,bookDto.getGenre()
+                    ,bookDto.getAuthor()
+                    ,bookDto.getStatus()
+                    ,bookDto.getAdmin().toEntity()
+            );
             boolean isDelete= bookRepository.delete(book);
             transaction.commit();
             return  isDelete;
@@ -84,7 +85,7 @@ public class BookServiceImpl implements BookService {
     public  List<BookDto> getAllBookId() {
         List<Book> bookIds = new ArrayList<>();
         List<BookDto> bookIdsDto=new ArrayList<>();
-         session = PropertiesConfig.getInstance().getSession();
+        session = PropertiesConfig.getInstance().getSession();
         try {
             bookRepository.setSession(session);
             bookIds=bookRepository.getAllBookId();
@@ -96,7 +97,12 @@ public class BookServiceImpl implements BookService {
                         ,book.getAdmin().getAddress()
                         ,book.getAdmin().getUserName()
                         ,book.getAdmin().getPassword());
-                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),adminDto));
+                bookIdsDto.add(new BookDto(book.getId()
+                        ,book.getTitle(),
+                        book.getGenre(),
+                        book.getAuthor(),
+                        book.getStatus(),
+                        adminDto));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -110,11 +116,9 @@ public class BookServiceImpl implements BookService {
     public List<Integer> getAllBookName() {
         session = PropertiesConfig.getInstance().getSession();
         List<Integer> bookIds=new ArrayList<>();
-
         try {
             bookRepository.setSession(session);
             bookIds=bookRepository.getAllBookIds();
-
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -123,15 +127,12 @@ public class BookServiceImpl implements BookService {
         return bookIds;
     }
 
-
     @Override
     public  BookDto getData(String id) {
      session = PropertiesConfig.getInstance().getSession();
-
      try{
          bookRepository.setSession(session);
          Book  book = bookRepository.getName(id);
-
          AdminDto adminDto=new AdminDto(book.getAdmin().getId()
                  ,book.getAdmin().getName()
                  ,book.getAdmin().getEmail()
@@ -139,7 +140,12 @@ public class BookServiceImpl implements BookService {
                  ,book.getAdmin().getAddress()
                  ,book.getAdmin().getUserName()
                  ,book.getAdmin().getPassword());
-         BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),adminDto);
+         BookDto bookDto=new BookDto(book.getId()
+                 ,book.getTitle(),
+                 book.getGenre(),
+                 book.getAuthor(),
+                 book.getStatus(),
+                 adminDto);
          return bookDto;
      }catch (Exception e){
          e.printStackTrace();
@@ -152,26 +158,30 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookDto getDtodata(int id) {
         session = PropertiesConfig.getInstance().getSession();
-
         try{
-            bookRepository.setSession(session);
-            Book  book = bookRepository.getId(id);
-
-            AdminDto adminDto=new AdminDto(book.getAdmin().getId()
-                    ,book.getAdmin().getName()
-                    ,book.getAdmin().getEmail()
-                    ,book.getAdmin().getMobileNo()
-                    ,book.getAdmin().getAddress()
-                    ,book.getAdmin().getUserName()
-                    ,book.getAdmin().getPassword());
-            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),adminDto);
-            return bookDto;
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }finally {
-            session.close();
-        }    }
+                bookRepository.setSession(session);
+                Book  book = bookRepository.getId(id);
+                AdminDto adminDto=new AdminDto(book.getAdmin().getId()
+                        ,book.getAdmin().getName()
+                        ,book.getAdmin().getEmail()
+                        ,book.getAdmin().getMobileNo()
+                        ,book.getAdmin().getAddress()
+                        ,book.getAdmin().getUserName()
+                        ,book.getAdmin().getPassword());
+                BookDto bookDto=new BookDto(book.getId()
+                        ,book.getTitle()
+                        ,book.getGenre()
+                        ,book.getAuthor()
+                        ,book.getStatus()
+                        ,adminDto);
+                return bookDto;
+            }catch (Exception e){
+                e.printStackTrace();
+                return null;
+            }finally {
+                session.close();
+        }
+    }
 
     @Override
     public boolean updateBorrowBook(BookDto bookDto) {
@@ -190,6 +200,4 @@ public class BookServiceImpl implements BookService {
             session.close();
         }
     }
-
-
 }

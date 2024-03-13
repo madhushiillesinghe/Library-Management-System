@@ -29,7 +29,6 @@ public class TransactionServiceImpl implements TransactionService {
     private final BookRepository bookRepository;
     private  final TransactionRepository transactionRepository;
     private final TransactionDetailRepository transactionDetailRepository;
-    private static TransactionService transactionService;
 
     public TransactionServiceImpl() {
         bookRepository = (BookRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BOOK);
@@ -108,55 +107,6 @@ public class TransactionServiceImpl implements TransactionService {
         }
     }
 
-    @Override
-    public boolean saveTransaction(TransactionDto transactionDto) {
-      /*  lk.ijse.library.entity.Transaction transactionEntity=new lk.ijse.library.entity.Transaction();
-        transactionEntity.setUsers(transactionDto.getUsers().toEntity());
-        transactionEntity.setReturnDate(transactionDto.getReturnDate());
-        transactionEntity.setStatus(transactionDto.getStatus());
-        transactionEntity.setId(transactionDto.getId());
-        transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
-
-        session=PropertiesConfig.getInstance().getSession();
-        Transaction borrowtransaction =session.beginTransaction();
-        transactionRepository.setSession(session);
-        transactionRepository.save(transactionEntity);
-
-        for(BookDto borrowBook: AddTransactionFormController.getInstance().bookBorrow){
-            bookRepository.setSession(session);
-            bookRepository.update(new Book(borrowBook.getId()
-            ,borrowBook.getTitle()
-            ,borrowBook.getGenre()
-            ,borrowBook.getAuthor()
-            ,borrowBook.getStatus()
-            ,borrowBook.toEntity().getAdmin()));
-
-            TransactionDetail transactionDetail=new TransactionDetail();
-            transactionDetail.setTransaction(transactionEntity);
-                    Book book=new Book(borrowBook.getId()
-                    ,borrowBook.getTitle()
-                    ,borrowBook.getGenre()
-                    ,borrowBook.getAuthor()
-                    ,borrowBook.getStatus()
-                    ,borrowBook.toEntity().getAdmin());
-            transactionDetail.setBook(book);
-
-            transactionDetail.setTransactionDetailPrimaryKey(new TransactionDetailPrimaryKey(transactionEntity.getId(),book.getId()));
-            transactionDetailRepository.setSession(session);
-            transactionDetailRepository.save(transactionDetail);
-        }
-        try{
-            borrowtransaction.commit();
-            return true;
-        }catch (Exception e){
-            borrowtransaction.rollback();
-            e.printStackTrace();
-            return false;
-        }finally {
-            session.close();*/
-        return false;
-
-    }
 
     @Override
     public boolean saveUserBookBorrow(TransactionDto transactionDto, List<BookDto> bookList) {

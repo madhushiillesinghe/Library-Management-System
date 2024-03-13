@@ -5,21 +5,16 @@ import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.entity.Admin;
 import lk.ijse.library.repository.AdminRepository;
 import lk.ijse.library.repository.DAOFactory;
-import lk.ijse.library.repository.impl.AdminRepositoryImpl;
 import lk.ijse.library.service.AdminService;
-import lk.ijse.library.service.BoFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class AdminServiceImpl implements AdminService {
     private Session session;
     private final AdminRepository adminRepository;
-    private static AdminService adminService;
-
     public AdminServiceImpl(){
         adminRepository = (AdminRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.ADMIN);
     }
-
     @Override
     public boolean saveAdmin(AdminDto adminDto) {
         session= PropertiesConfig.getInstance().getSession();
@@ -37,13 +32,11 @@ public class AdminServiceImpl implements AdminService {
             session.close();
         }
     }
-
     @Override
     public boolean checkUserNameAndPassword(String userName, String password) {
         session= PropertiesConfig.getInstance().getSession();
         try{
             adminRepository.setSession(session);
-
             return adminRepository.checkUserNameAndPassword(userName, password);
         }catch (Exception e){
             e.printStackTrace();
@@ -52,7 +45,6 @@ public class AdminServiceImpl implements AdminService {
             session.close();
         }
     }
-
     @Override
     public AdminDto getAdminId(String userName) {
         session= PropertiesConfig.getInstance().getSession();
@@ -76,22 +68,4 @@ public class AdminServiceImpl implements AdminService {
             session.close();
         }
     }
-
-   /* @Override
-    public AdminDto getAdmin(int id) {
-        session= PropertiesConfig.getInstance().getSession();
-        try{
-            adminRepository.setSession(session);
-            Admin admin=session.get(Admin.class,id);
-            AdminDto adminDto=new AdminDto(admin.getId(),admin.getName(),admin.getEmail(),admin.getMobileNo(),admin.getAddress(),admin.getUserName(),admin.getPassword());
-            return adminDto;
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }finally {
-            session.close();
-        }
-    }*/
-
-
 }
