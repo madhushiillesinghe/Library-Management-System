@@ -11,6 +11,7 @@ import lk.ijse.library.embedded.Address;
 import lk.ijse.library.embedded.MobileNo;
 import lk.ijse.library.embedded.Name;
 import lk.ijse.library.service.AdminService;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.impl.AdminServiceImpl;
 import lk.ijse.library.util.Navigation;
 
@@ -51,7 +52,7 @@ public class SignUpAdminFormController {
 
     @FXML
     private TextField txtUserName;
-    AdminService adminService=new AdminServiceImpl();
+    AdminService adminService= (AdminService) BoFactory.getBoFactory().getBo(BoFactory.BOType.ADMIN);
     @FXML
     void btnSignUpOnAction(ActionEvent event) {
 

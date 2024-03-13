@@ -9,7 +9,7 @@ public class DAOFactory {
         return (daOFactory==null) ? daOFactory=new DAOFactory():daOFactory;
     }
     public enum DAOType{
-        ADMIN,USERS,BOOK,BRANCH,TRANSACTION,TRANSACTIONDETAIL
+        ADMIN,USERS,BOOK,BRANCH,TRANSACTION,TRANSACTIONDETAIL,DASHBOARD
     }
     public SuperRepository getDao(DAOType daoType) {
         switch (daoType) {
@@ -19,6 +19,7 @@ public class DAOFactory {
             case BRANCH:return new BranchRepositoryImpl();
             case TRANSACTION:return new TransactionRepositoryImpl();
             case TRANSACTIONDETAIL:return new TransactionDetailRepositoryImpl();
+            case DASHBOARD:return new DashboardRepositoryImpl();
             default:return null;
         }
     }

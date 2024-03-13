@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -28,7 +29,7 @@ public class BookFormController implements Initializable {
     @FXML
     private VBox vBoxBookManage;
 
-    BookService bookService=new BookServiceImpl();
+    BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
 
     private static BookFormController controller;
     public BookFormController(){

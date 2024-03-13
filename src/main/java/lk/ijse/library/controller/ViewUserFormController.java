@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.UserDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.UserService;
 import lk.ijse.library.service.impl.UserServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -49,7 +50,7 @@ public class ViewUserFormController implements Initializable {
     private Label lblUserName;
     @FXML
     private TextField lblEmail;
-    UserService userService=new UserServiceImpl();
+    UserService userService= (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS);
     public static void setId(int id) {
         ViewUserFormController.id=id;
 

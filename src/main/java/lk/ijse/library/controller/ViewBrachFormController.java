@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.BranchDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.BranchService;
 import lk.ijse.library.service.impl.BookServiceImpl;
@@ -33,7 +34,7 @@ public class ViewBrachFormController implements Initializable {
 
     @FXML
     private Label lblLocation;
-    BranchService branchService=new BranchServiceImpl();
+    BranchService branchService= (BranchService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BRANCH);
     public static void setId(int id) {
         ViewBrachFormController.id=id;
 

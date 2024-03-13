@@ -114,6 +114,7 @@ public class TransactionServiceImpl implements TransactionService {
         boolean result=false;
         session=PropertiesConfig.getInstance().getSession();
         Transaction borrowtransaction =session.beginTransaction();
+
         try{
             transactionRepository.setSession(session);
             lk.ijse.library.entity.Transaction transactionEntity=new lk.ijse.library.entity.Transaction();
@@ -124,7 +125,9 @@ public class TransactionServiceImpl implements TransactionService {
             transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
 
             boolean isSavedTransaction=transactionRepository.save(transactionEntity);
+
             if(isSavedTransaction){
+
                 bookRepository.setSession(session);
                 boolean isBookUpdated=bookRepository.UpdateTransactionBook(bookList);
                 if(isBookUpdated){

@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.library.dto.BranchDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BranchService;
 import lk.ijse.library.service.impl.BranchServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -24,7 +25,7 @@ public class BranchBarFormController {
 
     @FXML
     private Text txtId;
-BranchService branchService=new BranchServiceImpl();
+    BranchService branchService= (BranchService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BRANCH);
 
     @FXML
     void deleteMouseClick(MouseEvent event) {

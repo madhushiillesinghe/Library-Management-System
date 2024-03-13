@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -28,7 +29,7 @@ public class BookBarFormController {
 
     @FXML
     private Text txtName;
-    BookService bookService=new BookServiceImpl();
+    BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
 
 
     @FXML

@@ -6,6 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.UserDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.UserService;
 import lk.ijse.library.service.impl.UserServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -24,7 +25,7 @@ public class UserBarFormController {
 
     @FXML
     private Text txtName;
-    UserService userService=new UserServiceImpl();
+    UserService userService= (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS);
 
 
     @FXML

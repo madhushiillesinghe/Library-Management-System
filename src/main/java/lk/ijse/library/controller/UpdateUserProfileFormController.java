@@ -10,6 +10,7 @@ import lk.ijse.library.dto.UserDto;
 import lk.ijse.library.embedded.Address;
 import lk.ijse.library.embedded.MobileNo;
 import lk.ijse.library.embedded.Name;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.UserService;
 import lk.ijse.library.service.impl.UserServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -61,7 +62,7 @@ public class UpdateUserProfileFormController implements Initializable {
 
     @FXML
     private TextField txtUserName;
-    UserService userService=new UserServiceImpl();
+    UserService userService= (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS);
 
 
     @FXML

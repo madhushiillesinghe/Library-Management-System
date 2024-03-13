@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import lk.ijse.library.dto.BranchDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BranchService;
 import lk.ijse.library.service.impl.BranchServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -24,7 +25,7 @@ public class BranchesFormController implements Initializable {
 
     @FXML
     private VBox vBoxBrachesManage;
-   BranchService branchService=new BranchServiceImpl();
+    BranchService branchService= (BranchService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BRANCH);
     private static BranchesFormController controller;
     public BranchesFormController(){
         controller=this;

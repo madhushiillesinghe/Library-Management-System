@@ -18,6 +18,7 @@ import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.TransactionDetailDto;
 import lk.ijse.library.dto.TransactionDto;
 import lk.ijse.library.entity.Users;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
 import lk.ijse.library.service.impl.TransactionServiceImpl;
 import lk.ijse.library.util.DateTimeUtil;
@@ -59,7 +60,7 @@ public class AddTransactionFormController implements Initializable {
     private VBox vBoxBookManage;
     public static int id;
     List<String> bookList=new ArrayList<>();
-    TransactionService transactionService=new TransactionServiceImpl();
+    TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
@@ -94,7 +95,6 @@ public class AddTransactionFormController implements Initializable {
 
         transactionDetailDto.setTransaction(transactionDto);
         transactionDetailDto.setBook(bookDto);
-        System.out.println("transaction detail dto"+transactionDetailDto);
 
 
         boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookList,transactionDetailDto);

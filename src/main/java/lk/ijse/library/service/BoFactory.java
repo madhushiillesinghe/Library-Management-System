@@ -11,7 +11,7 @@ public class BoFactory {
         return (boFactory==null)?boFactory=new BoFactory():boFactory;
     }
     public enum BOType{
-        ADMIN,USERS,BOOK,BRANCH,TRANSACTION
+        ADMIN,USERS,BOOK,BRANCH,TRANSACTION,DASHBOARD
     }
     public  SuperService getBo(BOType boType){
         switch (boType){
@@ -20,6 +20,7 @@ public class BoFactory {
             case TRANSACTION:return new TransactionServiceImpl();
             case BRANCH:return new BranchServiceImpl();
             case BOOK:return new BookServiceImpl();
+            case DASHBOARD:return new DashboardServiceImpl();
             default: return null;
         }
 

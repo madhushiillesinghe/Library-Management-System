@@ -73,7 +73,7 @@ public class AdminGlobalFormController implements Initializable {
     }
     @FXML
     void btnBorrowandReturnOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(paneId,"TransactionFormController");
+        Navigation.switchPaging(paneId,"TransactionForm.fxml");
 
     }
     @Override

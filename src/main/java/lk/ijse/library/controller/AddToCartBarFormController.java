@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
 import lk.ijse.library.service.impl.TransactionServiceImpl;
 import lk.ijse.library.util.DateTimeUtil;
@@ -25,8 +26,7 @@ public class AddToCartBarFormController implements Initializable {
 
     @FXML
     private Text txtTransactionId;
-    TransactionService transactionService=new TransactionServiceImpl();
-    AddTransactionFormController addTransactionFormController=new AddTransactionFormController();
+    TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
     @FXML
     void deleteOnMouseClick(MouseEvent event) {

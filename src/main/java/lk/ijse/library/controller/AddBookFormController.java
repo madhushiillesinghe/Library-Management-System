@@ -11,6 +11,7 @@ import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Admin;
 import lk.ijse.library.service.AdminService;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.AdminServiceImpl;
 import lk.ijse.library.service.impl.BookServiceImpl;
@@ -22,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class AddBookFormController  implements Initializable {
 
-    BookService bookService=new BookServiceImpl();
+    BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
 
     @FXML
     private Button btnAdd;

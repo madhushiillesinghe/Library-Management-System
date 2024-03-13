@@ -58,10 +58,9 @@ public class BookRepositoryImpl implements BookRepository {
                 Query query = session.createQuery(JPQLQuery)
                         .setParameter("bookName", bookName)
                         .setParameter("status",status);
-                     // boolean isUpdated= (boolean) query.uniqueResult();
-                      return true;
+                     Book book= (Book) query.getResultList();
             }
-        return false;
+        return true;
     }
 
     @Override

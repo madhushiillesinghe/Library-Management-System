@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.UserDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.UserService;
 import lk.ijse.library.service.impl.UserServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -65,8 +66,8 @@ public class UserProfileFormController implements Initializable {
 
         return controller;
     }
-    
-    UserService userService=new UserServiceImpl();
+
+    UserService userService= (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS);
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {

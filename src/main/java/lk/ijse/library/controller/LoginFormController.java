@@ -12,6 +12,7 @@ import lk.ijse.library.embedded.MobileNo;
 import lk.ijse.library.embedded.Name;
 import lk.ijse.library.entity.Admin;
 import lk.ijse.library.service.AdminService;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.impl.AdminServiceImpl;
 import lk.ijse.library.util.Navigation;
 
@@ -30,7 +31,7 @@ public class LoginFormController {
     @FXML
     private TextField txtUserName;
     public static AdminDto adminDto;
-    AdminService adminService=new AdminServiceImpl();
+    AdminService adminService= (AdminService) BoFactory.getBoFactory().getBo(BoFactory.BOType.ADMIN);
 
 
 

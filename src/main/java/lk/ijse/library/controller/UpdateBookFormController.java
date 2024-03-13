@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Book;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -43,7 +44,7 @@ public class UpdateBookFormController implements Initializable {
     @FXML
     private TextField txtBookName;
 
-    BookService bookService=new BookServiceImpl();
+    BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
     public static int id;
 
     public static void setId(int id){

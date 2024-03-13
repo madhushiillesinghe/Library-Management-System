@@ -4,6 +4,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import lk.ijse.library.service.impl.BookServiceImpl;
 import lk.ijse.library.util.Navigation;
@@ -23,7 +24,7 @@ public class BookUserBarFormController {
 
     @FXML
     private Text txtName;
-    BookService bookService=new BookServiceImpl();
+    BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
 
     @FXML
     void ViewBookOnMouseClick(MouseEvent event) throws IOException {
