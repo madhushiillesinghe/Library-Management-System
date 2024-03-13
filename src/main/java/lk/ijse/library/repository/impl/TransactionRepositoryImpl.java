@@ -7,14 +7,9 @@ import org.hibernate.Session;
 
 public class TransactionRepositoryImpl implements TransactionRepository {
     private Session session;
-    private static TransactionRepositoryImpl transactionRepository;
     public TransactionRepositoryImpl() {
     }
-    public static TransactionRepositoryImpl getInstance() {
-        return null == transactionRepository
-                ? transactionRepository = (TransactionRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.TRANSACTION)
-                : transactionRepository;
-    }
+
 
 
     @Override

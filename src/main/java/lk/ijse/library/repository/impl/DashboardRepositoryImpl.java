@@ -16,11 +16,7 @@ public class DashboardRepositoryImpl implements DashboardRepository {
     public DashboardRepositoryImpl(){
 
     }
-    public static DashboardRepositoryImpl getInstance() {
-        return null == dashboardRepository
-                ? dashboardRepository = (DashboardRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.DASHBOARD)
-                : dashboardRepository;
-    }
+
     @Override
     public ObservableList<PieChart.Data> getProductDataForPieChart() {
         ObservableList<PieChart.Data> productdata= FXCollections.observableArrayList();

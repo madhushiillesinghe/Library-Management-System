@@ -7,6 +7,7 @@ import javafx.scene.chart.PieChart;
 import lk.ijse.library.config.PropertiesConfig;
 import lk.ijse.library.dto.UserDto;
 import lk.ijse.library.entity.Users;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.DashboardRepository;
 import lk.ijse.library.repository.TransactionRepository;
 import lk.ijse.library.repository.UserRepository;
@@ -27,13 +28,9 @@ public class DashboardServiceImpl implements DashboardService  {
         private static DashboardService dashboardService;
 
     public DashboardServiceImpl (){
-        dashboardRepository= DashboardRepositoryImpl.getInstance();
+        dashboardRepository= (DashboardRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.DASHBOARD);
     }
-    public static DashboardService getInstance() {
-        return null ==dashboardService
-                ? dashboardService = (DashboardService) BoFactory.getBoFactory().getBo(BoFactory.BOType.DASHBOARD)
-                : dashboardService;
-    }
+
 
 
     @Override

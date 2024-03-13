@@ -8,6 +8,7 @@ import lk.ijse.library.dto.TransactionDto;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.TransactionDetail;
 import lk.ijse.library.repository.BookRepository;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.TransactionDetailRepository;
 import lk.ijse.library.repository.TransactionRepository;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
@@ -29,16 +30,12 @@ public class TransactionServiceImpl implements TransactionService {
     private static TransactionService transactionService;
 
     public TransactionServiceImpl() {
-        bookRepository = BookRepositoryImpl.getInstance();
-        transactionRepository= TransactionRepositoryImpl.getInstance();
-        transactionDetailRepository= TransactionDetailRepositoryImpl.getInstance();
+        bookRepository = (BookRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BOOK);
+        transactionRepository= (TransactionRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.TRANSACTION);
+        transactionDetailRepository= (TransactionDetailRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.TRANSACTIONDETAIL);
 
     }
-    public static TransactionService getInstance() {
-        return null ==transactionService
-                ? transactionService = (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION)
-                : transactionService;
-    }
+
     @Override
     public BookDto getDtodata(int id) {
         session = PropertiesConfig.getInstance().getSession();

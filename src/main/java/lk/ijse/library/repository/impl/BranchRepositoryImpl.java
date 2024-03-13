@@ -15,14 +15,9 @@ import java.util.List;
 
 public class BranchRepositoryImpl implements BranchRepository {
     private Session session;
-    private static BranchRepositoryImpl branchRepositoryImpl;
     public BranchRepositoryImpl() {
     }
-    public static BranchRepositoryImpl getInstance() {
-        return null == branchRepositoryImpl
-                ? branchRepositoryImpl= (BranchRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BRANCH)
-                : branchRepositoryImpl;
-    }
+
 
 
     @Override

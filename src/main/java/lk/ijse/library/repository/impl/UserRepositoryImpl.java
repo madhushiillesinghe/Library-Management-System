@@ -16,15 +16,10 @@ import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
     private Session session;
-    private static UserRepositoryImpl userRepositoryImpl;
     public UserRepositoryImpl(){
 
     }
-    public static UserRepositoryImpl getInstance() {
-        return null == userRepositoryImpl
-                ? userRepositoryImpl = (UserRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.USERS)
-                : userRepositoryImpl;
-    }
+
     @Override
     public boolean save(Users entity) {
             session.save(entity);

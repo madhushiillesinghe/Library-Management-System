@@ -5,6 +5,7 @@ import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BranchDto;
 import lk.ijse.library.entity.Branches;
 import lk.ijse.library.repository.BranchRepository;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.impl.BranchRepositoryImpl;
 import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BranchService;
@@ -20,13 +21,9 @@ public class BranchServiceImpl implements BranchService {
     private static BranchService branchService;
 
     public BranchServiceImpl() {
-        branchRepository = BranchRepositoryImpl.getInstance();
+        branchRepository = (BranchRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BRANCH);
     }
-    public static BranchService getInstance() {
-        return null ==branchService
-                ? branchService = (BranchService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BRANCH)
-                : branchService;
-    }
+
     @Override
     public boolean saveBranch(BranchDto branchDto) {
 

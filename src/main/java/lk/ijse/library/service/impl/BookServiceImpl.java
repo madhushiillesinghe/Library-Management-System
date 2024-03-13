@@ -5,6 +5,7 @@ import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
 import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
@@ -21,13 +22,9 @@ public class BookServiceImpl implements BookService {
     private static BookService bookService;
 
     public BookServiceImpl() {
-        bookRepository = BookRepositoryImpl.getInstance();
+        bookRepository = (BookRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BOOK);
     }
-    public static BookService getInstance() {
-        return null ==bookService
-                ? bookService = (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK)
-                : bookService;
-    }
+
     @Override
     public boolean saveBook(BookDto bookDto){
          session= PropertiesConfig.getInstance().getSession();

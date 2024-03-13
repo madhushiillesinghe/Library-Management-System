@@ -8,6 +8,7 @@ import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Users;
 import lk.ijse.library.repository.AdminRepository;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.UserRepository;
 import lk.ijse.library.repository.impl.AdminRepositoryImpl;
 import lk.ijse.library.repository.impl.UserRepositoryImpl;
@@ -26,13 +27,9 @@ public class UserServiceImpl implements UserService {
     private static UserService userService;
 
     public UserServiceImpl(){
-        userRepository = UserRepositoryImpl.getInstance();
+        userRepository = (UserRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.USERS);
     }
-    public static UserService getInstance() {
-        return null ==userService
-                ? userService = (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS)
-                : userService;
-    }
+
     @Override
     public boolean saveUser(UserDto userDto) {
         session= PropertiesConfig.getInstance().getSession();

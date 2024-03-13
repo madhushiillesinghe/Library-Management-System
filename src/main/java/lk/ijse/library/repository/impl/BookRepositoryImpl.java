@@ -22,11 +22,7 @@ public class BookRepositoryImpl implements BookRepository {
     private static BookRepositoryImpl bookRepositoryimpl;
     public BookRepositoryImpl() {
     }
-    public static BookRepositoryImpl getInstance() {
-        return null == bookRepositoryimpl
-                ? bookRepositoryimpl = (BookRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BOOK)
-                : bookRepositoryimpl;
-    }
+
 
 
     @Override
@@ -52,7 +48,7 @@ public class BookRepositoryImpl implements BookRepository {
     public boolean UpdateTransactionBook(List<String> bookName) {
 
             String status="not available";
-            String JPQLQuery="UPDATE Book A SET A.status=:status WHERE A.title=:bookName";
+            String JPQLQuery="UPDATE Book A SET A.status = :status WHERE A.title = :bookName";
 
             for (int i = 0; i < bookName.size() ; i++) {
                 Query query = session.createQuery(JPQLQuery)

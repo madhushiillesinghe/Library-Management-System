@@ -10,16 +10,11 @@ import org.hibernate.Session;
 
 public class TransactionDetailRepositoryImpl implements TransactionDetailRepository, SuperRepository {
     private Session session;
-    private static TransactionDetailRepositoryImpl transactionRepository;
 
     public TransactionDetailRepositoryImpl() {
     }
 
-    public static TransactionDetailRepositoryImpl getInstance() {
-        return null == transactionRepository
-                ? transactionRepository = (TransactionDetailRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.TRANSACTIONDETAIL)
-                : transactionRepository;
-    }
+
     @Override
     public boolean saveTransactinDetail(TransactionDetail transactionDetail) {
         session.save(transactionDetail);

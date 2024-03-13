@@ -13,11 +13,7 @@ public class AdminRepositoryImpl implements AdminRepository {
     public AdminRepositoryImpl(){
 
     }
-    public static AdminRepositoryImpl getInstance(){
-        return null==adminRepositoryimpl
-                ?adminRepositoryimpl= (AdminRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.ADMIN)
-                :adminRepositoryimpl;
-    }
+
     @Override
     public boolean save(Admin entity) {
         try{

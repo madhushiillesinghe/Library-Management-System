@@ -17,13 +17,9 @@ public class AdminServiceImpl implements AdminService {
     private static AdminService adminService;
 
     public AdminServiceImpl(){
-        adminRepository = AdminRepositoryImpl.getInstance();
+        adminRepository = (AdminRepository) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.ADMIN);
     }
-    public static AdminService getInstance() {
-        return null ==adminService
-                ? adminService = (AdminService) BoFactory.getBoFactory().getBo(BoFactory.BOType.ADMIN)
-                : adminService;
-    }
+
     @Override
     public boolean saveAdmin(AdminDto adminDto) {
         session= PropertiesConfig.getInstance().getSession();

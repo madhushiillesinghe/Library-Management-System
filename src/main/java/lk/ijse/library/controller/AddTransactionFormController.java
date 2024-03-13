@@ -89,7 +89,7 @@ public class AddTransactionFormController implements Initializable {
         transactionDto.setStatus("borrow");
         transactionDto.setReturnDate(txtReturnDate.getText());
         transactionDto.setUsers(UserLoginFormController.userDto);
-        transactionDto.setId(1);
+
 
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
 
