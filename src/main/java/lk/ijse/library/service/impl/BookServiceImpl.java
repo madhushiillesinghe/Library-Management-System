@@ -1,6 +1,7 @@
 package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
+import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
@@ -68,7 +69,8 @@ public class BookServiceImpl implements BookService {
         Transaction transaction=session.beginTransaction();
         try {
             bookRepository.setSession(session);
-            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getStatus(),bookDto.getAdmin());
+
+            Book book=new Book(bookDto.getId(),bookDto.getTitle(),bookDto.getGenre(),bookDto.getAuthor(),bookDto.getStatus(),bookDto.getAdmin().toEntity());
             boolean isDelete= bookRepository.delete(book);
             transaction.commit();
             return  isDelete;
@@ -89,7 +91,14 @@ public class BookServiceImpl implements BookService {
             bookRepository.setSession(session);
             bookIds=bookRepository.getAllBookId();
             for(Book book:bookIds){
-                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),book.getAdmin()));
+                AdminDto adminDto=new AdminDto(book.getAdmin().getId()
+                        ,book.getAdmin().getName()
+                        ,book.getAdmin().getEmail()
+                        ,book.getAdmin().getMobileNo()
+                        ,book.getAdmin().getAddress()
+                        ,book.getAdmin().getUserName()
+                        ,book.getAdmin().getPassword());
+                bookIdsDto.add(new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),adminDto));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,7 +133,15 @@ public class BookServiceImpl implements BookService {
      try{
          bookRepository.setSession(session);
          Book  book = bookRepository.getName(id);
-         BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),book.getAdmin());
+
+         AdminDto adminDto=new AdminDto(book.getAdmin().getId()
+                 ,book.getAdmin().getName()
+                 ,book.getAdmin().getEmail()
+                 ,book.getAdmin().getMobileNo()
+                 ,book.getAdmin().getAddress()
+                 ,book.getAdmin().getUserName()
+                 ,book.getAdmin().getPassword());
+         BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),adminDto);
          return bookDto;
      }catch (Exception e){
          e.printStackTrace();
@@ -141,7 +158,15 @@ public class BookServiceImpl implements BookService {
         try{
             bookRepository.setSession(session);
             Book  book = bookRepository.getId(id);
-            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),book.getAdmin());
+
+            AdminDto adminDto=new AdminDto(book.getAdmin().getId()
+                    ,book.getAdmin().getName()
+                    ,book.getAdmin().getEmail()
+                    ,book.getAdmin().getMobileNo()
+                    ,book.getAdmin().getAddress()
+                    ,book.getAdmin().getUserName()
+                    ,book.getAdmin().getPassword());
+            BookDto bookDto=new BookDto(book.getId(),book.getTitle(),book.getGenre(),book.getAuthor(),book.getStatus(),adminDto);
             return bookDto;
         }catch (Exception e){
             e.printStackTrace();
@@ -149,6 +174,24 @@ public class BookServiceImpl implements BookService {
         }finally {
             session.close();
         }    }
+
+    @Override
+    public boolean updateBorrowBook(BookDto bookDto) {
+        session= PropertiesConfig.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
+        try{
+            bookRepository.setSession(session);
+            boolean isUpdate= bookRepository.update(bookDto.toEntity());
+            transaction.commit();
+            return isUpdate;
+        }catch (Exception e){
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
 
 
 }

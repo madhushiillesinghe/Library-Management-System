@@ -53,8 +53,10 @@ public class AddBookFormController  implements Initializable {
         bookDto.setAuthor(txtBookAuthor.getText());
         bookDto.setTitle(txtBookName.getText());
         bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
+
         bookDto.setStatus("Available");
-        bookDto.setAdmin(LoginFormController.adminDto.toEntity());
+        System.out.println("book status"+bookDto.getStatus());
+        bookDto.setAdmin(LoginFormController.adminDto);
 
         try{
             boolean bookIsSaved;

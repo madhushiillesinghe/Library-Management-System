@@ -94,5 +94,11 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
+      <TextField fx:id="txtTransactionId" layoutX="531.0" layoutY="125.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
+      <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="444.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow date">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

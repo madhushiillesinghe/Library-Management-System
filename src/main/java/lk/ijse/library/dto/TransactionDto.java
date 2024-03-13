@@ -1,22 +1,22 @@
 package lk.ijse.library.dto;
 
-import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Transaction;
 import lk.ijse.library.entity.Users;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class TransactionDto {
     private int id;
     private String status;
-    private Date borrowDate;
-    private Date returnDate;
-    private Users users;
+    private Timestamp borrowDate;
+    private String returnDate;
+    private UserDto users;
 
     public TransactionDto() {
     }
 
-    public TransactionDto(int id, String status, Date borrowDate, Date returnDate, Users users) {
+    public TransactionDto(int id, String status, Timestamp borrowDate, String returnDate, UserDto users) {
         this.id = id;
         this.status = status;
         this.borrowDate = borrowDate;
@@ -40,27 +40,27 @@ public class TransactionDto {
         this.status = status;
     }
 
-    public Date getBorrowDate() {
+    public Timestamp getBorrowDate() {
         return borrowDate;
     }
 
-    public void setBorrowDate(Date borrowDate) {
+    public void setBorrowDate(Timestamp borrowDate) {
         this.borrowDate = borrowDate;
     }
 
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
 
-    public Users getUsers() {
+    public UserDto getUsers() {
         return users;
     }
 
-    public void setUsers(Users users) {
+    public void setUsers(UserDto users) {
         this.users = users;
     }
 
@@ -80,7 +80,7 @@ public class TransactionDto {
         transaction.setBorrowDate(this.borrowDate);
         transaction.setStatus(this.status);
         transaction.setReturnDate(this.returnDate);
-        transaction.setUsers(this.users);
+        transaction.setUsers(this.users.toEntity());
         return transaction;
     }
 }

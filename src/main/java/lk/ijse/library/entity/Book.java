@@ -17,7 +17,6 @@ public class Book {
     @Column(name = "book_author")
     private String author;
 
-
     @Column(name = "book_status")
     private String status;
     @ManyToOne

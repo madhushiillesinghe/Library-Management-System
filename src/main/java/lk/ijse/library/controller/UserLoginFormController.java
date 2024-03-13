@@ -40,7 +40,7 @@ public class UserLoginFormController {
             UserProfileFormController.id=userDto.getId();
             UserProfileFormController.password=userDto.getPassword();
             UpdateUserProfileFormController.id=userDto.getId();
-            System.out.println("User Dto dto"+userDto);
+
             Navigation.switchNavigation("UserGlobalForm.fxml", event);
         }else
             System.out.println("unable to sign in");

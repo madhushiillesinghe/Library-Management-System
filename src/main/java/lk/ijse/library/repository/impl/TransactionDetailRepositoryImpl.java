@@ -22,7 +22,7 @@ public class TransactionDetailRepositoryImpl implements TransactionDetailReposit
     @Override
     public boolean saveTransactinDetail(TransactionDetail transactionDetail) {
         session.save(transactionDetail);
-        return false;
+        return true;
     }
 
     @Override

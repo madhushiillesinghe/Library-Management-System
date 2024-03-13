@@ -8,13 +8,10 @@ public class BookDto {
     private String title;
     private String genre;
     private String author;
-
-
-
     private String status;
-   private Admin admin;
+   private AdminDto admin;
 
-    public BookDto(int id, String title, String genre, String author, String status,Admin admin) {
+    public BookDto(int id, String title, String genre, String author, String status,AdminDto admin) {
 
         this.id = id;
         this.title = title;
@@ -26,11 +23,11 @@ public class BookDto {
     }
 
 
-    public Admin getAdmin() {
+    public AdminDto getAdmin() {
         return admin;
     }
 
-    public void setAdmin(Admin admin) {
+    public void setAdmin(AdminDto admin) {
         this.admin = admin;
     }
 
@@ -84,10 +81,10 @@ public class BookDto {
         Book bookDto=new Book();
         bookDto.setId(this.id);
         bookDto.setAuthor(this.author);
-        bookDto.setGenre(this.status);
+        bookDto.setStatus(this.status);
         bookDto.setTitle(this.title);
         bookDto.setGenre(this.genre);
-        bookDto.setAdmin(this.admin);
+        bookDto.setAdmin(this.admin.toEntity());
         return bookDto;
     }
 

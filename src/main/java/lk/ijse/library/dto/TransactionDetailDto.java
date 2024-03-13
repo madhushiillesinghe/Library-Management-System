@@ -3,46 +3,21 @@ package lk.ijse.library.dto;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Transaction;
 import lk.ijse.library.entity.TransactionDetail;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class TransactionDetailDto {
-    private Transaction transaction;
-    private Book book;
+    private TransactionDto transaction;
+    private BookDto book;
 
-    public TransactionDetailDto() {
-    }
-
-    public TransactionDetailDto(Transaction transaction, Book book) {
-        this.transaction = transaction;
-        this.book = book;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-    @Override
-    public String toString() {
-        return "TransactionDetailDto{" +
-                "transaction=" + transaction +
-                ", book=" + book +
-                '}';
-    }
     public TransactionDetail toEntity(){
         TransactionDetail transactionDetail=new TransactionDetail();
-        transactionDetail.setBook(this.book);
-        transactionDetail.setTransaction(this.transaction);
+        transactionDetail.setBook(this.book.toEntity());
+        transactionDetail.setTransaction(this.transaction.toEntity());
         return transactionDetail;
     }
 }

@@ -8,4 +8,7 @@ public interface BookRepository extends CRUDRepository<Book>{
      List<Book> getAllBookId();
      List<Integer> getAllBookIds();
      List<String> getAllBookName();
+     boolean updateBorrowBook(Book entity);
+     boolean UpdateTransactionBook(List<String>bookName);
+
 }

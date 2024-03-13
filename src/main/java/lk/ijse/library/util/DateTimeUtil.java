@@ -20,7 +20,7 @@ public class DateTimeUtil {
         return dateFormat.format(new Date()) ;
     }
     public static String dateReturn() {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd ");
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, 30);
         return format.format(calendar.getTime());

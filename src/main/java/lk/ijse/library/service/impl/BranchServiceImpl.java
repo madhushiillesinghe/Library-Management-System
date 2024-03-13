@@ -1,6 +1,7 @@
 package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
+import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BranchDto;
 import lk.ijse.library.entity.Branches;
 import lk.ijse.library.repository.BranchRepository;
@@ -68,7 +69,8 @@ public class BranchServiceImpl implements BranchService {
         Transaction transaction=session.beginTransaction();
         try {
             branchRepository.setSession(session);
-           Branches branches=new Branches(branchDto.getId(),branchDto.getLocation(),branchDto.getHead_Name(),branchDto.getBookTotal(),branchDto.getAdmin());
+
+           Branches branches=new Branches(branchDto.getId(),branchDto.getLocation(),branchDto.getHead_Name(),branchDto.getBookTotal(),branchDto.getAdmin().toEntity());
 
             boolean isDelete= branchRepository.delete(branches);
             transaction.commit();
@@ -90,7 +92,14 @@ public class BranchServiceImpl implements BranchService {
             branchRepository.setSession(session);
             branchIds=branchRepository.getAllBranch();
             for(Branches branches:branchIds){
-                branchDtoList.add(new BranchDto(branches.getId(),branches.getLocation(),branches.getHead_Name(),branches.getBookTotal(),branches.getAdmin()));
+                AdminDto adminDto=new AdminDto(branches.getAdmin().getId()
+                        ,branches.getAdmin().getName()
+                        ,branches.getAdmin().getEmail()
+                        ,branches.getAdmin().getMobileNo()
+                        ,branches.getAdmin().getAddress()
+                        ,branches.getAdmin().getUserName()
+                        ,branches.getAdmin().getPassword());
+                branchDtoList.add(new BranchDto(branches.getId(),branches.getLocation(),branches.getHead_Name(),branches.getBookTotal(),adminDto));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,7 +133,14 @@ public class BranchServiceImpl implements BranchService {
         try{
             branchRepository.setSession(session);
             Branches branches= branchRepository.getId(id);
-            BranchDto branchdto =new BranchDto(branches.getId(),branches.getLocation(),branches.getHead_Name(),branches.getBookTotal(),branches.getAdmin());
+            AdminDto adminDto=new AdminDto(branches.getAdmin().getId()
+                    ,branches.getAdmin().getName()
+                    ,branches.getAdmin().getEmail()
+                    ,branches.getAdmin().getMobileNo()
+                    ,branches.getAdmin().getAddress()
+                    ,branches.getAdmin().getUserName()
+                    ,branches.getAdmin().getPassword());
+            BranchDto branchdto =new BranchDto(branches.getId(),branches.getLocation(),branches.getHead_Name(),branches.getBookTotal(),adminDto);
             return branchdto;
         }catch (Exception e){
             e.printStackTrace();
@@ -141,7 +157,14 @@ public class BranchServiceImpl implements BranchService {
         try{
             branchRepository.setSession(session);
             Branches branches= branchRepository.getId(id);
-            BranchDto branchdto =new BranchDto(branches.getId(),branches.getLocation(),branches.getHead_Name(),branches.getBookTotal(),branches.getAdmin());
+            AdminDto adminDto=new AdminDto(branches.getAdmin().getId()
+                    ,branches.getAdmin().getName()
+                    ,branches.getAdmin().getEmail()
+                    ,branches.getAdmin().getMobileNo()
+                    ,branches.getAdmin().getAddress()
+                    ,branches.getAdmin().getUserName()
+                    ,branches.getAdmin().getPassword());
+            BranchDto branchdto =new BranchDto(branches.getId(),branches.getLocation(),branches.getHead_Name(),branches.getBookTotal(),adminDto);
             return branchdto;
         }catch (Exception e){
             e.printStackTrace();

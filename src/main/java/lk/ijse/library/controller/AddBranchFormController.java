@@ -50,7 +50,7 @@ public class AddBranchFormController implements Initializable {
         branchDto.setLocation(ranchLocation.getSelectionModel().getSelectedItem());
         branchDto.setBookTotal(Integer.parseInt(txtBookCount.getText()));
         branchDto.setHead_Name(txtBranchHead.getText());
-        branchDto.setAdmin(LoginFormController.adminDto.toEntity());
+        branchDto.setAdmin(LoginFormController.adminDto);
 
         try{
             boolean branchIsSaved;

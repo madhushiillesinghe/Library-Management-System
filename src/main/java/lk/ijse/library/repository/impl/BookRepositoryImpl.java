@@ -11,6 +11,8 @@ import org.hibernate.query.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,27 @@ public class BookRepositoryImpl implements BookRepository {
 
             session.update(entity);
             return true;
+    }
+
+    @Override
+    public boolean updateBorrowBook(Book entity) {
+        session.update(entity);
+        return true;
+    }
+
+    @Override
+    public boolean UpdateTransactionBook(List<String> bookName) {
+
+            String status="notavailable";
+            String JPQLQuery="UPDATE Book A SET A.status=:status WHERE A.title=:bookName";
+
+            for (int i = 0; i < bookName.size() ; i++) {
+                Query query = session.createQuery(JPQLQuery)
+                        .setParameter("bookName", bookName);
+              Long count= (Long) query.uniqueResult();
+              return count>0;
+            }
+        return false;
     }
 
     @Override

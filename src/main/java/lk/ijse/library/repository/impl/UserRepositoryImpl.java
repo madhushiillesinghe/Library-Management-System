@@ -72,6 +72,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     }
 
+
     @Override
     public List<Integer> getAllUserIds() {
         CriteriaBuilder builder = session.getCriteriaBuilder();

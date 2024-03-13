@@ -60,7 +60,7 @@ public class UpdateBrachFormController implements Initializable {
         branchDto.setLocation(cmblocation.getSelectionModel().getSelectedItem());
         branchDto.setBookTotal(Integer.parseInt(txtBookCount.getText()));
         branchDto.setHead_Name(txtBranchHead.getText());
-        branchDto.setAdmin(LoginFormController.adminDto.toEntity());
+        branchDto.setAdmin(LoginFormController.adminDto);
 
         try{
             boolean branchIsUpdated;

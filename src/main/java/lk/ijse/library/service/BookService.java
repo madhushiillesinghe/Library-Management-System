@@ -18,6 +18,8 @@ public interface BookService {
      List<Integer> getAllBookName();
     BookDto getData(String name);
     BookDto getDtodata(int id);
+    boolean updateBorrowBook(BookDto bookDto);
+
 
 
 }

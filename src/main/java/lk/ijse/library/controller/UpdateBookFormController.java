@@ -63,7 +63,9 @@ public class UpdateBookFormController implements Initializable {
         bookDto.setId(Integer.parseInt(txtBookId.getText()));
         bookDto.setAuthor(txtBookAuthor.getText());
         bookDto.setTitle(txtBookName.getText());
+        bookDto.setStatus("Available");
         bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
+        bookDto.setAdmin(LoginFormController.adminDto);
 
         try{
             boolean bookIsUpdated;

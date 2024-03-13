@@ -9,27 +9,34 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import lk.ijse.library.dto.BookDto;
+import lk.ijse.library.dto.TransactionDetailDto;
+import lk.ijse.library.dto.TransactionDto;
+import lk.ijse.library.entity.Users;
 import lk.ijse.library.service.TransactionService;
 import lk.ijse.library.service.impl.TransactionServiceImpl;
 import lk.ijse.library.util.DateTimeUtil;
-import lk.ijse.library.util.Navigation;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.util.*;
 
 public class AddTransactionFormController implements Initializable {
 
+    public static Users user;
     @FXML
     private Button btnAddToCart;
 
     @FXML
     private Button btnBorrow;
+    @FXML
+    private TextField txtTransactionId;
 
     @FXML
     private ComboBox<String> cmbBookName;
@@ -58,12 +65,7 @@ public class AddTransactionFormController implements Initializable {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        txtBookGenre.clear();
-        txtAuthor.clear();
-        txtId.clear();
-        txtBookName.clear();
-        txtBorrowDate.clear();
-        txtReturnDate.clear();
+        clearTextField();
         String bookName=cmbBookName.getSelectionModel().getSelectedItem();
         bookList.add(bookName);
         AllBookCartId();
@@ -72,17 +74,46 @@ public class AddTransactionFormController implements Initializable {
 
     }
 
-    @FXML
-    void btnBorrowOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void cmbOnAction(ActionEvent event) {
+    private void clearTextField() {
         txtBookGenre.clear();
         txtAuthor.clear();
         txtId.clear();
         txtBookName.clear();
+        txtBorrowDate.clear();
+        txtReturnDate.clear();
+    }
+
+    @FXML
+    void btnBorrowOnAction(ActionEvent event) {
+        TransactionDetailDto transactionDetailDto=new TransactionDetailDto();
+        TransactionDto transactionDto=new TransactionDto();
+
+/*
+        transactionDto.setId(Integer.parseInt(txtTransactionId.getText()));
+*/
+        transactionDto.setStatus("borrow");
+        transactionDto.setReturnDate(txtReturnDate.getText());
+       // transactionDto.setBorrowDate(Timestamp.valueOf(txtBorrowDate.getText()));
+        transactionDto.setUsers(UserLoginFormController.userDto);
+        transactionDto.setId(1);
+
+
+        BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
+
+        transactionDetailDto.setTransaction(transactionDto);
+        transactionDetailDto.setBook(bookDto);
+
+        boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookList,transactionDetailDto);
+        if(isSaved){
+            System.out.println("Book Borrow transaction saved ");
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Unable to Save the TRANSACtion!!!").show();
+        }
+    }
+
+    @FXML
+    void cmbOnAction(ActionEvent event) {
+        clearTextField();
         setCmbBoxDetail();
         txtBorrowDate.setText(DateTimeUtil.dateNow());
         txtReturnDate.setText(DateTimeUtil.dateReturn());
