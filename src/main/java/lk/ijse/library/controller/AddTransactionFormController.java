@@ -96,7 +96,7 @@ public class AddTransactionFormController implements Initializable {
        // transactionDto.setBorrowDate(Timestamp.valueOf(txtBorrowDate.getText()));
         transactionDto.setUsers(UserLoginFormController.userDto);
         transactionDto.setId(1);
-
+        System.out.println("transactionn dto"+transactionDto);
 
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
 
