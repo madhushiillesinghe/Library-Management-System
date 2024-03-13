@@ -19,7 +19,6 @@ import java.util.List;
 
 public class BookRepositoryImpl implements BookRepository {
     private Session session;
-    private static BookRepositoryImpl bookRepositoryimpl;
     public BookRepositoryImpl() {
     }
 
@@ -33,15 +32,19 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public boolean update(Book entity) {
-
             session.update(entity);
             return true;
     }
 
     @Override
-    public boolean updateBorrowBook(Book entity) {
-        session.update(entity);
-        return true;
+    public boolean updateBorrowBook(Book entity,List<String>bookName) {
+        boolean isUpdated=false;
+        for (int i=0;i<bookName.size();i++){
+            session.update(entity);
+            isUpdated=true;
+            System.out.println("is Updates repo"+isUpdated);
+        }
+        return isUpdated;
     }
 
     @Override

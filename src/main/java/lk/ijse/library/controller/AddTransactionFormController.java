@@ -31,6 +31,7 @@ import java.util.*;
 public class AddTransactionFormController implements Initializable {
 
     public static Users user;
+    public static BookDto book;
     @FXML
     private Button btnAddToCart;
 
@@ -60,13 +61,24 @@ public class AddTransactionFormController implements Initializable {
     private VBox vBoxBookManage;
     public static int id;
     List<String> bookList=new ArrayList<>();
+     List<BookDto> bookDtoList=new ArrayList<>();
+
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
+
+ /*   public  List<BookDto> getInstance() {
+        BookDto bookDto=book;
+        bookDtoList.add(bookDto);
+        return bookDtoList;
+    }*/
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         clearTextField();
         String bookName=cmbBookName.getSelectionModel().getSelectedItem();
         bookList.add(bookName);
+        BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
+        bookDto.setStatus("not Available");
+        bookDtoList.add(bookDto);
         AllBookCartId();
 
     }
@@ -92,12 +104,13 @@ public class AddTransactionFormController implements Initializable {
 
 
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
+        bookDto.setStatus("not Available");
 
         transactionDetailDto.setTransaction(transactionDto);
         transactionDetailDto.setBook(bookDto);
 
 
-        boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookList,transactionDetailDto);
+        boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookDtoList);
         if(isSaved){
             System.out.println("Book Borrow transaction saved ");
         }else {
@@ -177,7 +190,6 @@ public class AddTransactionFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setData();
         loadBookName();
-
     }
 
 }

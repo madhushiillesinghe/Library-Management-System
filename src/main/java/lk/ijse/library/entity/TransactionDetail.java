@@ -21,6 +21,15 @@ public class TransactionDetail {
             updatable = false
     )
     private Book book;
+
+    public TransactionDetailPrimaryKey getTransactionDetailPrimaryKey() {
+        return transactionDetailPrimaryKey;
+    }
+
+    public void setTransactionDetailPrimaryKey(TransactionDetailPrimaryKey transactionDetailPrimaryKey) {
+        this.transactionDetailPrimaryKey = transactionDetailPrimaryKey;
+    }
+
     @EmbeddedId
     private TransactionDetailPrimaryKey transactionDetailPrimaryKey;
 

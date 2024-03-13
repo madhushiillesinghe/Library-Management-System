@@ -1,10 +1,12 @@
 package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
+import lk.ijse.library.controller.AddTransactionFormController;
 import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.TransactionDetailDto;
 import lk.ijse.library.dto.TransactionDto;
+import lk.ijse.library.embedded.TransactionDetailPrimaryKey;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.TransactionDetail;
 import lk.ijse.library.repository.BookRepository;
@@ -107,53 +109,103 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public boolean saveUserBookBorrow(TransactionDto transactionDto, List<String>bookList, TransactionDetailDto transactionDetailDto) {
-        boolean result=false;
+    public boolean saveTransaction(TransactionDto transactionDto) {
+      /*  lk.ijse.library.entity.Transaction transactionEntity=new lk.ijse.library.entity.Transaction();
+        transactionEntity.setUsers(transactionDto.getUsers().toEntity());
+        transactionEntity.setReturnDate(transactionDto.getReturnDate());
+        transactionEntity.setStatus(transactionDto.getStatus());
+        transactionEntity.setId(transactionDto.getId());
+        transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
+
         session=PropertiesConfig.getInstance().getSession();
         Transaction borrowtransaction =session.beginTransaction();
+        transactionRepository.setSession(session);
+        transactionRepository.save(transactionEntity);
 
+        for(BookDto borrowBook: AddTransactionFormController.getInstance().bookBorrow){
+            bookRepository.setSession(session);
+            bookRepository.update(new Book(borrowBook.getId()
+            ,borrowBook.getTitle()
+            ,borrowBook.getGenre()
+            ,borrowBook.getAuthor()
+            ,borrowBook.getStatus()
+            ,borrowBook.toEntity().getAdmin()));
+
+            TransactionDetail transactionDetail=new TransactionDetail();
+            transactionDetail.setTransaction(transactionEntity);
+                    Book book=new Book(borrowBook.getId()
+                    ,borrowBook.getTitle()
+                    ,borrowBook.getGenre()
+                    ,borrowBook.getAuthor()
+                    ,borrowBook.getStatus()
+                    ,borrowBook.toEntity().getAdmin());
+            transactionDetail.setBook(book);
+
+            transactionDetail.setTransactionDetailPrimaryKey(new TransactionDetailPrimaryKey(transactionEntity.getId(),book.getId()));
+            transactionDetailRepository.setSession(session);
+            transactionDetailRepository.save(transactionDetail);
+        }
         try{
-            transactionRepository.setSession(session);
-            lk.ijse.library.entity.Transaction transactionEntity=new lk.ijse.library.entity.Transaction();
-            transactionEntity.setUsers(transactionDto.getUsers().toEntity());
-            transactionEntity.setReturnDate(transactionDto.getReturnDate());
-            transactionEntity.setStatus(transactionDto.getStatus());
-            transactionEntity.setId(transactionDto.getId());
-            transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
-
-            boolean isSavedTransaction=transactionRepository.save(transactionEntity);
-
-            if(isSavedTransaction){
-
-                bookRepository.setSession(session);
-                boolean isBookUpdated=bookRepository.UpdateTransactionBook(bookList);
-                if(isBookUpdated){
-                    transactionDetailRepository.setSession(session);
-                    TransactionDetail transactionDetail=new TransactionDetail();
-
-                    transactionDetail.setTransaction(new lk.ijse.library.entity.Transaction(transactionDto.getId()
-                    ,transactionDto.getStatus()
-                    ,transactionDto.getBorrowDate()
-                    ,transactionDto.getReturnDate()
-                    ,transactionDto.toEntity().getUsers()));
-
-                    Book book=bookRepository.getName(bookList.get(0));
-                    transactionDetail.setBook(book);
-
-                boolean isTransactionDetailSaved=transactionDetailRepository.saveTransactinDetail(transactionDetail);
-                if(isTransactionDetailSaved){
-                borrowtransaction.commit();
-                result=true;
-                }
-                }
-            }
+            borrowtransaction.commit();
+            return true;
         }catch (Exception e){
-        e.printStackTrace();
-        borrowtransaction.rollback();
-        result=false;
+            borrowtransaction.rollback();
+            e.printStackTrace();
+            return false;
         }finally {
+            session.close();*/
+        return false;
+
+    }
+
+    @Override
+    public boolean saveUserBookBorrow(TransactionDto transactionDto, List<BookDto> bookList) {
+        lk.ijse.library.entity.Transaction transactionEntity = new lk.ijse.library.entity.Transaction();
+        transactionEntity.setUsers(transactionDto.getUsers().toEntity());
+        transactionEntity.setReturnDate(transactionDto.getReturnDate());
+        transactionEntity.setStatus(transactionDto.getStatus());
+        transactionEntity.setId(transactionDto.getId());
+        transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
+
+        session = PropertiesConfig.getInstance().getSession();
+        Transaction borrowtransaction = session.beginTransaction();
+
+        transactionRepository.setSession(session);
+        transactionRepository.save(transactionEntity);
+
+        for (BookDto bookDto : bookList) {
+
+            Book book = new Book();
+            book.setStatus(bookDto.getStatus());
+            book.setGenre(bookDto.getGenre());
+            book.setTitle(bookDto.getTitle());
+            book.setAuthor(bookDto.getAuthor());
+            book.setId(bookDto.getId());
+            book.setAdmin(bookDto.toEntity().getAdmin());
+
+
+            bookRepository.setSession(session);
+            bookRepository.update(book);
+
+
+            TransactionDetail transactionDetail = new TransactionDetail();
+
+            transactionDetail.setTransaction(transactionEntity);
+            transactionDetail.setBook(book);
+            transactionDetail.setTransactionDetailPrimaryKey(new TransactionDetailPrimaryKey(transactionEntity.getId(), book.getId()));
+
+            transactionDetailRepository.setSession(session);
+            transactionDetailRepository.save(transactionDetail);
+        }
+        try {
+            borrowtransaction.commit();
+            return true;
+        } catch (Exception e) {
+            borrowtransaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
             session.close();
         }
-        return result;
-        }
+    }
 }

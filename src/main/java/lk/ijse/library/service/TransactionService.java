@@ -11,6 +11,7 @@ public interface TransactionService extends SuperService{
     BookDto getDtodata(int id);
     List<String> getAllBookTitle();
      BookDto getData(String id);
-    boolean saveUserBookBorrow(TransactionDto transactionDto, List<String> bookList, TransactionDetailDto transactionDetailDto);
+     boolean saveTransaction(TransactionDto transactionDto);
+    boolean saveUserBookBorrow(TransactionDto transactionDto, List<BookDto> bookList);
 
 }

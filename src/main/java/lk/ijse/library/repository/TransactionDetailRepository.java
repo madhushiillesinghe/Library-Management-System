@@ -5,8 +5,7 @@ import lk.ijse.library.entity.Transaction;
 import lk.ijse.library.entity.TransactionDetail;
 import org.hibernate.Session;
 
-public interface TransactionDetailRepository {
-    boolean saveTransactinDetail(TransactionDetail transactionDetail);
+public interface TransactionDetailRepository  extends CRUDRepository<TransactionDetail>{
 
-    void setSession(Session session);
+
 }

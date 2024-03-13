@@ -17,4 +17,5 @@ public class TransactionDetailPrimaryKey implements Serializable {
     @Column(name = "book_Id")
     private int bookId;
 
+
 }

@@ -8,21 +8,40 @@ import lk.ijse.library.repository.SuperRepository;
 import lk.ijse.library.repository.TransactionDetailRepository;
 import org.hibernate.Session;
 
-public class TransactionDetailRepositoryImpl implements TransactionDetailRepository, SuperRepository {
+public class TransactionDetailRepositoryImpl implements TransactionDetailRepository{
     private Session session;
 
     public TransactionDetailRepositoryImpl() {
     }
 
+    @Override
+    public void setSession(Session session) {
+        this.session=session;
+    }
 
     @Override
-    public boolean saveTransactinDetail(TransactionDetail transactionDetail) {
-        session.save(transactionDetail);
+    public boolean save(TransactionDetail entity) {
+        session.save(entity);
         return true;
     }
 
     @Override
-    public void setSession(Session session) {
-        session=this.session;
+    public boolean update(TransactionDetail entity) {
+        return false;
+    }
+
+    @Override
+    public TransactionDetail getId(int id) {
+        return null;
+    }
+
+    @Override
+    public TransactionDetail getName(String name) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(TransactionDetail dto) {
+        return false;
     }
 }
