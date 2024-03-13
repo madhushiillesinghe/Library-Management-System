@@ -35,8 +35,6 @@ public class AddTransactionFormController implements Initializable {
 
     @FXML
     private Button btnBorrow;
-    @FXML
-    private TextField txtTransactionId;
 
     @FXML
     private ComboBox<String> cmbBookName;
@@ -70,8 +68,6 @@ public class AddTransactionFormController implements Initializable {
         bookList.add(bookName);
         AllBookCartId();
 
-
-
     }
 
     private void clearTextField() {
@@ -88,20 +84,18 @@ public class AddTransactionFormController implements Initializable {
         TransactionDetailDto transactionDetailDto=new TransactionDetailDto();
         TransactionDto transactionDto=new TransactionDto();
 
-/*
-        transactionDto.setId(Integer.parseInt(txtTransactionId.getText()));
-*/
+
         transactionDto.setStatus("borrow");
         transactionDto.setReturnDate(txtReturnDate.getText());
-       // transactionDto.setBorrowDate(Timestamp.valueOf(txtBorrowDate.getText()));
         transactionDto.setUsers(UserLoginFormController.userDto);
         transactionDto.setId(1);
-        System.out.println("transactionn dto"+transactionDto);
 
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
 
         transactionDetailDto.setTransaction(transactionDto);
         transactionDetailDto.setBook(bookDto);
+        System.out.println("transaction detail dto"+transactionDetailDto);
+
 
         boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookList,transactionDetailDto);
         if(isSaved){
@@ -161,9 +155,6 @@ public class AddTransactionFormController implements Initializable {
             txtBookName.setText(book.getTitle());
             txtBookGenre.setText(book.getGenre());
             txtAuthor.setText(book.getAuthor());
-
-
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

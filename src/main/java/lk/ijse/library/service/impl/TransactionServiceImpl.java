@@ -126,15 +126,20 @@ public class TransactionServiceImpl implements TransactionService {
             boolean isSavedTransaction=transactionRepository.save(transactionEntity);
             if(isSavedTransaction){
                 bookRepository.setSession(session);
-
-
                 boolean isBookUpdated=bookRepository.UpdateTransactionBook(bookList);
                 if(isBookUpdated){
                     transactionDetailRepository.setSession(session);
+                    TransactionDetail transactionDetail=new TransactionDetail();
 
-                    TransactionDetail transactionDetail=new TransactionDetail(transactionDetailDto.getTransaction().toEntity()
-                            ,transactionDetailDto.getBook().toEntity()
-                    );
+                    transactionDetail.setTransaction(new lk.ijse.library.entity.Transaction(transactionDto.getId()
+                    ,transactionDto.getStatus()
+                    ,transactionDto.getBorrowDate()
+                    ,transactionDto.getReturnDate()
+                    ,transactionDto.toEntity().getUsers()));
+
+                    Book book=bookRepository.getName(bookList.get(0));
+                    transactionDetail.setBook(book);
+
                 boolean isTransactionDetailSaved=transactionDetailRepository.saveTransactinDetail(transactionDetail);
                 if(isTransactionDetailSaved){
                 borrowtransaction.commit();
@@ -142,8 +147,6 @@ public class TransactionServiceImpl implements TransactionService {
                 }
                 }
             }
-
-
         }catch (Exception e){
         e.printStackTrace();
         borrowtransaction.rollback();

@@ -51,14 +51,15 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public boolean UpdateTransactionBook(List<String> bookName) {
 
-            String status="notavailable";
+            String status="not available";
             String JPQLQuery="UPDATE Book A SET A.status=:status WHERE A.title=:bookName";
 
             for (int i = 0; i < bookName.size() ; i++) {
                 Query query = session.createQuery(JPQLQuery)
-                        .setParameter("bookName", bookName);
-              Long count= (Long) query.uniqueResult();
-              return count>0;
+                        .setParameter("bookName", bookName)
+                        .setParameter("status",status);
+                     // boolean isUpdated= (boolean) query.uniqueResult();
+                      return true;
             }
         return false;
     }
