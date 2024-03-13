@@ -113,6 +113,7 @@ public class AddTransactionFormController implements Initializable {
         boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookDtoList);
         if(isSaved){
             System.out.println("Book Borrow transaction saved ");
+            new Alert(Alert.AlertType.CONFIRMATION,"Book Borrowed Success").show();
         }else {
             new Alert(Alert.AlertType.ERROR, "Unable to Save the TRANSACtion!!!").show();
         }
