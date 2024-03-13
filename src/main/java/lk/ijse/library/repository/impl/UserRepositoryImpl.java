@@ -3,6 +3,7 @@ package lk.ijse.library.repository.impl;
 import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Users;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.UserRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -21,7 +22,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
     public static UserRepositoryImpl getInstance() {
         return null == userRepositoryImpl
-                ? userRepositoryImpl = new UserRepositoryImpl()
+                ? userRepositoryImpl = (UserRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.USERS)
                 : userRepositoryImpl;
     }
     @Override

@@ -6,6 +6,7 @@ import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BookService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -24,7 +25,7 @@ public class BookServiceImpl implements BookService {
     }
     public static BookService getInstance() {
         return null ==bookService
-                ? bookService = new BookServiceImpl()
+                ? bookService = (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK)
                 : bookService;
     }
     @Override

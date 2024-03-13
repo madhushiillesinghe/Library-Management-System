@@ -3,6 +3,7 @@ package lk.ijse.library.repository.impl;
 import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Users;
 import lk.ijse.library.repository.AdminRepository;
+import lk.ijse.library.repository.DAOFactory;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -14,7 +15,7 @@ public class AdminRepositoryImpl implements AdminRepository {
     }
     public static AdminRepositoryImpl getInstance(){
         return null==adminRepositoryimpl
-                ?adminRepositoryimpl=new AdminRepositoryImpl()
+                ?adminRepositoryimpl= (AdminRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.ADMIN)
                 :adminRepositoryimpl;
     }
     @Override

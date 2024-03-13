@@ -3,6 +3,7 @@ package lk.ijse.library.repository.impl;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Branches;
 import lk.ijse.library.repository.BranchRepository;
+import lk.ijse.library.repository.DAOFactory;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -19,7 +20,7 @@ public class BranchRepositoryImpl implements BranchRepository {
     }
     public static BranchRepositoryImpl getInstance() {
         return null == branchRepositoryImpl
-                ? branchRepositoryImpl=new BranchRepositoryImpl()
+                ? branchRepositoryImpl= (BranchRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BRANCH)
                 : branchRepositoryImpl;
     }
 

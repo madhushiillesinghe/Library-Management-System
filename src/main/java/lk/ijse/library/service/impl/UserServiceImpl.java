@@ -12,6 +12,7 @@ import lk.ijse.library.repository.UserRepository;
 import lk.ijse.library.repository.impl.AdminRepositoryImpl;
 import lk.ijse.library.repository.impl.UserRepositoryImpl;
 import lk.ijse.library.service.AdminService;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.UserService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
     }
     public static UserService getInstance() {
         return null ==userService
-                ? userService = new UserServiceImpl()
+                ? userService = (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS)
                 : userService;
     }
     @Override

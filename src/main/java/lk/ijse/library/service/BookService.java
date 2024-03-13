@@ -10,7 +10,7 @@ import org.hibernate.query.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface BookService {
+public interface BookService extends SuperService {
     boolean saveBook(BookDto bookDto);
     boolean updateBook(BookDto bookDto);
     boolean deleteBook(BookDto bookDto);

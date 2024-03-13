@@ -7,7 +7,7 @@ import lk.ijse.library.entity.TransactionDetail;
 
 import java.util.List;
 
-public interface TransactionService {
+public interface TransactionService extends SuperService{
     BookDto getDtodata(int id);
     List<String> getAllBookTitle();
      BookDto getData(String id);

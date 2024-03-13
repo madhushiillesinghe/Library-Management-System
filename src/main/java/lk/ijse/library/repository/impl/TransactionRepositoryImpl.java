@@ -1,6 +1,7 @@
 package lk.ijse.library.repository.impl;
 
 import lk.ijse.library.entity.Transaction;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.TransactionRepository;
 import org.hibernate.Session;
 
@@ -11,7 +12,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     }
     public static TransactionRepositoryImpl getInstance() {
         return null == transactionRepository
-                ? transactionRepository = new TransactionRepositoryImpl()
+                ? transactionRepository = (TransactionRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.TRANSACTION)
                 : transactionRepository;
     }
 

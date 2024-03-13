@@ -6,6 +6,7 @@ import lk.ijse.library.dto.BranchDto;
 import lk.ijse.library.entity.Branches;
 import lk.ijse.library.repository.BranchRepository;
 import lk.ijse.library.repository.impl.BranchRepositoryImpl;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.BranchService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -23,7 +24,7 @@ public class BranchServiceImpl implements BranchService {
     }
     public static BranchService getInstance() {
         return null ==branchService
-                ? branchService = new BranchServiceImpl()
+                ? branchService = (BranchService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BRANCH)
                 : branchService;
     }
     @Override

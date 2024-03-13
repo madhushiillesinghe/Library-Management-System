@@ -5,7 +5,7 @@ import lk.ijse.library.dto.BranchDto;
 
 import java.util.List;
 
-public interface BranchService {
+public interface BranchService extends SuperService{
     boolean saveBranch(BranchDto branchDto);
     boolean updateBranch(BranchDto branchDto);
     boolean deleteBranch(BranchDto branchDto);

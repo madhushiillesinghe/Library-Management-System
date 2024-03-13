@@ -4,8 +4,10 @@ import lk.ijse.library.config.PropertiesConfig;
 import lk.ijse.library.dto.AdminDto;
 import lk.ijse.library.entity.Admin;
 import lk.ijse.library.repository.AdminRepository;
+import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.impl.AdminRepositoryImpl;
 import lk.ijse.library.service.AdminService;
+import lk.ijse.library.service.BoFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -19,7 +21,7 @@ public class AdminServiceImpl implements AdminService {
     }
     public static AdminService getInstance() {
         return null ==adminService
-                ? adminService = new AdminServiceImpl()
+                ? adminService = (AdminService) BoFactory.getBoFactory().getBo(BoFactory.BOType.ADMIN)
                 : adminService;
     }
     @Override

@@ -13,6 +13,7 @@ import lk.ijse.library.repository.TransactionRepository;
 import lk.ijse.library.repository.impl.BookRepositoryImpl;
 import lk.ijse.library.repository.impl.TransactionDetailRepositoryImpl;
 import lk.ijse.library.repository.impl.TransactionRepositoryImpl;
+import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -35,7 +36,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
     public static TransactionService getInstance() {
         return null ==transactionService
-                ? transactionService = new TransactionServiceImpl()
+                ? transactionService = (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION)
                 : transactionService;
     }
     @Override

@@ -6,7 +6,7 @@ import lk.ijse.library.dto.UserDto;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends SuperService{
     boolean saveUser(UserDto userDto);
     boolean updateUser(UserDto userDto);
     boolean deleteUser(UserDto userDto);

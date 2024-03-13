@@ -4,6 +4,7 @@ import lk.ijse.library.config.PropertiesConfig;
 import lk.ijse.library.entity.Admin;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.repository.BookRepository;
+import lk.ijse.library.repository.DAOFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -23,7 +24,7 @@ public class BookRepositoryImpl implements BookRepository {
     }
     public static BookRepositoryImpl getInstance() {
         return null == bookRepositoryimpl
-                ? bookRepositoryimpl = new BookRepositoryImpl()
+                ? bookRepositoryimpl = (BookRepositoryImpl) DAOFactory.getDADFactory().getDao(DAOFactory.DAOType.BOOK)
                 : bookRepositoryimpl;
     }
 
