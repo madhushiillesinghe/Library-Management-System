@@ -2,10 +2,7 @@ package lk.ijse.library.service.impl;
 
 import lk.ijse.library.config.PropertiesConfig;
 import lk.ijse.library.controller.AddTransactionFormController;
-import lk.ijse.library.dto.AdminDto;
-import lk.ijse.library.dto.BookDto;
-import lk.ijse.library.dto.TransactionDetailDto;
-import lk.ijse.library.dto.TransactionDto;
+import lk.ijse.library.dto.*;
 import lk.ijse.library.embedded.TransactionDetailPrimaryKey;
 import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.TransactionDetail;
@@ -158,4 +155,68 @@ public class TransactionServiceImpl implements TransactionService {
             session.close();
         }
     }
+
+    @Override
+    public List<TransactionDto> getAllTransactionId() {
+        List<lk.ijse.library.entity.Transaction> transactions = new ArrayList<>();
+        List<TransactionDto> transactionDtoList=new ArrayList<>();
+        session = PropertiesConfig.getInstance().getSession();
+        try {
+            transactionRepository.setSession(session);
+            transactions=transactionRepository.getAllTransactionId();
+            for(lk.ijse.library.entity.Transaction transaction:transactions){
+
+                UserDto userDto=new UserDto(transaction.getUsers().getId()
+                ,transaction.getUsers().getName()
+                ,transaction.getUsers().getEmail()
+                ,transaction.getUsers().getMobileNo()
+                ,transaction.getUsers().getAddress()
+                ,transaction.getUsers().getUserName()
+                ,transaction.getUsers().getPassword());
+
+                transactionDtoList.add(new TransactionDto(transaction.getId()
+                ,transaction.getStatus()
+                ,transaction.getBorrowDate()
+                ,transaction.getReturnDate()
+                ,userDto));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return transactionDtoList;
+    }
+
+    @Override
+    public TransactionDto getDtoData(int id) {
+        session = PropertiesConfig.getInstance().getSession();
+        try{
+            transactionRepository.setSession(session);
+            lk.ijse.library.entity.Transaction transaction = transactionRepository.getId(id);
+            UserDto userDto=new UserDto(transaction.getUsers().getId()
+            ,transaction.getUsers().getName()
+            ,transaction.getUsers().getEmail()
+            ,transaction.getUsers().getMobileNo()
+            ,transaction.getUsers().getAddress()
+            ,transaction.getUsers().getUserName()
+            ,transaction.getUsers().getPassword());
+
+           TransactionDto transactionDto=new TransactionDto(
+                   transaction.getId(),
+                   transaction.getStatus()
+                   ,transaction.getBorrowDate()
+                   ,transaction.getReturnDate()
+                   ,userDto
+           );
+            return transactionDto;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
+
 }

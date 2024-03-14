@@ -1,9 +1,14 @@
 package lk.ijse.library.repository.impl;
 
+import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Transaction;
 import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.repository.TransactionRepository;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TransactionRepositoryImpl implements TransactionRepository {
     private Session session;
@@ -45,5 +50,14 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     @Override
     public void setSession(Session session) {
     this.session=session;
+    }
+
+    @Override
+    public List<Transaction> getAllTransactionId() {
+        List<Transaction> transactionsIds = new ArrayList<>();
+
+        Query<Transaction> query = session.createQuery("SELECT i FROM  lk.ijse.library.entity.Transaction i", Transaction.class);
+        transactionsIds = query.getResultList();
+        return transactionsIds;
     }
 }

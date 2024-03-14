@@ -45,6 +45,7 @@ public class BookUserBarFormController {
             this.txtId.setText(String.valueOf(book.getId()));
             txtName.setText(book.getTitle());
             txtGerne.setText(book.getGenre());
+            txtAvailability.setText(book.getStatus());
             AddTransactionFormController.book=book;
 
         } catch (Exception e) {

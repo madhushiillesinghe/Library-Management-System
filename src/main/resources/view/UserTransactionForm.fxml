@@ -11,26 +11,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.TransactionFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UserTransactionFormController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="89.0" layoutY="43.0" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="134.8519287109375">
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="102.85189819335938">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="User Id" wrappingWidth="188.01901245117188">
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Id" wrappingWidth="107.21902465820312">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Date" wrappingWidth="242.51275634765625">
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Date" wrappingWidth="199.312744140625">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="218.31275177001953">
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date" wrappingWidth="162.5126953125">
+               <font>
+                  <Font name="SansSerif Regular" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="178.31269073486328">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>

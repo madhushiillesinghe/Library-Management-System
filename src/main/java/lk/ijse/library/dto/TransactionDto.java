@@ -1,10 +1,8 @@
 package lk.ijse.library.dto;
 
 import lk.ijse.library.entity.Transaction;
-import lk.ijse.library.entity.Users;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class TransactionDto {
     private int id;

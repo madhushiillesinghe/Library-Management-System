@@ -60,11 +60,11 @@ public class UpdateBookFormController implements Initializable {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         BookDto bookDto=new BookDto();
-
+        BookDto bookDto1=bookService.getDtodata(Integer.parseInt(txtBookId.getText()));
         bookDto.setId(Integer.parseInt(txtBookId.getText()));
         bookDto.setAuthor(txtBookAuthor.getText());
         bookDto.setTitle(txtBookName.getText());
-        bookDto.setStatus("Available");
+        bookDto.setStatus(bookDto1.getStatus());
         bookDto.setGenre( cmbBookGenre.getSelectionModel().getSelectedItem());
         bookDto.setAdmin(LoginFormController.adminDto);
 

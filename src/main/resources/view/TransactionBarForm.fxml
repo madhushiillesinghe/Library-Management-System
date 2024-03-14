@@ -6,24 +6,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.BookBarFormController">
+<HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.TransactionBarFormController">
    <children>
       <Text fx:id="txtId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="129.25192260742188">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text fx:id="txtName" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="202.41897583007812">
+      <Text fx:id="txtUserId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="UserId" wrappingWidth="227.21890258789062">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text fx:id="txtGenre" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" wrappingWidth="239.31280517578125">
+      <Text fx:id="txtBorrowDate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Date" wrappingWidth="239.31280517578125">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <Text fx:id="txtAvailability" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" wrappingWidth="84.71265363693237">
+      <Text fx:id="txtStatus" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="84.71265363693237">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
@@ -33,14 +33,9 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Text>
-      <ImageView onMouseClicked="#updateMouseClick">
+      <ImageView fitHeight="21.0" fitWidth="19.0" onMouseClicked="#viewOnMouseClick">
          <image>
-            <Image url="@../Assets/icon/Update.png" />
-         </image>
-      </ImageView>
-      <ImageView onMouseClicked="#deleteMouseClick">
-         <image>
-            <Image url="@../Assets/icon/delete.png" />
+            <Image url="@../Assets/icon/view.png" />
          </image>
       </ImageView>
    </children>

@@ -59,6 +59,7 @@ public class BookBarFormController {
             this.txtId.setText(String.valueOf(book.getId()));
             txtName.setText(book.getTitle());
             txtGenre.setText(book.getGenre());
+            txtAvailability.setText(book.getStatus());
 
 
         } catch (Exception e) {

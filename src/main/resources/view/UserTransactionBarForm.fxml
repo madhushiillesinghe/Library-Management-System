@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.UserTransactionBarFormController">
+   <children>
+      <Text fx:id="txtTransactionId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="   Id" wrappingWidth="102.85189819335938">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtBookId" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Id" wrappingWidth="107.21902465820312">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtBorrowDate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Date" wrappingWidth="199.312744140625">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtReturnDate" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date" wrappingWidth="162.5126953125">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtStatus" layoutX="683.0" layoutY="37.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="178.31269073486328">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Text>
+      <ImageView onMouseClicked="#updateMouseClick">
+         <image>
+            <Image url="@../Assets/icon/Update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="22.0" onMouseClicked="#viewMouseClick">
+         <image>
+            <Image url="@../Assets/icon/view.png" />
+         </image>
+      </ImageView>
+   </children>
+</HBox>
