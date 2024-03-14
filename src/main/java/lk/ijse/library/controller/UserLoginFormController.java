@@ -41,6 +41,7 @@ public class UserLoginFormController {
             UserProfileFormController.id=userDto.getId();
             UserProfileFormController.password=userDto.getPassword();
             UpdateUserProfileFormController.id=userDto.getId();
+            UserTransactionFormController.id=userDto.getId();
 
             Navigation.switchNavigation("UserGlobalForm.fxml", event);
         }else

@@ -7,9 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.TransactionDto;
-import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
 

@@ -60,4 +60,13 @@ public class TransactionRepositoryImpl implements TransactionRepository {
         transactionsIds = query.getResultList();
         return transactionsIds;
     }
+    @Override
+    public List<Transaction> getSomeTransactionId(int id){
+        List<Transaction> transactions=new ArrayList<>();
+        String JPQLQuery="SELECT A FROM Transaction A " +
+                "WHERE A.id=:id";
+        Query query = session.createQuery(JPQLQuery)
+                .setParameter("id",id);
+        return query.getResultList();
+    }
 }

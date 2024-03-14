@@ -111,7 +111,7 @@ public class TransactionServiceImpl implements TransactionService {
         transactionEntity.setUsers(transactionDto.getUsers().toEntity());
         transactionEntity.setReturnDate(transactionDto.getReturnDate());
         transactionEntity.setStatus(transactionDto.getStatus());
-        transactionEntity.setId(transactionDto.getId());
+        transactionEntity.setId((transactionDto.getId()));
         transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
 
         session = PropertiesConfig.getInstance().getSession();
@@ -184,6 +184,37 @@ public class TransactionServiceImpl implements TransactionService {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            session.close();
+        }
+        return transactionDtoList;
+    }
+
+    @Override
+    public List<lk.ijse.library.dto.TransactionDto> getSomeTransactionId(int id) {
+        session = PropertiesConfig.getInstance().getSession();
+        List<TransactionDto> transactionDtoList=new ArrayList<>();
+        try {
+            transactionRepository.setSession(session);
+            List<lk.ijse.library.entity.Transaction> transactionList= transactionRepository.getSomeTransactionId(id);
+            for(lk.ijse.library.entity.Transaction transaction:transactionList){
+
+               UserDto userDto= new UserDto(transaction.getUsers().getId()
+                        ,transaction.getUsers().getName()
+                        ,transaction.getUsers().getEmail()
+                        ,transaction.getUsers().getMobileNo()
+                        ,transaction.getUsers().getAddress()
+                        ,transaction.getUsers().getUserName()
+                        ,transaction.getUsers().getPassword()
+                );
+                transactionDtoList.add(new TransactionDto(transaction.getId()
+                ,transaction.getStatus()
+                ,transaction.getBorrowDate()
+                ,transaction.getReturnDate()
+                ,userDto));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
             session.close();
         }
         return transactionDtoList;

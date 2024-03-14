@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface TransactionRepository extends CRUDRepository<Transaction> {
     List<Transaction> getAllTransactionId();
-}
+     List<Transaction> getSomeTransactionId(int id);
+
+    }

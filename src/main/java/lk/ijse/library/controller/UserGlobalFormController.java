@@ -72,7 +72,7 @@ public class UserGlobalFormController implements Initializable {
 
     @FXML
     void btnBorrowandReturnOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPagingUser(paneId,"TransactionForm.fxml");
+        Navigation.switchPagingUser(paneId,"UserTransactionForm.fxml");
 
     }
     @FXML
