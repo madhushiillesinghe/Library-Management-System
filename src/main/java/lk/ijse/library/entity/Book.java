@@ -10,17 +10,17 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private int  id;
-    @Column(name = "book_title")
+    @Column(name = "book_title",nullable = false)
     private String title;
-    @Column(name = "book_genre")
+    @Column(name = "book_genre",nullable = false)
     private String genre;
-    @Column(name = "book_author")
+    @Column(name = "book_author",nullable = false)
     private String author;
 
-    @Column(name = "book_status")
+    @Column(name = "book_status",nullable = false)
     private String status;
     @ManyToOne
-    @JoinColumn(name ="admin_Id" )
+    @JoinColumn(name ="admin_Id",nullable = false )
     private Admin admin;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "book")

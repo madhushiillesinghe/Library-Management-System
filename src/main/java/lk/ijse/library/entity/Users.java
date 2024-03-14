@@ -15,17 +15,17 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_Id")
     private int Id;
-    @Column(name = "user_name")
+    @Column(name = "user_name",nullable = false)
     private Name Name;
-    @Column(name = "user_email")
+    @Column(name = "user_email",nullable = false)
     private String Email;
-    @Column(name = "user_mobileno")
+    @Column(name = "user_mobileno",nullable = false)
     private MobileNo MobileNo;
-    @Column(name = "user_address")
+    @Column(name = "user_address",nullable = false)
     private Address address;
-    @Column(name = "user_Name")
+    @Column(name = "user_Name",nullable = false)
     private String userName;
-    @Column(name = "password")
+    @Column(name = "password",nullable = false,unique = true)
     private String password;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "users")
     private List<Transaction> transactionList=new ArrayList<>();

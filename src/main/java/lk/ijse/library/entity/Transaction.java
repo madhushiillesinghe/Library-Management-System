@@ -14,17 +14,17 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "transaction_id")
     private int id;
-    @Column(name = "return_type")
+    @Column(name = "return_type",nullable = false)
     private String status;
     @CreationTimestamp
-    @Column(name = "borrow_date")
+    @Column(name = "borrow_date",nullable = false)
     private Timestamp borrowDate;
 
     @Column(name = "return_date")
     private String returnDate;
 
     @ManyToOne
-    @JoinColumn(name ="user_Id" )
+    @JoinColumn(name ="user_Id" ,nullable = false)
     private Users users;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "transaction")

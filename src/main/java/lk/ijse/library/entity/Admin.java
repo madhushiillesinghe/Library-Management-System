@@ -16,7 +16,7 @@ public class Admin {
 
  @Id
  @GeneratedValue(strategy =GenerationType.IDENTITY)
- @Column(name = "admin_Id",nullable = false)
+ @Column(name = "admin_Id")
 private int Id;
  @Column(name = "admin_name",nullable = false)
 private Name Name;
@@ -28,7 +28,7 @@ private MobileNo MobileNo;
 private Address address;
     @Column(name = "user_name",nullable = false)
     private String userName;
-    @Column(name = "password",nullable = false)
+    @Column(name = "password",nullable = false,unique = true)
     private String password;
 
     public Admin(int id,Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {

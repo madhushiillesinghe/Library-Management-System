@@ -18,14 +18,14 @@ public class Branches {
     @Column(name = "branch_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "branch_location")
+    @Column(name = "branch_location",nullable = false)
     private String location;
-    @Column(name = "branch_head_name")
+    @Column(name = "branch_head_name",nullable = false)
     private String head_Name;
-    @Column(name = "book_total")
+    @Column(name = "book_total",nullable = false)
     private int bookTotal;
     @ManyToOne
-    @JoinColumn(name ="admin_Id" )
+    @JoinColumn(name ="admin_Id" ,nullable = false)
     private Admin admin;
 
 }
