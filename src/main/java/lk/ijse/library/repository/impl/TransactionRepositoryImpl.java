@@ -64,7 +64,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     public List<Transaction> getSomeTransactionId(int id){
         List<Transaction> transactions=new ArrayList<>();
         String JPQLQuery="SELECT A FROM Transaction A " +
-                "WHERE A.id=:id";
+                "WHERE A.users.id=:id";
         Query query = session.createQuery(JPQLQuery)
                 .setParameter("id",id);
         return query.getResultList();

@@ -9,6 +9,7 @@ import lk.ijse.library.service.TransactionService;
 
 public class UserTransactionBarFormController {
 
+    public static int id;
     @FXML
     private Text txtBookId;
 

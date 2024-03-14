@@ -51,6 +51,7 @@ public class UserTransactionFormController implements Initializable {
         vBoxTransactionManage.getChildren();
         List<TransactionDto> transactionDtoList=null;
         transactionDtoList=transactionService.getSomeTransactionId(id);
+        System.out.println("All ids"+transactionDtoList);
         for(int i=0;i<transactionDtoList.size();i++){
             loadTableData(transactionDtoList.get(i).getId());
         }

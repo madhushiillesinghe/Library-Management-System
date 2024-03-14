@@ -197,7 +197,6 @@ public class TransactionServiceImpl implements TransactionService {
             transactionRepository.setSession(session);
             List<lk.ijse.library.entity.Transaction> transactionList= transactionRepository.getSomeTransactionId(id);
             for(lk.ijse.library.entity.Transaction transaction:transactionList){
-
                UserDto userDto= new UserDto(transaction.getUsers().getId()
                         ,transaction.getUsers().getName()
                         ,transaction.getUsers().getEmail()
