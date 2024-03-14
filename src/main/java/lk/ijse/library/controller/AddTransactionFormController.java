@@ -65,12 +65,6 @@ public class AddTransactionFormController implements Initializable {
 
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
- /*   public  List<BookDto> getInstance() {
-        BookDto bookDto=book;
-        bookDtoList.add(bookDto);
-        return bookDtoList;
-    }*/
-
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         clearTextField();

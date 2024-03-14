@@ -16,19 +16,19 @@ public class Admin {
 
  @Id
  @GeneratedValue(strategy =GenerationType.IDENTITY)
- @Column(name = "admin_Id")
+ @Column(name = "admin_Id",nullable = false)
 private int Id;
- @Column(name = "admin_name")
+ @Column(name = "admin_name",nullable = false)
 private Name Name;
- @Column(name = "admin_email")
+ @Column(name = "admin_email",nullable = false)
 private String Email;
- @Column(name = "admin_mobileno")
+ @Column(name = "admin_mobileno",nullable = false)
 private MobileNo MobileNo;
- @Column(name = "admin_address")
+ @Column(name = "admin_address",nullable = false)
 private Address address;
-    @Column(name = "user_name")
+    @Column(name = "user_name",nullable = false)
     private String userName;
-    @Column(name = "password")
+    @Column(name = "password",nullable = false)
     private String password;
 
     public Admin(int id,Name name, String email, MobileNo mobileNo, Address address, String userName, String password) {

@@ -21,7 +21,7 @@ public class DashboardFormController implements Initializable {
     @FXML
     private Pane pieChartPane;
     private void pieChart() {
-        PieChart piechart=new PieChart();
+       /* PieChart piechart=new PieChart();
         try{
             ObservableList<PieChart.Data> pieChartData= dashboardService.getUserDataForPieChart();
             piechart.setData(pieChartData);
@@ -39,7 +39,7 @@ public class DashboardFormController implements Initializable {
         stackPane.getChildren().add(piechart);
 
         pieChartPane.getChildren().add(stackPane);
-        StackPane.setAlignment(stackPane, Pos.CENTER);
+        StackPane.setAlignment(stackPane, Pos.CENTER);*/
     }
 
     @Override
