@@ -91,7 +91,7 @@ public class Navigation {
     public static void popupPaneUser(String path) throws IOException {
         UserGlobalFormController.getInstance().paneId.setVisible(true);
         UserGlobalFormController.getInstance().CRUDPane.setVisible(true);
-        switchPaging(UserGlobalFormController.getInstance().CRUDPane, path);
+        switchPagingUser(UserGlobalFormController.getInstance().CRUDPane, path);
     }
     public static void adminClosePaneUser(){
         UserGlobalFormController.getInstance().CRUDPane.getChildren().clear();

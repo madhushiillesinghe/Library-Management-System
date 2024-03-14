@@ -93,7 +93,7 @@ public class AddTransactionFormController implements Initializable {
 
 
         transactionDto.setStatus("borrow");
-        transactionDto.setReturnDate(txtReturnDate.getText());
+        transactionDto.setReturnDate(DateTimeUtil.dateReturn());
         transactionDto.setUsers(UserLoginFormController.userDto);
 
 

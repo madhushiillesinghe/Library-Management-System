@@ -10,9 +10,12 @@ import java.util.List;
 
 public interface TransactionService extends SuperService{
     BookDto getDtodata(int id);
+    TransactionDetailDto getTransactionDetail(int id);
     List<String> getAllBookTitle();
      BookDto getData(String id);
     boolean saveUserBookBorrow(TransactionDto transactionDto, List<BookDto> bookList);
+
+    boolean UpdateUserReturnBook(TransactionDto transactionDto,BookDto bookDto);
 
     List<TransactionDto> getAllTransactionId();
      List<TransactionDto> getSomeTransactionId(int id);

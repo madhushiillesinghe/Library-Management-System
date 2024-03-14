@@ -32,7 +32,9 @@ public class TransactionDetailRepositoryImpl implements TransactionDetailReposit
 
     @Override
     public TransactionDetail getId(int id) {
-        return null;
+       TransactionDetail transactionDetail= session.get(TransactionDetail.class,id);
+       return transactionDetail;
+
     }
 
     @Override

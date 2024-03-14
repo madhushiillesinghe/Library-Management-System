@@ -6,6 +6,9 @@ import javafx.scene.text.Text;
 import lk.ijse.library.dto.TransactionDto;
 import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
+import lk.ijse.library.util.Navigation;
+
+import java.io.IOException;
 
 public class UserTransactionBarFormController {
 
@@ -27,13 +30,15 @@ public class UserTransactionBarFormController {
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
     @FXML
-    void updateMouseClick(MouseEvent event) {
-
+    void updateMouseClick(MouseEvent event) throws IOException {
+       UpdateTransactionFormController.setId(Integer.parseInt(txtTransactionId.getText()));
+        Navigation.popupPaneUser("UpdateTransactionForm.fxml");
     }
 
     @FXML
-    void viewMouseClick(MouseEvent event) {
-
+    void viewMouseClick(MouseEvent event) throws IOException {
+        ViewTransactionFormController.setId(Integer.parseInt(txtTransactionId.getText()));
+        Navigation.popupPaneUser("ViewTransactionForm.fxml");
     }
 
     public void setData(int id) {

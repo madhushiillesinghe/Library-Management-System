@@ -7,6 +7,9 @@ import lk.ijse.library.dto.TransactionDto;
 import lk.ijse.library.repository.DAOFactory;
 import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
+import lk.ijse.library.util.Navigation;
+
+import java.io.IOException;
 
 public class TransactionBarFormController {
 
@@ -25,8 +28,7 @@ public class TransactionBarFormController {
 
 
     @FXML
-    void viewOnMouseClick(MouseEvent event) {
-
+    void viewOnMouseClick(MouseEvent event) throws IOException {
     }
 
     public void setData(int id) {
