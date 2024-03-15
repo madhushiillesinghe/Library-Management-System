@@ -33,8 +33,6 @@ public class LoginFormController {
     public static AdminDto adminDto;
     AdminService adminService= (AdminService) BoFactory.getBoFactory().getBo(BoFactory.BOType.ADMIN);
 
-
-
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
         boolean  verify=adminService.checkUserNameAndPassword(txtUserName.getText(),txtPassword.getText());
@@ -45,7 +43,6 @@ public class LoginFormController {
         }else
             System.out.println("unable to sign in");
     }
-
     @FXML
     void forgetPsswordOnMouseClick(MouseEvent event) {
 
@@ -55,6 +52,5 @@ public class LoginFormController {
     void AdminAccountSignUpOnMouseClick(MouseEvent event) throws IOException {
     Navigation.switchNavigation("SignUpAdminForm.fxml",event);
     }
-
-    }
+}
 

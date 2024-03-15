@@ -43,7 +43,6 @@ public class UserDashBoardFormController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // stackPane to center the PieChart
         StackPane stackPane = new StackPane();
         stackPane.setAlignment(Pos.CENTER);
         stackPane.getChildren().add(piechart);
@@ -73,7 +72,6 @@ public class UserDashBoardFormController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // stackPane to center the PieChart
         StackPane stackPane = new StackPane();
         stackPane.setAlignment(Pos.CENTER);
         stackPane.getChildren().add(piechart);
@@ -81,5 +79,4 @@ public class UserDashBoardFormController implements Initializable {
         CRUDPane1.getChildren().add(stackPane);
         StackPane.setAlignment(stackPane, Pos.CENTER);
     }
-
 }

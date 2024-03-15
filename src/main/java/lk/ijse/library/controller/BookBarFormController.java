@@ -17,10 +17,6 @@ public class BookBarFormController {
 
     @FXML
     private Text txtAvailability;
-
-    @FXML
-    private Text txtCount;
-
     @FXML
     private Text txtGenre;
 
@@ -30,8 +26,6 @@ public class BookBarFormController {
     @FXML
     private Text txtName;
     BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
-
-
     @FXML
     void deleteMouseClick(MouseEvent event) {
         try {
@@ -60,8 +54,6 @@ public class BookBarFormController {
             txtName.setText(book.getTitle());
             txtGenre.setText(book.getGenre());
             txtAvailability.setText(book.getStatus());
-
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -52,6 +52,4 @@ public class BookUserBarFormController {
             throw new RuntimeException(e);
         }
     }
-
-
 }

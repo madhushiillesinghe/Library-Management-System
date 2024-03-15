@@ -27,7 +27,6 @@ public class UserBarFormController {
     private Text txtName;
     UserService userService= (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS);
 
-
     @FXML
     void deleteMouseClick(MouseEvent event) {
         try {

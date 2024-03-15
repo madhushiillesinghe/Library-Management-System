@@ -27,8 +27,6 @@ public class UpdateBrachFormController implements Initializable {
     @FXML
     private Button btnUpdate;
 
-
-
     @FXML
     private ComboBox<String> cmblocation;
 
@@ -72,13 +70,7 @@ public class UpdateBrachFormController implements Initializable {
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
 
-
         }
-    }
-
-    @FXML
-    void cmbAdminIdOnAction(ActionEvent event) {
-
     }
 
     @FXML

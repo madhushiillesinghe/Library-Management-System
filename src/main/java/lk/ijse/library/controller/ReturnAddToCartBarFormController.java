@@ -24,7 +24,6 @@ public class ReturnAddToCartBarFormController {
     private Text txtTransactionId;
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
-
     @FXML
     void deleteOnMouseClick(MouseEvent event) {
 

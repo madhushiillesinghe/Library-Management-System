@@ -74,16 +74,12 @@ public class SignUpUserFormController {
                 UserProfileFormController.password=userDto.getPassword();
                 UpdateUserProfileFormController.id=userDto.getId();
 
-                //System.out.println("id"+userDto.getId());
                 new Alert(Alert.AlertType.CONFIRMATION, "User Account Sign up successfully!").show();
                 Navigation.switchNavigation("UserGlobalForm.fxml",event);
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-
-
         }
-
     }
 
     private Name setName() {
@@ -114,5 +110,4 @@ public class SignUpUserFormController {
         return Nos;
 
     }
-
 }

@@ -26,7 +26,6 @@ public class BranchBarFormController {
     @FXML
     private Text txtId;
     BranchService branchService= (BranchService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BRANCH);
-
     @FXML
     void deleteMouseClick(MouseEvent event) {
         try {
@@ -59,5 +58,4 @@ public class BranchBarFormController {
             throw new RuntimeException(e);
         }
     }
-
 }

@@ -27,16 +27,11 @@ public class UpdateBookFormController implements Initializable {
     @FXML
     private Button btnUpdate;
 
-
-
     @FXML
     private ComboBox<String> cmbBookGenre;
 
     @FXML
     private TextField txtBookAuthor;
-
-    @FXML
-    private TextField txtBookCount;
 
     @FXML
     private  TextField txtBookId;

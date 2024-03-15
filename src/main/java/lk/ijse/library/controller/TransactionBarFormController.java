@@ -26,7 +26,6 @@ public class TransactionBarFormController {
     private Text txtUserId;
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
-
     @FXML
     void viewOnMouseClick(MouseEvent event) throws IOException {
     }

@@ -45,7 +45,6 @@ public class DashboardFormController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // stackPane to center the PieChart
         StackPane stackPane = new StackPane();
         stackPane.setAlignment(Pos.CENTER);
         stackPane.getChildren().add(piechart);
@@ -75,7 +74,6 @@ public class DashboardFormController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // stackPane to center the PieChart
         StackPane stackPane = new StackPane();
         stackPane.setAlignment(Pos.CENTER);
         stackPane.getChildren().add(piechart);

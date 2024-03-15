@@ -18,13 +18,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminGlobalFormController implements Initializable {
-
     @FXML
     public AnchorPane CRUDPane;
-
     @FXML
     public AnchorPane paneId;
-
     @FXML
     private Label txtdate;
 
@@ -44,7 +41,6 @@ public class AdminGlobalFormController implements Initializable {
     void addcustomer(MouseEvent event) {
 
     }
-
     @FXML
     void btnBookOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(paneId,"BookForm.fxml");
@@ -55,7 +51,6 @@ public class AdminGlobalFormController implements Initializable {
         Navigation.switchPaging(paneId,"BranchesForm.fxml");
 
     }
-
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(paneId,"DashboardForm.fxml");
@@ -66,7 +61,6 @@ public class AdminGlobalFormController implements Initializable {
         Navigation.switchNavigation("UserOrAdminForm.fxml",event);
 
     }
-
     @FXML
     void btnUserOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(paneId,"UserForm.fxml");

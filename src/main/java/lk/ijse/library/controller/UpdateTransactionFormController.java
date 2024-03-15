@@ -60,13 +60,12 @@ public class UpdateTransactionFormController implements Initializable {
     public static int id;
     List<BookDto> bookDtoList=new ArrayList<>();
 
-
-
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
 
     public static void setId(int id) {
-UpdateTransactionFormController.id=id;    }
+        UpdateTransactionFormController.id=id;
+    }
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
@@ -157,8 +156,6 @@ UpdateTransactionFormController.id=id;    }
 
         }catch (Exception e){
         e.printStackTrace();
+        }
     }
-    }
-
-
 }

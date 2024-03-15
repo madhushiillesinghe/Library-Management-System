@@ -22,8 +22,6 @@ public class UserOrAdminFormController {
 
     @FXML
     void btnUserOnAction(ActionEvent event) throws IOException {
-        Navigation.
-                switchNavigation("UserLogin.fxml",event);
+        Navigation.switchNavigation("UserLogin.fxml",event);
     }
-
 }

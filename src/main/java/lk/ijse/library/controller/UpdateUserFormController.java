@@ -59,8 +59,6 @@ public class UpdateUserFormController implements Initializable {
     private TextField txtEmail;
     UserService userService= (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS);
     public static int id;
-
-
     public static void setId(int i) {
         UpdateUserFormController.id = i;
 

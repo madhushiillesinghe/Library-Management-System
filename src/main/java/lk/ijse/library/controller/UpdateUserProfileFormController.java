@@ -64,12 +64,6 @@ public class UpdateUserProfileFormController implements Initializable {
     private TextField txtUserName;
     UserService userService= (UserService) BoFactory.getBoFactory().getBo(BoFactory.BOType.USERS);
 
-
-    @FXML
-    void btnBackOnAction(ActionEvent event) {
-        Navigation.adminClosePaneUser();
-    }
-
     @FXML
     void btnLogout(ActionEvent event) throws IOException {
     Navigation.switchNavigation("LoginForm.fxml",event);
@@ -99,8 +93,6 @@ public class UpdateUserProfileFormController implements Initializable {
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-
-
         }
 
     }

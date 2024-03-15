@@ -22,15 +22,11 @@ import java.util.ResourceBundle;
 public class BookFormController implements Initializable {
     @FXML
     public Pane addBookPaneId;
-
     @FXML
     private TextField txtSearch;
-
     @FXML
     private VBox vBoxBookManage;
-
     BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
-
     private static BookFormController controller;
     public BookFormController(){
         controller=this;
@@ -44,7 +40,6 @@ public class BookFormController implements Initializable {
         Navigation.popupPane("AddBookForm.fxml");
 
     }
-
     @FXML
     void btnSearchOnAction(ActionEvent event) throws IOException {
     List<Integer> bookDtoList=bookService.getAllBookName();
@@ -57,7 +52,6 @@ public class BookFormController implements Initializable {
             }
         }
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -66,7 +60,6 @@ public class BookFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
     private void getAllIds() {
         vBoxBookManage.getChildren();
         List<BookDto> bookList=null;

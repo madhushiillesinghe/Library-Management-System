@@ -48,20 +48,16 @@ public class BookUserFormController implements Initializable {
     }
     BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
 
-
     @FXML
     void btnSearchOnAction(ActionEvent event) throws IOException {
         List<Integer> bookDtoList=bookService.getAllBookName();
-        System.out.println("book dto list "+bookDtoList);
 
         for(int i=0;i<bookDtoList.size();i++){
             if(txtSearch.getText().equalsIgnoreCase(String.valueOf(bookDtoList.get(i)))){
                 ViewBookFormController.id= Integer.parseInt((txtSearch.getText()));
                 Navigation.switchPagingUser(UserGlobalFormController.getInstance().paneId, "AddTransactionForm.fxml");
-                System.out.println("view success");
             }
         }
-
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

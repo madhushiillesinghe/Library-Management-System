@@ -22,11 +22,8 @@ public class ViewBookFormController implements Initializable {
     @FXML
     private Button btnCancel;
 
-
-
     @FXML
     private Label lblAuthor;
-
 
     @FXML
     private Label lblBookGenre;
