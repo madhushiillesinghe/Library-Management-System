@@ -18,7 +18,6 @@ public interface BookService extends SuperService {
      List<Integer> getAllBookName();
     BookDto getData(String name);
     BookDto getDtodata(int id);
-    boolean updateBorrowBook(BookDto bookDto);
 
 
 

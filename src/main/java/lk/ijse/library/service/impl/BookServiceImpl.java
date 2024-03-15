@@ -182,22 +182,4 @@ public class BookServiceImpl implements BookService {
                 session.close();
         }
     }
-
-    @Override
-    public boolean updateBorrowBook(BookDto bookDto) {
-        session= PropertiesConfig.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
-        try{
-            bookRepository.setSession(session);
-            boolean isUpdate= bookRepository.update(bookDto.toEntity());
-            transaction.commit();
-            return isUpdate;
-        }catch (Exception e){
-            transaction.rollback();
-            e.printStackTrace();
-            return false;
-        }finally {
-            session.close();
-        }
-    }
 }

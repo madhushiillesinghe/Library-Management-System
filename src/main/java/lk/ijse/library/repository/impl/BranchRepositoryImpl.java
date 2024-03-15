@@ -18,8 +18,6 @@ public class BranchRepositoryImpl implements BranchRepository {
     public BranchRepositoryImpl() {
     }
 
-
-
     @Override
     public boolean save(Branches entity) {
         session.save(entity);

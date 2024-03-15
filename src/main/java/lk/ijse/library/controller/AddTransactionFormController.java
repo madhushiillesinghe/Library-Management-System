@@ -122,14 +122,14 @@ public class AddTransactionFormController implements Initializable {
     void cmbOnAction(ActionEvent event) {
         clearTextField();
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
-        if(bookDto.getStatus().equalsIgnoreCase(" Available")) {
+//        if(bookDto.getStatus().equalsIgnoreCase(" Available")) {
             setCmbBoxDetail();
             txtBorrowDate.setText(DateTimeUtil.dateNow());
             txtReturnDate.setText(DateTimeUtil.dateReturn());
-        }else {
-            new Alert(Alert.AlertType.ERROR, "Already borrowed!").show();
-
-        }
+//        }else {
+//            new Alert(Alert.AlertType.ERROR, "Already borrowed!").show();
+//
+//        }
     }
 
     private void AllBookCartId() {
