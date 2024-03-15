@@ -113,21 +113,21 @@ public class BookRepositoryImpl implements BookRepository {
     }
 @Override
     public List<String> getAllBookName() {
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Book> criteriaQuery = builder.createQuery(Book.class);
-        Root<Book> root = criteriaQuery.from(Book.class);
-        criteriaQuery.select(root);
+        String status="Available";
+        String JPQLQuery="SELECT A.title FROM Book A WHERE A.status=:status";
+       Query query=session.createQuery(JPQLQuery).setParameter("status",status);
 
-        List<Book> entities = session.createQuery(criteriaQuery).getResultList();
-        List<String> bookName = new ArrayList<>();
-        List<Book> bookList = new ArrayList<>();
-        for (int i = 0; i < entities.size(); i++) {
-            bookList.add(entities.get(i));
-        }
-        for (int i = 0; i < bookList.size(); i++) {
-            bookName.add(bookList.get(i).getTitle());
-        }
-        return bookName;
+       List<Object[]> list=query.list();
+       ArrayList<Object> list2=new ArrayList<>();
+       list2.addAll(list);
+
+       List<String> bookName=new ArrayList<>();
+       for(int i=0;i<list.size();i++){
+           Object object=list2.get(i);
+           String id= String.valueOf(object);
+           bookName.add(id);
+       }
+       return bookName;
     }
 
 
