@@ -74,14 +74,10 @@ public class AddTransactionFormController implements Initializable {
         String bookName=cmbBookName.getSelectionModel().getSelectedItem();
         bookList.add(bookName);
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
-        if(bookDto.getStatus().equalsIgnoreCase("Available")) {
-            bookDto.setStatus("not Available");
-            bookDtoList.add(bookDto);
-
-        }else {
-            new Alert(Alert.AlertType.ERROR, "This Book is not available").show();
-        }
+        bookDto.setStatus("not Available");
+        bookDtoList.add(bookDto);
         AllBookCartId();
+
     }
 
     private void clearTextField() {
@@ -102,7 +98,6 @@ public class AddTransactionFormController implements Initializable {
         transactionDto.setStatus("borrow");
         transactionDto.setReturnDate(DateTimeUtil.dateReturn());
         transactionDto.setUsers(UserLoginFormController.userDto);
-
 
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
         bookDto.setStatus("not Available");
@@ -130,10 +125,15 @@ public class AddTransactionFormController implements Initializable {
     @FXML
     void cmbOnAction(ActionEvent event) {
         clearTextField();
-        setCmbBoxDetail();
-        txtBorrowDate.setText(DateTimeUtil.dateNow());
-        txtReturnDate.setText(DateTimeUtil.dateReturn());
+        BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
+        if(bookDto.getStatus().equalsIgnoreCase(" Available")) {
+            setCmbBoxDetail();
+            txtBorrowDate.setText(DateTimeUtil.dateNow());
+            txtReturnDate.setText(DateTimeUtil.dateReturn());
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Already borrowed!").show();
 
+        }
     }
 
     private void AllBookCartId() {
