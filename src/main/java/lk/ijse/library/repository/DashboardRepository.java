@@ -11,4 +11,9 @@ public interface DashboardRepository extends SuperRepository{
 
     void setSession(Session session);
 
+    ObservableList<PieChart.Data> getTransactionData();
+    Long bookCount();
+    Long branchCount();
+    Long userCount();
+
 }
