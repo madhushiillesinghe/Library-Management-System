@@ -15,7 +15,7 @@
             <Image url="@../Assets/CRUDForm.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCancel" layoutX="444.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="SADDLEBROWN" />
+      <Button fx:id="btnCancel" layoutX="444.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" styleClass="btn-cancel" stylesheets="@../AddForm.css" text="CANCEL" textFill="SADDLEBROWN" />
       <Text layoutX="65.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Transaction">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -36,15 +36,15 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Label fx:id="lblBookId" layoutX="142.0" layoutY="93.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblBookName" layoutX="412.0" layoutY="93.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblBorrowDate" layoutX="187.0" layoutY="160.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
+      <Label fx:id="lblBookId" layoutX="142.0" layoutY="93.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblBookName" layoutX="412.0" layoutY="93.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblBorrowDate" layoutX="187.0" layoutY="160.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="83.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Date">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Label fx:id="lblReturnDate" layoutX="412.0" layoutY="160.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" text="Label" />
+      <Label fx:id="lblReturnDate" layoutX="412.0" layoutY="160.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="330.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date">
          <font>
             <Font name="System Bold" size="13.0" />

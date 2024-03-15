@@ -16,8 +16,8 @@
             <Image url="@../Assets/CRUDForm.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCancel" layoutX="370.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="SADDLEBROWN" />
-      <Button fx:id="btnUpdate" layoutX="444.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #a14a08;" text="UPDATE" textFill="#ebd6d6">
+      <Button fx:id="btnCancel" layoutX="370.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" styleClass="btn-cancel" stylesheets="@../AddForm.css" text="CANCEL" textFill="SADDLEBROWN" />
+      <Button fx:id="btnUpdate" layoutX="444.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #a14a08;" styleClass="btn-add" stylesheets="@../AddForm.css" text="UPDATE" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -32,15 +32,15 @@
             <Image url="@../../../../../../Downloads/final-project-master/final-project-master/src/main/resources/icon/profile-2user.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtBrachId" layoutX="134.0" layoutY="78.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtBrachId" layoutX="134.0" layoutY="78.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
       <Text fill="SADDLEBROWN" layoutX="71.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="          Id:" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branch Head">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="txtBranchHead" layoutX="134.0" layoutY="137.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
-      <ComboBox fx:id="cmblocation" layoutX="134.0" layoutY="195.0" onAction="#cmbLocationOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtBranchHead" layoutX="134.0" layoutY="137.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
+      <ComboBox fx:id="cmblocation" layoutX="134.0" layoutY="195.0" onAction="#cmbLocationOnAction" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="55.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -51,6 +51,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="txtBookCount" layoutX="146.0" layoutY="251.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtBookCount" layoutX="146.0" layoutY="251.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
    </children>
 </AnchorPane>

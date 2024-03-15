@@ -1,0 +1,10 @@
+
+.dashboard-btn{
+    -fx-cursor: Hand;
+}
+.dashboard-btn:hover{
+    -fx-effect: dropshadow(gaussian, #143815,10,0.0,0,0);
+}
+.btn-logout:hover{
+    -fx-effect: dropshadow(gaussian, #C70C0C,20,0.0,0,0);
+}

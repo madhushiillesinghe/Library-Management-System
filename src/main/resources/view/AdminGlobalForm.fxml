@@ -53,7 +53,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton onAction="#btnDashboardOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
+            <JFXButton onAction="#btnDashboardOnAction" prefHeight="38.0" prefWidth="195.0" styleClass="dashboard-btn" stylesheets="@../GlobalForm.css" text="  " />
          </children>
       </Pane>
       <Pane layoutX="59.0" layoutY="391.0" prefHeight="38.0" prefWidth="195.0">
@@ -68,7 +68,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton onAction="#btnBookOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
+            <JFXButton onAction="#btnBookOnAction" prefHeight="38.0" prefWidth="195.0" styleClass="dashboard-btn" stylesheets="@../GlobalForm.css" text="  " />
          </children>
       </Pane>
       <Pane layoutX="51.0" layoutY="447.0" prefHeight="38.0" prefWidth="195.0">
@@ -83,7 +83,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton onAction="#btnUserOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
+            <JFXButton onAction="#btnUserOnAction" prefHeight="38.0" prefWidth="195.0" styleClass="dashboard-btn" stylesheets="@../GlobalForm.css" text="  " />
          </children>
       </Pane>
       <Pane layoutX="51.0" layoutY="504.0" prefHeight="38.0" prefWidth="195.0">
@@ -98,7 +98,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton onAction="#btnBrachesOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
+            <JFXButton onAction="#btnBrachesOnAction" prefHeight="38.0" prefWidth="195.0" styleClass="dashboard-btn" stylesheets="@../GlobalForm.css" text="  " />
          </children>
       </Pane>
       <Text fill="#592b03" layoutX="106.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGOUT">
@@ -106,7 +106,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <JFXButton layoutX="36.0" layoutY="732.0" onAction="#btnLogOutOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
+      <JFXButton layoutX="36.0" layoutY="732.0" onAction="#btnLogOutOnAction" prefHeight="38.0" prefWidth="195.0" styleClass="btn-logout" stylesheets="@../GlobalForm.css" text="  " />
       <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="368.0" layoutY="62.0">
          <image>
             <Image url="@../Assets/icon/Welcome-removebg-preview.png" />
@@ -127,7 +127,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="txttime" layoutX="1183.0" layoutY="75.0" prefHeight="25.0" prefWidth="94.0" text="Label">
+      <Label fx:id="txttime" layoutX="1273.0" layoutY="75.0" prefHeight="25.0" prefWidth="94.0" text="Label">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -146,7 +146,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton onAction="#btnBorrowandReturnOnAction" prefHeight="38.0" prefWidth="195.0" text="  " />
+            <JFXButton onAction="#btnBorrowandReturnOnAction" prefHeight="38.0" prefWidth="195.0" styleClass="dashboard-btn" stylesheets="@../GlobalForm.css" text="  " />
          </children>
       </Pane>
    </children>

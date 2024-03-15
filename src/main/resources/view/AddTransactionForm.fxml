@@ -28,20 +28,20 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <ComboBox fx:id="cmbBookName" layoutX="112.0" layoutY="86.0" onAction="#cmbOnAction" prefWidth="150.0" style="-fx-background-color: #ADD8E6;" />
+      <ComboBox fx:id="cmbBookName" layoutX="112.0" layoutY="86.0" onAction="#cmbOnAction" prefWidth="150.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="14.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Name">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Button fx:id="btnAddToCart" layoutX="1024.0" layoutY="98.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" style="-fx-background-color: #a14a08;" text="ADD TO CART" textFill="#ebd6d6">
+      <Button fx:id="btnAddToCart" layoutX="1024.0" layoutY="98.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" style="-fx-background-color: #a14a08;" styleClass="btn-add" stylesheets="@../AddForm.css" text="ADD TO CART" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
       <HBox alignment="CENTER_LEFT" layoutX="56.0" layoutY="170.0" prefHeight="42.0" prefWidth="948.0" spacing="20.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Id" wrappingWidth="105.25192260742188">
+            <Text opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Name" wrappingWidth="105.25192260742188">
                <font>
                   <Font name="SansSerif Regular" size="16.0" />
                </font>
@@ -73,22 +73,22 @@
             <VBox fx:id="vBoxBookManage" prefHeight="482.0" prefWidth="937.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="btnBorrow" layoutX="1035.0" layoutY="550.0" mnemonicParsing="false" onAction="#btnBorrowOnAction" style="-fx-background-color: #a14a08;" text="Borrow" textFill="#ebd6d6">
+      <Button fx:id="btnBorrow" layoutX="1035.0" layoutY="550.0" mnemonicParsing="false" onAction="#btnBorrowOnAction" style="-fx-background-color: #a14a08;" styleClass="btn-add" stylesheets="@../AddForm.css" text="Borrow" textFill="#ebd6d6">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="txtId" layoutX="76.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
-      <TextField fx:id="txtBookName" layoutX="296.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
-      <TextField fx:id="txtAuthor" layoutX="522.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
-      <TextField fx:id="txtBookGenre" layoutX="789.0" layoutY="18.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
-      <TextField fx:id="txtBorrowDate" layoutX="410.0" layoutY="85.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtId" layoutX="76.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
+      <TextField fx:id="txtBookName" layoutX="296.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
+      <TextField fx:id="txtAuthor" layoutX="522.0" layoutY="21.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
+      <TextField fx:id="txtBookGenre" layoutX="789.0" layoutY="18.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
+      <TextField fx:id="txtBorrowDate" layoutX="410.0" layoutY="85.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="331.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow date">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="txtReturnDate" layoutX="756.0" layoutY="85.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="txtReturnDate" layoutX="756.0" layoutY="85.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="659.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date">
          <font>
             <Font name="System Bold" size="13.0" />

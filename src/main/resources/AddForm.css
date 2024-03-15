@@ -1,0 +1,9 @@
+.text-add{
+    -fx-background-radius: 10px;
+}
+.btn-add:hover{
+    -fx-effect: dropshadow(gaussian, #000000,5,0.0,0,0);
+}
+.btn-cancel:hover{
+    -fx-effect: dropshadow(gaussian, #412d17,5,0.0,0,0);
+}

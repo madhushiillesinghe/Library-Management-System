@@ -15,7 +15,7 @@
             <Image url="@../Assets/CRUDForm.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCancel" layoutX="436.0" layoutY="282.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="SADDLEBROWN" />
+      <Button fx:id="btnCancel" layoutX="436.0" layoutY="282.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" styleClass="btn-cancel" stylesheets="@../AddForm.css" text="CANCEL" textFill="SADDLEBROWN" />
       <Text layoutX="65.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Book">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -42,9 +42,9 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Label fx:id="lblBookId" layoutX="138.0" layoutY="78.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblBookName" layoutX="138.0" layoutY="132.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblAuthor" layoutX="384.0" layoutY="132.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblBookGenre" layoutX="144.0" layoutY="194.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" text="Label" />
+      <Label fx:id="lblBookId" layoutX="138.0" layoutY="78.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblBookName" layoutX="138.0" layoutY="132.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblAuthor" layoutX="384.0" layoutY="132.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblBookGenre" layoutX="144.0" layoutY="194.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
    </children>
 </AnchorPane>

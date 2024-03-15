@@ -16,7 +16,7 @@
             <Image url="@../Assets/CRUDForm.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCancel" layoutX="475.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" text="CANCEL" textFill="SADDLEBROWN" />
+      <Button fx:id="btnCancel" layoutX="475.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnCancelOnAction" style="-fx-background-color: #ffffff;" styleClass="btn-cancel" stylesheets="@../AddForm.css" text="CANCEL" textFill="SADDLEBROWN" />
       <Text layoutX="65.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update User">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -48,7 +48,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="lblLastName" layoutX="384.0" layoutY="75.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" />
+      <TextField fx:id="lblLastName" layoutX="384.0" layoutY="75.0" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="288.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -69,15 +69,15 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Label fx:id="lblUserId" layoutX="430.0" layoutY="35.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblStreet" layoutX="115.0" layoutY="151.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblFirstName" layoutX="125.0" layoutY="74.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblPassword" layoutX="368.0" layoutY="249.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblHomeMobile" layoutX="384.0" layoutY="199.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblCity" layoutX="384.0" layoutY="151.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblMobileNo" layoutX="125.0" layoutY="198.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <Label fx:id="lblUserName" layoutX="139.0" layoutY="249.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" text="Label" />
-      <TextField fx:id="lblEmail" layoutX="111.0" layoutY="111.0" prefHeight="26.0" prefWidth="330.0" style="-fx-background-color: #ADD8E6;" />
+      <Label fx:id="lblUserId" layoutX="430.0" layoutY="35.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblStreet" layoutX="115.0" layoutY="151.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblFirstName" layoutX="125.0" layoutY="74.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblPassword" layoutX="368.0" layoutY="249.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblHomeMobile" layoutX="384.0" layoutY="199.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblCity" layoutX="384.0" layoutY="151.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblMobileNo" layoutX="125.0" layoutY="198.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <Label fx:id="lblUserName" layoutX="139.0" layoutY="249.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" text="Label" />
+      <TextField fx:id="lblEmail" layoutX="111.0" layoutY="111.0" prefHeight="26.0" prefWidth="330.0" style="-fx-background-color: #ADD8E6;" styleClass="text-add" stylesheets="@../AddForm.css" />
       <Text fill="SADDLEBROWN" fontSmoothingType="LCD" layoutX="58.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
             <Font name="System Bold" size="13.0" />

@@ -17,6 +17,7 @@ import lk.ijse.library.util.Navigation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class SignUpAdminFormController {
 
@@ -55,29 +56,31 @@ public class SignUpAdminFormController {
     AdminService adminService= (AdminService) BoFactory.getBoFactory().getBo(BoFactory.BOType.ADMIN);
     @FXML
     void btnSignUpOnAction(ActionEvent event) {
-
-        AdminDto adminDto=new AdminDto();
-        adminDto.setId(Integer.parseInt(txtAdminId.getText()));
-        adminDto.setUserName(txtUserName.getText());
-        adminDto.setAddress(setAddress());
-        adminDto.setName(setName());
-        adminDto.setPassword(txtPassword.getText());
-        adminDto.setEmail(txtEmail.getText());
-        adminDto.setMobileNo(setmobileNo().get(0));
-        adminDto.setMobileNo(setmobileNo().get(1));
-        try{
-            boolean IsAdminSignedUp;
-            IsAdminSignedUp= adminService.saveAdmin(adminDto);
-            if(IsAdminSignedUp){
-               // System.out.println("Admin servise :"+IsAdminSignedUp);
-                LoginFormController.adminDto=adminService.getAdminId(txtUserName.getText());
-                Navigation.switchNavigation("AdminGlobalForm.fxml",event);
+        boolean isValidated=validateAdmin();
+        if(isValidated) {
+            AdminDto adminDto = new AdminDto();
+            adminDto.setId(Integer.parseInt(txtAdminId.getText()));
+            adminDto.setUserName(txtUserName.getText());
+            adminDto.setAddress(setAddress());
+            adminDto.setName(setName());
+            adminDto.setPassword(txtPassword.getText());
+            adminDto.setEmail(txtEmail.getText());
+            adminDto.setMobileNo(setmobileNo().get(0));
+            adminDto.setMobileNo(setmobileNo().get(1));
+            try {
+                boolean IsAdminSignedUp;
+                IsAdminSignedUp = adminService.saveAdmin(adminDto);
+                if (IsAdminSignedUp) {
+                    // System.out.println("Admin servise :"+IsAdminSignedUp);
+                    LoginFormController.adminDto = adminService.getAdminId(txtUserName.getText());
+                    Navigation.switchNavigation("AdminGlobalForm.fxml", event);
+                }
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        }catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
         }
 
-        }
         private Name setName() {
             Name name=new Name() ;
             name.setLastName(txtLastName.getText());
@@ -106,5 +109,22 @@ public class SignUpAdminFormController {
             return Nos;
 
         }
+    private boolean validateAdmin() {
+        String contxt=txtMobileNo.getText();
+        String emailtext=txtEmail.getText();
+
+        boolean cuscontactValidated=Pattern.matches("[0-9]{10}",contxt);
+        boolean cusemailValidated=Pattern.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",emailtext);
+
+        if(!cuscontactValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid customer tele no").show();
+            return false;
+        }
+        if(!cusemailValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid customer email").show();
+            return false;
+        }
+        return true;
+    }
 
 }
