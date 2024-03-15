@@ -74,10 +74,14 @@ public class AddTransactionFormController implements Initializable {
         String bookName=cmbBookName.getSelectionModel().getSelectedItem();
         bookList.add(bookName);
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
-        bookDto.setStatus("not Available");
-        bookDtoList.add(bookDto);
-        AllBookCartId();
+        if(bookDto.getStatus().equalsIgnoreCase("Available")) {
+            bookDto.setStatus("not Available");
+            bookDtoList.add(bookDto);
 
+        }else {
+            new Alert(Alert.AlertType.ERROR, "This Book is not available").show();
+        }
+        AllBookCartId();
     }
 
     private void clearTextField() {
