@@ -74,7 +74,6 @@ public class AddTransactionFormController implements Initializable {
         String bookName=cmbBookName.getSelectionModel().getSelectedItem();
         bookList.add(bookName);
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
-
         bookDto.setStatus("not Available");
         bookDtoList.add(bookDto);
         AllBookCartId();

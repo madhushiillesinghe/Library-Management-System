@@ -130,13 +130,12 @@ public class TransactionServiceImpl implements TransactionService {
         transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
 
         session = PropertiesConfig.getInstance().getSession();
-        Transaction borrowtransaction = session.beginTransaction();
+        Transaction returntransaction = session.beginTransaction();
 
         transactionRepository.setSession(session);
         transactionRepository.save(transactionEntity);
 
         for (BookDto bookDto : bookList) {
-
             Book book = new Book();
             book.setStatus(bookDto.getStatus());
             book.setGenre(bookDto.getGenre());
@@ -160,10 +159,10 @@ public class TransactionServiceImpl implements TransactionService {
             transactionDetailRepository.save(transactionDetail);
         }
         try {
-            borrowtransaction.commit();
+            returntransaction.commit();
             return true;
         } catch (Exception e) {
-            borrowtransaction.rollback();
+            returntransaction.rollback();
             e.printStackTrace();
             return false;
         } finally {
@@ -173,8 +172,42 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public boolean UpdateUserReturnBook(TransactionDto transactionDto, List<BookDto> bookList) {
+        lk.ijse.library.entity.Transaction transactionEntity = new lk.ijse.library.entity.Transaction();
+        transactionEntity.setUsers(transactionDto.getUsers().toEntity());
+        transactionEntity.setReturnDate(transactionDto.getReturnDate());
+        transactionEntity.setStatus(transactionDto.getStatus());
+        transactionEntity.setId((transactionDto.getId()));
+        transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
 
-        return true;
+        session = PropertiesConfig.getInstance().getSession();
+        Transaction returntransaction = session.beginTransaction();
+
+        transactionRepository.setSession(session);
+        transactionRepository.update(transactionEntity);
+
+        for (BookDto bookDto : bookList) {
+            Book book = new Book();
+            book.setStatus(bookDto.getStatus());
+            book.setGenre(bookDto.getGenre());
+            book.setTitle(bookDto.getTitle());
+            book.setAuthor(bookDto.getAuthor());
+            book.setId(bookDto.getId());
+            book.setAdmin(bookDto.toEntity().getAdmin());
+
+
+            bookRepository.setSession(session);
+            bookRepository.update(book);
+        }
+        try {
+            returntransaction.commit();
+            return true;
+        } catch (Exception e) {
+            returntransaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
