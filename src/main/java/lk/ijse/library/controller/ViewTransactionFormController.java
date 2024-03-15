@@ -5,12 +5,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.TransactionDetailDto;
 import lk.ijse.library.dto.TransactionDto;
 import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewTransactionFormController implements Initializable {
@@ -61,10 +63,13 @@ public class ViewTransactionFormController implements Initializable {
             TransactionDto transactionDto=transactionService.getDtoData(ViewTransactionFormController.id);
             lblBorrowDate.setText(String.valueOf(transactionDto.getBorrowDate()));
             lblReturnDate.setText(transactionDto.getReturnDate());
-           /* TransactionDetailDto transactionDetailDto=transactionService.getTransactionDetail(ViewTransactionFormController.id);
-            System.out.println("trnss "+transactionDetailDto);*/
-           /* lblBookId.setText(String.valueOf(transactionDetailDto.getBook().getId()));
-            lblBookName.setText(transactionDetailDto.getBook().getTitle());*/
+            BookDto bookDto=new BookDto();
+           List<Integer> bookId =transactionService.getTransactionDetail(ViewTransactionFormController.id);
+            for(Integer bookid:bookId){
+              bookDto=transactionService.getDtodata(bookid);
+            }
+           lblBookId.setText(String.valueOf((bookId.get(0))));
+            lblBookName.setText(bookDto.getTitle());
         }catch (Exception e){
             e.printStackTrace();
         }

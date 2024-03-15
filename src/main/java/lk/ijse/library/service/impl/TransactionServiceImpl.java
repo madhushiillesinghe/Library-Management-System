@@ -61,50 +61,18 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public TransactionDetailDto getTransactionDetail(int id) {
+    public List<Integer> getTransactionDetail(int id) {
         session=PropertiesConfig.getInstance().getSession();
+        List<Integer>bookIds=new ArrayList<>();
         try{
-            transactionRepository.setSession(session);
-            TransactionDetail transactionDetail=transactionDetailRepository.getId(id);
-
-            UserDto userDto=new UserDto(transactionDetail.getTransaction().getUsers().getId()
-            ,transactionDetail.getTransaction().getUsers().getName()
-            ,transactionDetail.getTransaction().getUsers().getEmail()
-            ,transactionDetail.getTransaction().getUsers().getMobileNo()
-            ,transactionDetail.getTransaction().getUsers().getAddress()
-            ,transactionDetail.getTransaction().getUsers().getUserName()
-            ,transactionDetail.getTransaction().getUsers().getPassword());
-
-            TransactionDto transactionDto=new TransactionDto(transactionDetail.getTransaction().getId()
-            ,transactionDetail.getTransaction().getStatus()
-            ,transactionDetail.getTransaction().getBorrowDate()
-            ,transactionDetail.getTransaction().getReturnDate()
-            ,userDto);
-
-            AdminDto adminDto=new AdminDto(transactionDetail.getBook().getAdmin().getId()
-                    ,transactionDetail.getBook().getAdmin().getName()
-                    ,transactionDetail.getBook().getAdmin().getEmail()
-                    ,transactionDetail.getBook().getAdmin().getMobileNo()
-                    ,transactionDetail.getBook().getAdmin().getAddress()
-                    ,transactionDetail.getBook().getAdmin().getUserName()
-                    ,transactionDetail.getBook().getAdmin().getPassword());
-
-
-            BookDto bookDto=new BookDto(transactionDetail.getBook().getId()
-            ,transactionDetail.getBook().getTitle()
-            ,transactionDetail.getBook().getGenre()
-            ,transactionDetail.getBook().getAuthor()
-            ,transactionDetail.getBook().getStatus()
-            ,adminDto);
-            TransactionDetailDto transactionDetailDto=new TransactionDetailDto(transactionDto,bookDto);
-            System.out.println("transaction service:"+transactionDetailDto);
-            return transactionDetailDto;
+          transactionDetailRepository.setSession(session);
+          bookIds=transactionDetailRepository.getAllBookId(id);
         }catch (Exception e){
             e.printStackTrace();
-            return null;
         }finally {
             session.close();
         }
+        return bookIds;
     }
 
     @Override
@@ -204,40 +172,9 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public boolean UpdateUserReturnBook(TransactionDto transactionDto, BookDto bookDto) {
-        lk.ijse.library.entity.Transaction transactionEntity = new lk.ijse.library.entity.Transaction();
-        transactionEntity.setUsers(transactionDto.getUsers().toEntity());
-        transactionEntity.setReturnDate(transactionDto.getReturnDate());
-        transactionEntity.setStatus(transactionDto.getStatus());
-        transactionEntity.setId((transactionDto.getId()));
-        transactionEntity.setBorrowDate(transactionDto.getBorrowDate());
+    public boolean UpdateUserReturnBook(TransactionDto transactionDto, List<BookDto> bookList) {
 
-        session = PropertiesConfig.getInstance().getSession();
-        Transaction borrowtransaction = session.beginTransaction();
-
-        transactionRepository.setSession(session);
-        transactionRepository.update(transactionEntity);
-
-        Book book = new Book();
-        book.setStatus(bookDto.getStatus());
-        book.setGenre(bookDto.getGenre());
-        book.setTitle(bookDto.getTitle());
-        book.setAuthor(bookDto.getAuthor());
-        book.setId(bookDto.getId());
-        book.setAdmin(bookDto.toEntity().getAdmin());
-
-        bookRepository.setSession(session);
-        bookRepository.update(book);
-        try {
-            borrowtransaction.commit();
-            return true;
-        } catch (Exception e) {
-            borrowtransaction.rollback();
-            e.printStackTrace();
-            return false;
-        } finally {
-            session.close();
-        }
+        return true;
     }
 
     @Override
@@ -262,7 +199,8 @@ public class TransactionServiceImpl implements TransactionService {
                 ,transaction.getStatus()
                 ,transaction.getBorrowDate()
                 ,transaction.getReturnDate()
-                ,userDto));
+                ,userDto
+                ));
 
             }
         } catch (Exception e) {

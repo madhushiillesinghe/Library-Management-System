@@ -36,10 +36,7 @@ public class TransactionDetail {
     public TransactionDetail() {
     }
 
-    public TransactionDetail(Transaction transaction, Book book) {
-        this.transaction = transaction;
-        this.book = book;
-    }
+
 
     public Transaction getTransaction() {
         return transaction;

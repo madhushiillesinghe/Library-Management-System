@@ -32,7 +32,7 @@ public class UserTransactionBarFormController {
     @FXML
     void updateMouseClick(MouseEvent event) throws IOException {
        UpdateTransactionFormController.setId(Integer.parseInt(txtTransactionId.getText()));
-        Navigation.popupPaneUser("UpdateTransactionForm.fxml");
+        Navigation.switchPagingUser(UserGlobalFormController.getInstance().paneId,"UpdateTransactionForm.fxml");
     }
 
     @FXML

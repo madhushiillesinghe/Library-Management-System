@@ -14,6 +14,7 @@ public class TransactionDetailDto {
     private TransactionDto transaction;
     private BookDto book;
 
+
     public TransactionDetail toEntity(){
         TransactionDetail transactionDetail=new TransactionDetail();
         transactionDetail.setBook(this.book.toEntity());

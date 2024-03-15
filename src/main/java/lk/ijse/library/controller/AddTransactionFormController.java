@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import lk.ijse.library.dto.BookDto;
 import lk.ijse.library.dto.TransactionDetailDto;
 import lk.ijse.library.dto.TransactionDto;
+import lk.ijse.library.entity.TransactionDetail;
 import lk.ijse.library.entity.Users;
 import lk.ijse.library.service.BoFactory;
 import lk.ijse.library.service.TransactionService;
@@ -62,6 +63,8 @@ public class AddTransactionFormController implements Initializable {
     public static int id;
     List<String> bookList=new ArrayList<>();
      List<BookDto> bookDtoList=new ArrayList<>();
+    List<TransactionDetailDto> transactionDetails=new ArrayList<>();
+
 
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
@@ -71,6 +74,7 @@ public class AddTransactionFormController implements Initializable {
         String bookName=cmbBookName.getSelectionModel().getSelectedItem();
         bookList.add(bookName);
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
+
         bookDto.setStatus("not Available");
         bookDtoList.add(bookDto);
         AllBookCartId();
@@ -100,10 +104,17 @@ public class AddTransactionFormController implements Initializable {
         BookDto bookDto=transactionService.getData(cmbBookName.getSelectionModel().getSelectedItem());
         bookDto.setStatus("not Available");
 
+        TransactionDetailDto transactionDetailDto1=new TransactionDetailDto();
+        transactionDetailDto1.setTransaction(transactionDto);
+        transactionDetailDto1.setBook(bookDto);
+
+        transactionDetails.add(transactionDetailDto1);
+
         transactionDetailDto.setTransaction(transactionDto);
         transactionDetailDto.setBook(bookDto);
 
 
+        System.out.println("drf"+transactionDetails);
         boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookDtoList);
         if(isSaved){
             System.out.println("Book Borrow transaction saved ");
