@@ -20,14 +20,11 @@ import java.util.ResourceBundle;
 
 
 public class AddBranchFormController implements Initializable {
-
-
     @FXML
     private Button btnAdd;
 
     @FXML
     private Button btnCancel;
-
 
     @FXML
     private ComboBox<String> ranchLocation;
@@ -41,7 +38,6 @@ public class AddBranchFormController implements Initializable {
     @FXML
     private TextField txtBranchHead;
     BranchService branchService= (BranchService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BRANCH);
-
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
@@ -61,8 +57,6 @@ public class AddBranchFormController implements Initializable {
             }
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-
-
         }
     }
 
@@ -71,12 +65,10 @@ public class AddBranchFormController implements Initializable {
         Navigation.adminClosePane();
     }
 
-
     @FXML
     void cmbLocationOnAction(ActionEvent event) {
 
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     setLocation();
@@ -88,7 +80,9 @@ public class AddBranchFormController implements Initializable {
         type.add("Mathara");
         type.add("Colombo ");
         type.add("Kandy");
+        type.add("Jaffna");
+        type.add("Hambanthota");
         ranchLocation.getItems().addAll(type);
     }
-    }
+}
 

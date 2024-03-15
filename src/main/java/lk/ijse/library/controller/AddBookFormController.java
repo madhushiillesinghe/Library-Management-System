@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AddBookFormController  implements Initializable {
-
     BookService bookService= (BookService) BoFactory.getBoFactory().getBo(BoFactory.BOType.BOOK);
 
     @FXML
@@ -31,13 +30,11 @@ public class AddBookFormController  implements Initializable {
     @FXML
     private Button btnCancel;
 
-
     @FXML
     private ComboBox<String> cmbBookGenre;
 
     @FXML
     private TextField txtBookAuthor;
-
 
     @FXML
     private TextField txtBookId;
@@ -67,11 +64,8 @@ public class AddBookFormController  implements Initializable {
             }
                 }catch (Exception e){
                             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-
-
                 }
     }
-
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {
@@ -80,7 +74,6 @@ public class AddBookFormController  implements Initializable {
 
     @FXML
     void cmbBookGenre(ActionEvent event) {
-
     }
 
 
@@ -89,13 +82,14 @@ public class AddBookFormController  implements Initializable {
         setGenre();
     }
 
-
     private void setGenre() {
         ArrayList<String> type=new ArrayList<>();
         type.add("Novel");
         type.add("Short Story");
         type.add("detactive ");
         type.add("child book");
+        type.add("Educational");
+        type.add("Historical");
         cmbBookGenre.getItems().addAll(type);
     }
 }

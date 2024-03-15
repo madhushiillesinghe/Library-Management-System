@@ -32,12 +32,9 @@ public class AddToCartBarFormController implements Initializable {
     void deleteOnMouseClick(MouseEvent event) {
 
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
-
-
 
     public void setData(String id) {
         try {

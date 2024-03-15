@@ -62,9 +62,8 @@ public class AddTransactionFormController implements Initializable {
     private VBox vBoxBookManage;
     public static int id;
     List<String> bookList=new ArrayList<>();
-     List<BookDto> bookDtoList=new ArrayList<>();
+    List<BookDto> bookDtoList=new ArrayList<>();
     List<TransactionDetailDto> transactionDetails=new ArrayList<>();
-
 
     TransactionService transactionService= (TransactionService) BoFactory.getBoFactory().getBo(BoFactory.BOType.TRANSACTION);
 
@@ -79,7 +78,6 @@ public class AddTransactionFormController implements Initializable {
         AllBookCartId();
 
     }
-
     private void clearTextField() {
         txtBookGenre.clear();
         txtAuthor.clear();
@@ -115,13 +113,11 @@ public class AddTransactionFormController implements Initializable {
         System.out.println("drf"+transactionDetails);
         boolean isSaved=transactionService.saveUserBookBorrow(transactionDto,bookDtoList);
         if(isSaved){
-            System.out.println("Book Borrow transaction saved ");
             new Alert(Alert.AlertType.CONFIRMATION,"Book Borrowed Success").show();
         }else {
             new Alert(Alert.AlertType.ERROR, "Unable to Save the TRANSACtion!!!").show();
         }
     }
-
     @FXML
     void cmbOnAction(ActionEvent event) {
         clearTextField();
