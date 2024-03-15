@@ -19,22 +19,22 @@ public class DashboardRepositoryImpl implements DashboardRepository {
 
     @Override
     public ObservableList<PieChart.Data> getProductDataForPieChart() {
-        ObservableList<PieChart.Data> productdata= FXCollections.observableArrayList();
-        String JPQLqueryUser="SELECT COUNT(A.Id) AS total_User_count FROM Users A";
+        ObservableList<PieChart.Data> piechartdata= FXCollections.observableArrayList();
+        String JPQLqueryUser="SELECT COUNT(A.id) AS book_count FROM Book A";
         Query query=session.createQuery(JPQLqueryUser);
         Long userCount= (Long) query.uniqueResult();
         if(userCount>0){
             int subscriptiontotal= query.getFirstResult();
-            productdata.add(new PieChart.Data("user count",subscriptiontotal));
+            piechartdata.add(new PieChart.Data("Book count",userCount));
         }
-        String JPQLqueryBook="SELECT COUNT(A.id) AS total_Book_count FROM Book A";
+        String JPQLqueryBook="SELECT COUNT(A.id) AS total_transaction FROM Transaction A";
         Query queryuser=session.createQuery(JPQLqueryBook);
         Long bookCount= (Long) queryuser.uniqueResult();
         if(bookCount>0){
             int subscriptiontotal2= queryuser.getFirstResult();
-            productdata.add(new PieChart.Data("Book count",subscriptiontotal2));
+            piechartdata.add(new PieChart.Data("Transaction count",bookCount));
         }
-        return productdata;
+        return piechartdata;
     }
     @Override
     public void setSession(Session session) {

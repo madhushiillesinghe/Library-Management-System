@@ -39,7 +39,6 @@ public class DashboardServiceImpl implements DashboardService  {
         try{
            dashboardRepository.setSession(session);
             return  dashboardRepository.getProductDataForPieChart();
-
         }catch (Exception e){
             e.printStackTrace();
             return null;

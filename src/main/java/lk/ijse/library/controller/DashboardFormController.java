@@ -21,12 +21,12 @@ public class DashboardFormController implements Initializable {
     @FXML
     private Pane pieChartPane;
     private void pieChart() {
-       /* PieChart piechart=new PieChart();
+        PieChart piechart=new PieChart();
         try{
             ObservableList<PieChart.Data> pieChartData= dashboardService.getUserDataForPieChart();
             piechart.setData(pieChartData);
-            piechart.getData().get(0).getNode().setStyle("-fx-pie-color: #151B8D ");
-            piechart.getData().get(1).getNode().setStyle("-fx-pie-color: #046307 ");
+            piechart.getData().get(0).getNode().setStyle("-fx-pie-color: #b5d720 ");
+            piechart.getData().get(1).getNode().setStyle("-fx-pie-color: #5d4918 ");
 
 
         } catch (Exception e) {
@@ -39,7 +39,7 @@ public class DashboardFormController implements Initializable {
         stackPane.getChildren().add(piechart);
 
         pieChartPane.getChildren().add(stackPane);
-        StackPane.setAlignment(stackPane, Pos.CENTER);*/
+        StackPane.setAlignment(stackPane, Pos.CENTER);
     }
 
     @Override
